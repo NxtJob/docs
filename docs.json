@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "NxtJob.ai",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0D5CDF",
+    "light": "#0D5CDF",
+    "dark": "#0D5CDF"
   },
   "favicon": "/favicon.svg",
   "navigation": {
