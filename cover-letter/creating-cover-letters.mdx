@@ -1,12 +1,12 @@
 ---
 title: "Creating Cover Letters"
-description: "Generate AI-powered cover letters from job descriptions and resumes using the three-step creation flow"
+description: "Generate AI-powered cover letters from job descriptions and resumes using the two-step creation flow"
 icon: "wand-magic-sparkles"
 ---
 
 ## Overview
 
-When you click "New Cover Letter" on the [dashboard](/cover-letter/dashboard), three things happen: a new cover letter is created, the editor opens, and the generation modal appears. The modal walks you through a three-step flow to generate your cover letter with AI.
+When you click "New Cover Letter" on the [dashboard](/cover-letter/dashboard), three things happen: a new cover letter is created, the editor opens, and the generation modal appears. The modal walks you through a two-step flow to generate your cover letter with AI.
 
 ## Step 1: Optional Sections
 
@@ -52,20 +52,20 @@ Use the search bar to filter jobs by company name.
 
 <Tip>Generating with a job produces significantly better results. The AI matches your experience to the specific job requirements, references the company by name, and highlights the most relevant parts of your background. Save the job to your Job Board first using the [Chrome Extension](/chrome-extension/saving-jobs), then generate.</Tip>
 
-## Step 3: Select a Resume
+## Your Primary Resume Is Used Automatically
 
-Choose which resume the AI should reference when generating your cover letter. Your resumes from the [Resume Builder](/resume-builder/introduction) are displayed as selectable cards.
+The Cover Letter Builder automatically uses your **primary resume** from the [Resume Builder](/resume-builder/managing-resumes) during generation. There is no manual resume selection step — whichever resume you have marked as primary is the one the AI reads to extract your experience, skills, and contact information.
 
-Click **"Attach Resume"** on your chosen resume to attach it and begin generation.
+<Tip>Before generating a cover letter, make sure the right resume is set as your primary. If you are applying to different types of roles, switch your primary to the resume most relevant to the job you are targeting. See [Managing Resumes](/resume-builder/managing-resumes) for how to set your primary resume.</Tip>
 
 ## What Happens During Generation
 
 After you complete the steps and click generate, the backend:
 
-1. Analyzes the job description (if selected)
-2. Reads your resume content
+1. Reads your **primary resume** content (experience, skills, contact details)
+2. Analyzes the job description (if you selected a job)
 3. Incorporates any optional sections you enabled (availability, gaps, relocation)
-4. Generates a complete cover letter body
+4. Generates a complete cover letter body tailored to the role
 
 The cover letter opens in the [editor](/cover-letter/editor) with the AI-generated content ready to review and refine.
 
@@ -73,7 +73,7 @@ The cover letter opens in the [editor](/cover-letter/editor) with the AI-generat
 
 The generated cover letter includes:
 
-- A header pre-filled with your contact information from the selected resume
+- A header pre-filled with your contact information from your primary resume
 - A body with AI-written content that references the job description and your experience
 - Default styling (Minimalist template, blue color scheme, Inter font)
 
