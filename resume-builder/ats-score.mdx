@@ -1,90 +1,335 @@
 ---
 title: "ATS Score"
-description: "Understand ATS keyword matching and optimize your resume for Applicant Tracking Systems"
+description: "Understand ATS keyword matching, one-click optimization, and strategies to pass Applicant Tracking Systems"
 icon: "magnifying-glass-chart"
 ---
 
 ## What Is ATS Score?
 
-The ATS (Applicant Tracking System) Score is a separate scoring system from Resume Score. While Resume Score measures overall quality and professional standards, ATS Score measures how well your resume matches a **specific job description**.
+The ATS (Applicant Tracking System) Score measures how well your resume matches a **specific job description**. Most mid-to-large companies use ATS software such as Workday, Greenhouse, Lever, and iCIMS to filter candidates before a human ever reads the application. These systems scan resumes for keywords, phrases, and qualifications that match the job posting. If your resume does not contain the right keywords, it may be automatically rejected regardless of how qualified you are.
 
-Most mid-to-large companies use ATS software (Workday, Greenhouse, Lever, iCIMS, etc.) to filter candidates before a human reviews the application. These systems scan resumes for keywords, phrases, and qualifications that match the job posting. If your resume does not contain the right keywords, it may be automatically rejected regardless of how qualified you are.
+Your ATS Score is expressed as a percentage. The higher the score, the stronger the keyword overlap between your resume and the target job description.
 
-## How It Works
+## Why ATS Score Is Important for Job Applications
 
-The ATS scoring engine performs keyword matching between your resume and the target job description:
+Roughly 75% of resumes are rejected by ATS software before a recruiter sees them. This means that even a well-written resume can fail silently if it does not contain the specific terms the employer is looking for. ATS Score gives you visibility into exactly which keywords are present, which are missing, and how to close the gap before you hit "Apply."
 
-1. You provide (or paste) a specific job description.
-2. The engine extracts key terms and phrases from the job description.
-3. It counts how frequently each keyword appears in both the job description and your resume.
-4. It calculates a **match score** based on keyword overlap and frequency alignment.
-5. It returns detailed data: for each keyword, it shows `countInResume` and `countInJobDescription`.
+Optimizing your ATS Score directly increases the probability that your resume passes automated filters and reaches a human reviewer. It is one of the highest-leverage activities you can perform during a job search.
 
-## How to Generate an ATS Score
+## How ATS Score Is Different from Resume Score
+
+Resume Score and ATS Score serve different purposes:
+
+| Dimension | Resume Score | ATS Score |
+|---|---|---|
+| **What it measures** | Overall resume quality: formatting, structure, quantification, action verbs, section completeness | Keyword alignment with a specific job description |
+| **Is it job-specific?** | No. It evaluates your resume against universal best practices. | Yes. It evaluates your resume against one particular job posting. |
+| **Can both be high?** | Yes, but not always. A beautifully written resume (high Resume Score) can still use different terminology than the job posting (low ATS Score). | Yes. You should aim for both. |
+| **When to optimize** | Once, as your baseline quality pass | Before every application, against that specific job description |
+
+A common pitfall: your resume says "cloud infrastructure" but the job says "AWS and GCP," or your resume says "team management" but the job says "people leadership." These terminology mismatches cause a low ATS Score even when Resume Score is green.
+
+<Frame>
+  <img src="/images/resume-builder/ats-score-tab.png" alt="ATS Score tab showing score, matched and missed keywords, and optimization options" />
+</Frame>
+
+---
+
+## Selecting a Job for ATS Matching
+
+ATS Score requires a target job description to compare against. You select a job before the score can be calculated.
+
+### How to Select a Job to Calculate ATS Score
 
 <Steps>
-  <Step title="Open the builder">
-    Open your resume in the Resume Builder.
+  <Step title="Open the ATS Score tab">
+    Open your resume in the Resume Builder and navigate to the **ATS Score** tab on the right-side score panel.
   </Step>
-  <Step title="Navigate to the ATS tab">
-    Navigate to the **ATS Score** tab on the right-side score panel.
+  <Step title="Choose a job">
+    You will see a job selector at the top of the panel. If you have Saved Jobs, they appear here for quick selection. Pick the job you want to match against.
   </Step>
-  <Step title="Paste the job description">
-    Paste the target job description into the provided field.
-  </Step>
-  <Step title="Analyze">
-    Click to analyze and review your match score and the keyword-by-keyword breakdown.
+  <Step title="Click Get ATS Score">
+    After selecting a job, click the **"Get ATS Score"** button. The system extracts keywords from the job description, compares them against your resume, and returns a detailed score with a keyword-by-keyword breakdown.
   </Step>
 </Steps>
 
-## Reading the Results
+### What Are Saved Jobs?
 
-The ATS analysis returns:
+Saved Jobs are job listings you have previously saved within the NxtJob platform. When you save a job from the job board or paste a job description manually, it becomes available for ATS matching. Saved Jobs appear in the job selector dropdown so you can quickly run ATS analysis without re-entering the job description each time.
 
-| Data Point | What It Tells You |
+### How to Add More Jobs for ATS Matching
+
+If the job you want to match against is not in your Saved Jobs list, you can add a new job directly from the ATS Score tab. Paste or enter a new job description, and it will be saved for future reference and available for ATS scoring immediately.
+
+### What Happens When I Click "Get ATS Score"?
+
+When you click **"Get ATS Score"**, the system performs the following:
+
+1. Extracts key terms and phrases from the selected job description.
+2. Scans your entire resume for each of those keywords.
+3. Counts how many times each keyword appears in both the job description and your resume.
+4. Calculates a match percentage based on keyword overlap and frequency alignment.
+5. Returns a score, a matched/missed keyword summary, and a detailed keyword table.
+
+### Can I Change the Selected Job Later?
+
+Yes. You can change the selected job at any time by clicking the **"Change"** button next to the job title at the top of the ATS Score panel. Selecting a different job recalculates your ATS Score entirely against the new job description. Your resume content is not affected by switching jobs -- only the score and keyword analysis update.
+
+<Tip>
+Run the ATS analysis for each specific job you apply to. A single resume rarely scores well against all job descriptions. Duplicate your primary resume, rename it for the target company, and optimize the ATS score against that specific job posting.
+</Tip>
+
+---
+
+## Understanding ATS Score Result
+
+Once you click "Get ATS Score," the panel displays your results. Here is how to read them.
+
+### What Does "Getting There" or "Needs Work" Mean?
+
+The ATS Score panel displays a label alongside your numeric score to give you a quick sense of where you stand:
+
+| Label | Score Range | What It Means |
+|---|---|---|
+| **Needs Work** | Below 50% | Your resume has significant keyword gaps. Many important terms from the job description are missing. |
+| **Getting There** | 50% to 74% | Your resume covers some keywords but is missing enough that ATS filters may still deprioritize it. |
+| **Good Match** | 75% and above | Strong keyword alignment. Your resume has a high probability of passing ATS filters for this job. |
+
+### What Do "Matched" and "Missed" Keywords Indicate?
+
+Directly below your score, you will see two badges such as **"29 matched"** and **"12 missed."**
+
+- **Matched** keywords are terms from the job description that already appear in your resume. These are working in your favor.
+- **Missed** keywords are terms from the job description that do not appear in your resume at all. These represent gaps you should address.
+
+### What Does "Add X More Keywords" Mean?
+
+The message "Add X more keywords" (for example, "Add 12 more keywords") tells you exactly how many missing job description keywords are absent from your resume. This is the number of terms you need to incorporate to close the gap. The keyword table below the score shows you precisely which terms are missing so you can prioritize the most impactful ones.
+
+### Can I Still Apply with a Low ATS Score?
+
+Yes. The ATS Score panel includes a **"Still Apply"** button. If you are confident in your qualifications or if the role does not use heavy ATS filtering (for example, a small startup), you can proceed with your application as-is. However, a low ATS Score means your resume is more likely to be filtered out by automated systems at larger companies.
+
+<Tip>
+Even if you choose to apply with a low score, consider spending a few minutes adding the highest-impact missing keywords. Small improvements to ATS Score can make the difference between your resume reaching a recruiter or being silently rejected.
+</Tip>
+
+### What Is Considered a Good ATS Score?
+
+Aim for **75% or higher** before submitting an application. At this level, your resume demonstrates strong keyword alignment with the job description and is likely to pass most ATS filters. For highly competitive roles at large companies, aim for 85%+. Scores below 50% should be treated as a signal to optimize before applying.
+
+---
+
+## One-Click ATS Optimization
+
+One-Click ATS Optimization is the fastest way to improve your ATS Score. It uses AI to automatically incorporate missing keywords into your resume in a natural, professional manner.
+
+### What Is One-Click ATS Optimization?
+
+One-Click ATS Optimization is an AI-powered feature that analyzes the keywords you are missing and rewrites specific sections of your resume to include them. Instead of manually hunting for places to insert each keyword, the AI handles placement, phrasing, and context for you in a single click.
+
+You will see the **"One Click ATS Optimization AI"** button (highlighted in yellow/orange) in the ATS Score panel after your score is calculated.
+
+### What Changes Does One-Click ATS Optimization Make?
+
+The AI reviews your missing keywords and modifies your resume content to include as many of them as possible while maintaining natural, professional language. It does not simply append keywords to your resume. Instead, it rewrites sentences, adjusts bullet points, and adds terms in contextually appropriate locations.
+
+### Which Sections Are Updated Automatically?
+
+One-Click ATS Optimization targets three sections:
+
+| Section | How It Is Updated |
 |---|---|
-| **Match Score** | Overall percentage of keyword alignment between your resume and the job description. |
-| **Keywords Data** | A table showing each extracted keyword, how many times it appears in the job description, and how many times it appears in your resume. |
-| **Missing Keywords** | Keywords that appear in the job description but are absent from your resume. These are your highest-priority additions. |
+| **Summary** | Missing keywords are woven into your professional summary paragraph. The AI adjusts phrasing to incorporate terms naturally. |
+| **Work Experience** | Bullet points are rewritten or expanded to include relevant missing keywords tied to your accomplishments and responsibilities. |
+| **Skills** | Missing technical skills and tools are added to the appropriate skill buckets. |
 
-## Why ATS Score and Resume Score Can Diverge
+These three sections are where ATS keyword placement has the highest impact.
 
-A resume can be beautifully written (high Resume Score) but use different terminology than the job posting (low ATS Score). Common causes:
+### Does One-Click Optimization Replace My Content?
 
-- Your resume says "cloud infrastructure" but the job says "AWS and GCP."
-- Your resume says "team management" but the job says "people leadership."
-- Your resume uses abbreviations (ML, K8s, CI/CD) but the job uses full terms (Machine Learning, Kubernetes, Continuous Integration).
-- Your resume focuses on different skills than what the job emphasizes.
+One-Click Optimization modifies your existing content rather than replacing it from scratch. The AI preserves your core achievements, metrics, and structure while weaving in missing keywords. However, sentence phrasing and bullet point wording may change. You always have the opportunity to review changes before they are applied.
 
-## How to Optimize ATS Score
+### When Should I Use One-Click Optimization?
 
-The AI-powered ATS optimization feature incorporates missing keywords into your resume using the following priority order:
+Use One-Click Optimization when:
 
-1. **Work Experience bullet points** — Most natural and impactful placement
-2. **Summary** — Good for high-level keyword inclusion
-3. **Headline** — Brief but visible to ATS parsers
-4. **Skills section** — Direct keyword matching
+- Your ATS Score is below 75% and you want a fast improvement.
+- You have many missed keywords and limited time to add them manually.
+- You want AI assistance with natural keyword placement rather than awkwardly forcing terms into existing sentences.
 
-### Step-by-Step Optimization Process
+If you prefer full manual control over every word, you can skip One-Click Optimization and use the keyword table and Generate Bullet Points feature instead.
+
+### What Is "Original vs Suggested" View?
+
+After you click One-Click ATS Optimization, the system presents a comparison view for each updated section. The **"Original vs Suggested"** view shows your current content side-by-side with the AI-suggested version. This allows you to see exactly what changed before you accept anything.
+
+Review each section carefully. The comparison makes it easy to spot every modification the AI made.
+
+### Why Is "Why This Is Important?" Shown?
+
+For each suggested change, the system displays a brief explanation under **"Why this is important?"** that tells you why the modification matters. This helps you understand the reasoning behind each change -- for example, that a particular keyword appears multiple times in the job description and is likely weighted heavily by ATS filters.
+
+### What Does "Keywords Added" Mean?
+
+Each suggested change displays a **"Keywords added"** label listing the specific missing keywords that were incorporated into that section. This gives you a clear mapping between the changes and the ATS gaps they address.
+
+### What Is ATS Score Impact (Low / Medium / High)?
+
+Each suggested change is tagged with an **ATS Score Impact** level:
+
+| Impact Level | What It Means |
+|---|---|
+| **Low** | This change adds keywords that have a minor effect on your overall score. |
+| **Medium** | This change adds keywords that will noticeably improve your score. |
+| **High** | This change adds high-frequency or critical keywords that will significantly boost your score. |
+
+Prioritize accepting High and Medium impact changes for the biggest score improvement.
+
+### What Happens When I Click "Accept & Continue"?
+
+Clicking **"Accept & Continue"** applies the suggested changes to your resume. The modified content replaces your original content in the affected sections (Summary, Work Experience, Skills). Your ATS Score is recalculated to reflect the updates.
+
+### What Happens If I Click "Skip"?
+
+Clicking **"Skip"** discards the suggested changes for that section and moves to the next one. Your original content remains untouched. You can always run One-Click Optimization again later if you change your mind.
+
+### Can I Undo One-Click ATS Changes Later?
+
+Yes. If you accepted changes and want to revert, you can use the undo functionality in the builder to restore your previous content. It is good practice to review the "Original vs Suggested" comparison carefully before accepting so you are confident in the changes.
+
+<Tip>
+Before running One-Click Optimization, make sure your resume already has a solid Resume Score. Optimization works best when your foundational content (quantified bullets, action verbs, proper structure) is already strong. Fix Resume Score first, then optimize ATS Score.
+</Tip>
+
+---
+
+## Keyword Analysis Section
+
+The keyword table is the core of the ATS Score panel. It gives you a detailed, keyword-by-keyword view of your match status.
+
+### How to View Matched and Missed Keywords
+
+The keyword table is displayed below the score summary in the ATS Score tab. Each row represents a keyword extracted from the job description. The table has the following columns:
+
+| Column | What It Shows |
+|---|---|
+| **KEYWORDS** | The term or phrase extracted from the job description. |
+| **RESUME** | The number of times this keyword appears in your resume. |
+| **JD** | The number of times this keyword appears in the job description. |
+| **Checkbox** | Allows you to select keywords for bullet point generation. |
+
+### What Do Resume Count and JD Count Mean?
+
+- **Resume count** is how many times the keyword appears in your current resume. A count of 0 means the keyword is completely absent.
+- **JD count** is how many times the keyword appears in the job description. A higher JD count indicates the employer emphasizes that term, which means it is likely weighted more heavily by ATS filters.
+
+For example, if a keyword has a JD count of 3 and a Resume count of 0, that keyword is mentioned three times in the job description but is entirely missing from your resume. This is a high-priority gap.
+
+### Why Are Some Keywords Marked in Red (0 Count in Resume)?
+
+Keywords with a Resume count of **0** are highlighted in red to draw your attention. These are the terms that are completely absent from your resume and represent the biggest ATS gaps. Red keywords should be your first priority when optimizing because adding even one instance of a missing keyword can improve your match rate.
+
+### How to Identify High-Impact Keywords
+
+High-impact keywords share these characteristics:
+
+- **High JD count** -- The keyword appears multiple times in the job description, signaling it is central to the role.
+- **Zero Resume count** -- The keyword is completely missing from your resume.
+- **Technical specificity** -- Specific tools, technologies, or methodologies (e.g., "React," "Kubernetes," "Agile") tend to be weighted more heavily by ATS systems than generic terms.
+
+Focus on keywords that are both frequently mentioned in the JD and absent from your resume. These give you the highest score improvement per keyword added.
+
+### Should I Add All Missing Keywords?
+
+Not necessarily. Add keywords that are genuinely relevant to your experience and the role. Forcing irrelevant keywords into your resume can make your content sound unnatural, and a human reviewer will notice. Prioritize:
+
+1. Keywords with high JD counts and zero Resume counts.
+2. Keywords that align with your actual skills and experience.
+3. Technical terms and specific tools mentioned in the job description.
+
+Skip keywords that are irrelevant to your background or that would require fabricating experience you do not have.
+
+<Tip>
+When a keyword appears in the job description but uses different terminology than what is on your resume, consider adding both forms. For example, if your resume says "CI/CD" but the job says "Continuous Integration," add the full term alongside your abbreviation.
+</Tip>
+
+---
+
+## Edit Keywords
+
+The keyword list used for ATS scoring and bullet point generation can be customized. Not every extracted keyword may be relevant to your situation.
+
+### What Does "Edit Keywords" Do?
+
+Clicking the **"Edit"** button next to "Select keywords to generate bullet points" opens a view where you can toggle individual keywords on or off. This lets you control which keywords are included in the ATS analysis and which are excluded.
+
+### How to Toggle Keywords On or Off
 
 <Steps>
-  <Step title="Run the ATS analysis">
-    Run the ATS analysis against your target job description.
+  <Step title="Click Edit">
+    Click the **"Edit"** button in the keyword section of the ATS Score panel.
   </Step>
-  <Step title="Review missing keywords">
-    Review the missing keywords list.
+  <Step title="Toggle keywords">
+    Each keyword has a toggle or checkbox. Turn off any keyword you want to exclude from the analysis. Turn on any keyword you want to include.
   </Step>
-  <Step title="Incorporate keywords naturally">
-    For each missing keyword, find the most natural place to incorporate it: technical skills go in the Skills section, actions and responsibilities go in Work Experience bullets, leadership and strategic terms go in your Summary.
+  <Step title="Save your changes">
+    Confirm your selection to update the keyword list. The ATS Score and keyword analysis will adjust to reflect your changes.
   </Step>
-  <Step title="Re-run the analysis">
-    Re-run the analysis to check your updated score.
+</Steps>
+
+### When Should I Exclude a Keyword?
+
+Exclude a keyword when:
+
+- It is not relevant to the role you are targeting (the ATS extraction may have picked up a generic term).
+- It refers to a skill or technology you do not have and cannot honestly claim.
+- It is a duplicate or variant of a keyword you have already addressed (for example, "JS" and "JavaScript" may both appear).
+- It is a soft or filler term that does not carry meaningful ATS weight (for example, "team" or "work").
+
+### Will Excluded Keywords Affect ATS Score?
+
+Yes. When you exclude a keyword, it is removed from the scoring calculation. This means your ATS Score will be recalculated based only on the remaining active keywords. Excluding irrelevant keywords can sometimes increase your displayed score because the denominator shrinks, but be careful not to exclude genuinely important terms.
+
+### How to Save Keyword Selection Changes
+
+After toggling keywords on or off, confirm your selection by clicking the save or apply button. The ATS Score panel updates immediately to reflect the new keyword set. You can re-edit the keyword list at any time.
+
+---
+
+## Generate Bullet Points
+
+The Generate Bullet Points feature creates new, keyword-optimized resume bullet points based on the missing keywords you select.
+
+### What Does "Generate Bullet Points" Do?
+
+Generate Bullet Points uses AI to write new work experience bullet points that naturally incorporate your selected missing keywords. Instead of manually figuring out how to weave a keyword into an existing bullet, the AI produces ready-to-use bullets that include the keyword in a professional, achievement-oriented format.
+
+The **"Generate Bullet Points"** button appears at the bottom of the keyword table. It is disabled until you select at least one keyword using the checkboxes.
+
+### How to Select Keywords and Generate Bullet Points and Add Them to Your Resume
+
+<Steps>
+  <Step title="Review the keyword table">
+    Scroll through the keyword table in the ATS Score panel. Identify missing keywords (those with a Resume count of 0 or low counts) that are relevant to your experience.
   </Step>
-  <Step title="Repeat until target is reached">
-    Repeat until you reach your target score.
+  <Step title="Select keywords">
+    Check the checkbox next to each keyword you want to target. You can select multiple keywords at once. The "Generate Bullet Points" button becomes active once at least one keyword is selected.
+  </Step>
+  <Step title="Click Generate Bullet Points">
+    Click the **"Generate Bullet Points"** button at the bottom of the keyword table. The AI generates new bullet points that incorporate your selected keywords.
+  </Step>
+  <Step title="Review the generated bullets">
+    Read through the generated bullet points. Each one is written in the standard resume format: action verb + task + measurable result, with your selected keywords woven in naturally.
+  </Step>
+  <Step title="Add bullets to your resume">
+    Add the generated bullet points to the appropriate Work Experience entries in your resume. You can edit them further to match your personal voice, add specific metrics, or adjust phrasing.
+  </Step>
+  <Step title="Re-check your ATS Score">
+    After adding the new bullets, re-run the ATS analysis to see your updated score. The previously missing keywords should now show increased Resume counts.
   </Step>
 </Steps>
 
 <Tip>
-Run the ATS analysis for **each specific job** you apply to. A single resume rarely scores well against all job descriptions. This is why maintaining multiple resume variants matters. Duplicate your primary resume, rename it for the target company, and optimize the ATS score against that specific job posting.
+Select 3 to 5 high-impact keywords at a time for the best results. Generating bullets for too many keywords at once can produce content that feels keyword-stuffed. Work in small batches, add the best bullets to your resume, then select the next batch of missing keywords.
 </Tip>

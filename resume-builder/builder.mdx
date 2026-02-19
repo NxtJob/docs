@@ -1,113 +1,424 @@
 ---
 title: "Builder Interface"
-description: "Master the Resume Builder's toolbar, editor panel, and editable sections"
+description: "Master the Resume Builder's toolbar, templates, sections, style, and download options"
 icon: "pen-ruler"
 ---
 
-## Overview of the Builder Interface
+## What Is the Resume Builder?
 
-The Resume Builder is the core editing environment where you craft, refine, and optimize your resume. When you open a resume for editing, you arrive at a URL like `resume.nxtjob.ai/{resume-id}?tab=score`.
+The Resume Builder is the core editing environment where you craft, refine, and optimize your resume. It combines a document editor, a formatting toolbar, and real-time scoring into a single workspace. When you open any resume for editing, you arrive at a URL like `resume.nxtjob.ai/{resume-id}?tab=score`.
 
-The interface is divided into three main areas:
+The builder is designed so that every change you make -- whether adjusting a template, rearranging sections, or tweaking font sizes -- is reflected instantly in the live preview on the left side of the screen.
 
-1. **Top Toolbar** — Controls for Templates, Sections, Style, and Download.
-2. **Left Panel (Editor)** — The full resume document with editable sections, inline formatting, and page break indicators.
-3. **Right Panel (Score & Optimization)** — The scoring panel with Resume Score and ATS Score tabs, plus the full optimization breakdown.
+## What Can I Do with the Resume Builder?
+
+From the builder interface you can:
+
+- Edit every section of your resume with inline formatting (bold, italic, links)
+- Switch between professionally designed templates without losing content
+- Add, remove, and reorder resume sections
+- Customize fonts, colors, and spacing
+- Download your resume as a PDF or share it via a public link
+- View your Resume Score and ATS Score in the right-hand panel
+- Use AI-powered content generation for any section
+
+## How Do I Start Editing a Resume?
+
+<Steps>
+  <Step title="Open the dashboard">
+    Navigate to [resume.nxtjob.ai](https://resume.nxtjob.ai) and sign in. You will land on the **My Resumes** dashboard at `resume.nxtjob.ai/all`.
+  </Step>
+  <Step title="Select a resume">
+    Click the **pencil icon** on any resume card, or click the **three-dot menu** and select **Edit**. If you do not have a resume yet, click **+ Create New** to create one.
+  </Step>
+  <Step title="Begin editing">
+    The builder opens with the resume preview on the left and the scoring panel on the right. The top toolbar gives you access to Templates, Sections, Style, and Download.
+  </Step>
+</Steps>
 
 <Frame>
   <img src="/images/resume-builder/annotated-builder.png" alt="Resume Builder interface with toolbar, editor, and score panel" />
 </Frame>
 
-## Top Toolbar
+The interface is divided into three main areas:
 
-### Templates
+1. **Top Toolbar** -- Controls for resume name, undo/redo, Templates, Sections, Style, and Download.
+2. **Left Panel (Editor)** -- The full resume document with editable sections, inline formatting, and page break indicators.
+3. **Right Panel (Score and Optimization)** -- The scoring panel with Resume Score and ATS Score tabs, plus the full optimization breakdown.
 
-Browse and apply pre-designed resume layouts. Changing templates reformats your content without losing any data. NxtJob offers templates optimized for different industries, seniority levels, and ATS compatibility levels.
+---
 
-### Sections
+## Top Navigation Options
 
-Add, remove, or reorder resume sections. Available sections include:
+The top toolbar spans the full width of the builder and provides quick access to the most frequently used controls. Every action you need for formatting, organizing, and exporting your resume lives here.
 
-- Personal Details
-- Summary
-- Skills
-- Work Experience
-- Projects
-- Education
-- Certifications
-- Achievements
-- Languages
-- Custom Sections (any title and content structure you define)
+<Frame>
+  <img src="/images/resume-builder/top-toolbar.png" alt="Top toolbar showing resume name, undo/redo buttons, and navigation tabs" />
+</Frame>
 
-### Style
+### Resume Name and Version
 
-Adjust visual properties to match your personal brand:
+Your resume name is displayed in the top-left area of the toolbar. If the resume has been marked as your primary document, a blue **Primary** badge appears next to the name.
 
-- **Fonts** — Select from professional typefaces
-- **Colors** — Choose accent colors for headings and highlights
-- **Spacing** — Control line spacing and section gaps
-- **Margins** — Adjust page margins
+**How to view the resume name:**
+The name is always visible in the top toolbar while you are editing. It matches the title you see on the resume card in your dashboard.
 
-### Download
+**How to rename a resume:**
 
-Export the current resume as a PDF directly from the builder. The PDF preserves all formatting exactly as displayed.
+<Steps>
+  <Step title="Go to the dashboard">
+    Return to the **My Resumes** dashboard at `resume.nxtjob.ai/all`.
+  </Step>
+  <Step title="Open the menu">
+    Click the **three-dot (...)** icon on the resume card you want to rename.
+  </Step>
+  <Step title="Select Rename">
+    Choose **Rename** from the dropdown menu. A dialog appears where you can type the new name.
+  </Step>
+  <Step title="Save the new name">
+    Confirm your new name. The updated title will appear on the resume card and in the builder toolbar the next time you open it.
+  </Step>
+</Steps>
 
 <Tip>
-Choose a clean, single-column template for maximum ATS compatibility. Multi-column layouts can confuse some tracking systems, and text embedded in tables or graphics may be silently dropped during parsing.
+Use a consistent naming convention such as `[Role] - [Company] - [Month Year]` (for example, "Senior Backend Engineer - Stripe - Feb 2026"). This makes search and identification much easier when you build up a large resume library.
 </Tip>
 
-## Editable Resume Sections
+### Undo and Redo
 
-### Personal Details
+The undo and redo buttons sit in the top toolbar, represented by left-arrow and right-arrow icons.
 
-Your name, professional title/headline, phone number, email address, location, and links (LinkedIn, portfolio, GitHub, etc.). This section appears at the top of your resume and is critical for recruiter contact.
+**How to undo changes:**
+Click the **Undo** button (left-arrow icon) in the top toolbar, or use the keyboard shortcut **Ctrl+Z** (Windows/Linux) or **Cmd+Z** (Mac). Each click steps back one action.
 
-### Summary
+**How to redo changes:**
+Click the **Redo** button (right-arrow icon) in the top toolbar, or use the keyboard shortcut **Ctrl+Y** (Windows/Linux) or **Cmd+Shift+Z** (Mac). Each click restores one undone action.
 
-A rich-text paragraph summarizing your professional identity, core competencies, and career value proposition. The editor supports **bold** formatting for emphasis on key terms. Write a summary that leads with your years of experience and domain expertise.
+**What actions can be undone or redone?**
 
-### Skills
+| Action Type | Can Be Undone? |
+|---|---|
+| Text edits (typing, deleting, formatting) | Yes |
+| Section reordering | Yes |
+| Adding or removing a section | Yes |
+| Template switching | Yes |
+| Style changes (font, color, spacing) | Yes |
 
-Skills are organized into **buckets** (groupings by category) with individual skills displayed as tags. For example, a bucket titled "Cloud & Infrastructure" might contain tags like AWS, Kubernetes, Terraform, and Docker.
+<Tip>
+If you are experimenting with different templates or layouts, undo is your safety net. Try any change freely -- you can always step back to the previous state.
+</Tip>
 
-### Work Experience
+---
 
-Each entry includes job title, company name, employment dates, location, and bullet points describing accomplishments. The editor supports **bold formatting** within bullets for highlighting key metrics and technologies.
+## Templates
 
-### Projects
+Templates control the visual layout and structure of your resume. Changing a template reformats your content into a new design without losing any data. Your text, sections, and settings all carry over.
 
-Project entries include project name, dates, description bullets, and optional links. Structure bullets the same way as Work Experience: action verb + task + measurable result.
+Click the **Templates** tab in the top toolbar to open the templates panel.
 
-### Education
+<Frame>
+  <img src="/images/resume-builder/templates-panel.png" alt="Templates panel showing All, Single Column, and Double Column filter tabs with 12 template options" />
+</Frame>
 
-Each entry includes degree type, field of study, institution name, dates, location, and optional GPA.
+### What Resume Templates Are Available?
 
-### Certifications
+NxtJob offers **12 professionally designed templates** organized into two categories:
 
-Each entry includes certification name, issuing organization, date earned, and optional verification URL.
+| Category | Count | Description |
+|---|---|---|
+| **Single Column** | 7 | Content flows in one column from top to bottom. Clean, linear reading order. |
+| **Double Column** | 5 | Content is split into two columns, typically with a sidebar for skills, contact info, or education. |
 
-### Achievements
+You can browse all 12 at once using the **All** tab, or filter by **Single Column** or **Double Column** using the tabs at the top of the templates panel.
 
-A bullet-point list of notable accomplishments such as awards, patents, publications, speaking engagements, or leadership milestones.
+### What Is the Difference Between Single-Column and Double-Column Templates?
 
-### Languages
+**Single-column templates** present your resume content in a single, top-to-bottom flow. Every section occupies the full width of the page. This creates a straightforward reading experience that mirrors how most people scan documents: left to right, top to bottom.
 
-Languages with proficiency levels (Native, Fluent, Conversational, Basic).
+**Double-column templates** split the page into two zones. Typically, the main column holds your work experience, projects, and summary, while the sidebar column holds skills, education, certifications, and contact details. This layout fits more information onto one page but introduces a non-linear reading path.
 
-### Custom Sections
+| Feature | Single Column | Double Column |
+|---|---|---|
+| Reading flow | Linear, top to bottom | Split between main content and sidebar |
+| ATS compatibility | Highest | Good, but some older ATS parsers may misread column order |
+| Best for | Senior roles, executive positions, text-heavy resumes | Design-oriented roles, compact resumes, roles where visual layout matters |
+| Content density | Lower per page | Higher per page |
+| Page count | May require 2 pages for extensive experience | Often fits on 1 page |
 
-Create sections with any title and content structure for categories like Volunteer Work, Board Memberships, Open Source Contributions, or Publications.
+### When Should I Use a Single-Column Template?
+
+Choose a single-column template when:
+
+- You are applying through an Applicant Tracking System and want maximum parsing accuracy
+- Your target role is in a traditional industry (finance, consulting, legal, enterprise tech)
+- You have extensive work experience that benefits from full-width bullet points
+- You want the safest, most universally compatible layout
+
+<Tip>
+For maximum ATS compatibility, use a single-column template. Multi-column layouts can confuse some tracking systems, and text embedded in sidebars may be parsed out of order or silently dropped.
+</Tip>
+
+### Can I Switch Templates After Creating a Resume?
+
+Yes. You can switch templates at any time without losing content. When you select a new template from the panel, your text, sections, and formatting are automatically reflowed into the new layout. No data is deleted or overwritten.
+
+<Steps>
+  <Step title="Open the Templates panel">
+    Click the **Templates** tab in the top toolbar.
+  </Step>
+  <Step title="Browse available templates">
+    Use the **All**, **Single Column**, or **Double Column** tabs to filter. Scroll through the available designs.
+  </Step>
+  <Step title="Click to apply">
+    Click on any template thumbnail to apply it immediately. Your resume content is reformatted into the new layout.
+  </Step>
+  <Step title="Review the result">
+    Check the live preview in the left panel. If you are not satisfied, click a different template or use **Undo** to revert.
+  </Step>
+</Steps>
+
+---
+
+## Sections Management
+
+Sections are the building blocks of your resume. The Sections panel lets you control which sections appear, what order they are in, and whether to add new ones.
+
+Click the **Sections** tab in the top toolbar to open the sections panel.
+
+<Frame>
+  <img src="/images/resume-builder/sections-panel.png" alt="Sections panel showing Active Sections list and Add to Resume options" />
+</Frame>
+
+The panel is divided into two areas:
+
+- **Active Sections** -- The sections currently visible on your resume, listed in their display order.
+- **Add to Resume** -- A list of available sections you can add with a single click.
+
+### How to Add a New Section
+
+<Steps>
+  <Step title="Open the Sections panel">
+    Click the **Sections** tab in the top toolbar.
+  </Step>
+  <Step title="Find the section you want">
+    In the **Add to Resume** area, browse the available sections. Options typically include Summary, Skills, Work Experience, Projects, Education, Certifications, Achievements, Languages, and Custom Sections.
+  </Step>
+  <Step title="Click to add">
+    Click on the section name. It is added to your resume and appears in the **Active Sections** list.
+  </Step>
+  <Step title="Fill in content">
+    The new section appears in the resume editor on the left. Click into it to begin adding your content.
+  </Step>
+</Steps>
+
+### How to Rearrange Resume Sections
+
+The order of sections on your resume matters. Recruiters spend an average of six seconds on an initial resume scan, so your strongest content should appear first.
+
+<Steps>
+  <Step title="Open the Sections panel">
+    Click the **Sections** tab in the top toolbar.
+  </Step>
+  <Step title="Drag to reorder">
+    In the **Active Sections** list, drag any section up or down to change its position. Alternatively, use the **Move Up** and **Move Down** arrow buttons available on each section in the editor.
+  </Step>
+  <Step title="Verify in the preview">
+    Check the resume preview on the left to confirm the new order looks correct.
+  </Step>
+</Steps>
+
+<Tip>
+For most senior professionals, the optimal section order is: Personal Details, Summary, Skills, Work Experience, Projects, Education, and then Certifications. Lead with your summary and skills to make an immediate impact during that critical six-second scan.
+</Tip>
+
+### Can I Remove or Hide a Section?
+
+Yes. You can remove a section from your resume using the **Delete** button that appears on each section in the editor. Removing a section takes it out of your resume but does not permanently delete the content -- you can re-add it later from the Sections panel.
+
+You can also hide individual fields within a section using **Display Settings** (covered below), which lets you keep data stored but not visible on the final document.
+
+### Does Section Order Affect Resume Score or ATS Score?
+
+Section order does not directly change your Resume Score or ATS Score calculations. Both scores evaluate the content and formatting of your resume regardless of which section comes first.
+
+However, section order has a practical impact on how recruiters and hiring managers read your resume. The Resume Score playbook recommends placing your most relevant and impressive content near the top of the document, which indirectly supports better outcomes even though the score formula itself is order-agnostic.
+
+---
+
+## Style (Fonts and Colors)
+
+The Style panel gives you control over the visual presentation of your resume. You can adjust typography, spacing, and colors to match your personal brand or the expectations of your target industry.
+
+Click the **Style** tab in the top toolbar to open the style panel.
+
+<Frame>
+  <img src="/images/resume-builder/style-panel.png" alt="Style panel showing Typography options (Font Family, Font Size), Spacing controls, and Color swatches" />
+</Frame>
+
+The style panel is organized into three areas:
+
+| Area | Controls |
+|---|---|
+| **Typography** | Font Family (dropdown selector) and Font Size (S, M, L toggle) |
+| **Spacing** | Line Height (S, M, L), Word Spacing (S, M, L), Section Spacing (S, M, L) |
+| **Color** | A row of color swatches for accent colors used in headings, lines, and highlights |
+
+### How to Change Font Style
+
+<Steps>
+  <Step title="Open the Style panel">
+    Click the **Style** tab in the top toolbar.
+  </Step>
+  <Step title="Select a font family">
+    Under **Typography**, click the **Font Family** dropdown. Browse the available professional typefaces and select the one you want. The default is **Inter**.
+  </Step>
+  <Step title="Choose a font size">
+    Click **S** (small), **M** (medium), or **L** (large) under the **Font Size** toggle. The change is applied immediately to your resume preview.
+  </Step>
+  <Step title="Adjust spacing if needed">
+    Fine-tune the look with the **Line Height**, **Word Spacing**, and **Section Spacing** toggles. Each offers S, M, and L options.
+  </Step>
+</Steps>
+
+<Tip>
+Stick with clean, professional fonts for most applications. Sans-serif fonts like Inter, Roboto, and Open Sans render well on screens and parse cleanly through ATS systems. Save decorative or serif fonts for creative industry resumes where visual flair is expected.
+</Tip>
+
+### How to Change Resume Colors
+
+<Steps>
+  <Step title="Open the Style panel">
+    Click the **Style** tab in the top toolbar.
+  </Step>
+  <Step title="Pick a color">
+    Under the **Color** section, click any color swatch. The selected color is applied to accent elements across your resume, including section headings, divider lines, and highlights.
+  </Step>
+  <Step title="Preview the result">
+    Check the resume preview on the left to see how the new color looks with your chosen template and font.
+  </Step>
+</Steps>
+
+<Tip>
+Subtle, professional colors (navy, dark teal, charcoal) work best for most industries. Bright or saturated colors can be distracting on-screen and may not print well. If in doubt, stick with the default color palette provided by NxtJob.
+</Tip>
+
+---
+
+## Download Option
+
+The Download button in the top toolbar lets you export and share your resume. You can download a PDF file or generate a shareable link.
+
+### How to Download My Resume
+
+<Steps>
+  <Step title="Finish editing">
+    Make sure all your content, formatting, and template choices are finalized in the builder.
+  </Step>
+  <Step title="Click Download">
+    Click the **Download** button in the top toolbar.
+  </Step>
+  <Step title="Choose your option">
+    Select from the available download and sharing options (described below).
+  </Step>
+</Steps>
+
+### What Download Options Are Available?
+
+| Option | Description |
+|---|---|
+| **Download as PDF** | Exports your resume as a PDF file to your local device. The PDF preserves all formatting, fonts, colors, and layout exactly as displayed in the builder. |
+| **Share via Link** | Generates a public URL you can send to recruiters, hiring managers, or include on portfolio pages. The link opens a clean, read-only rendering of your resume. |
+
+### How to Download Resume as PDF
+
+<Steps>
+  <Step title="Click Download in the toolbar">
+    Click the **Download** button in the top toolbar.
+  </Step>
+  <Step title="Select PDF download">
+    Choose the PDF download option. Your browser will download the file to your default downloads folder.
+  </Step>
+  <Step title="Verify the file">
+    Open the downloaded PDF and verify that all content, formatting, and layout match what you see in the builder preview.
+  </Step>
+</Steps>
+
+<Tip>
+Always download and review the PDF before submitting an application. Certain fonts or complex layouts may render slightly differently in PDF format. A quick visual check takes 30 seconds and can catch issues that cost you an interview.
+</Tip>
+
+### How to Share My Resume Using a Link
+
+<Steps>
+  <Step title="Click Download in the toolbar">
+    Click the **Download** button in the top toolbar.
+  </Step>
+  <Step title="Select the share option">
+    Choose the **Share via Link** option. NxtJob generates a unique URL for your resume.
+  </Step>
+  <Step title="Copy the link">
+    Copy the generated URL to your clipboard.
+  </Step>
+  <Step title="Send the link">
+    Paste the link in an email, LinkedIn message, or portfolio page. Anyone with the link can view a clean, read-only version of your resume.
+  </Step>
+</Steps>
+
+<Tip>
+Sharing a link instead of a PDF attachment can be useful when emailing recruiters. The link always shows the latest version of your resume, so if you make updates after sharing, the recipient sees the updated version automatically.
+</Tip>
+
+---
+
+## Section Display Settings
+
+Every section in the builder includes a **Settings** button (gear icon) that opens display settings for that section. Display settings let you control which fields within a section are visible on your resume without deleting the underlying data.
+
+### What Are Display Settings?
+
+Display settings are toggles that control the visibility of individual fields within a resume section. For example, the Work Experience section may have fields for job title, company name, dates, location, and bullet points. Display settings let you show or hide any of these fields independently.
+
+This is useful when you want to keep information stored in your resume (for future use or other variants) without displaying it on the current version.
+
+### How to Show or Hide Fields in a Section
+
+<Steps>
+  <Step title="Locate the section">
+    Find the section in the resume editor on the left side of the builder.
+  </Step>
+  <Step title="Open settings">
+    Click the **Settings** (gear icon) button on the section. A panel or dropdown appears showing all available fields for that section.
+  </Step>
+  <Step title="Toggle field visibility">
+    Use the toggles to show or hide individual fields. Hidden fields are removed from the visible resume but their data is retained.
+  </Step>
+  <Step title="Close settings">
+    Close the settings panel. The resume preview updates immediately to reflect your changes.
+  </Step>
+</Steps>
+
+### Can Hidden Fields Be Restored Later?
+
+Yes. Hidden fields are not deleted -- they are simply not displayed. You can return to the section's display settings at any time and toggle a hidden field back to visible. Your data will reappear exactly as it was before you hid it.
+
+This makes display settings a safe way to experiment with different resume layouts. You can hide a field for one application and show it for another without retyping anything.
+
+<Tip>
+Use display settings strategically when tailoring your resume for different roles. For example, you might hide your GPA in the Education section for senior-level applications where years of experience matter more, but show it for roles at companies that specifically request it.
+</Tip>
+
+---
 
 ## Section Action Buttons
 
-Every section in the builder has a set of action buttons:
+Every section in the builder has a set of action buttons that appear when you hover over or select the section:
 
 | Button | Function |
 |---|---|
 | **AI Generate** | Uses NxtJob's AI to auto-generate or enhance content for that section. |
 | **Move Up / Move Down** | Reorders the section relative to others on the resume. |
-| **Settings** | Opens section-specific configuration (visibility, layout options). |
-| **Delete** | Removes the section from the resume entirely. |
+| **Settings** | Opens section-specific display settings (field visibility and layout options). |
+| **Delete** | Removes the section from the resume. |
 
 <Tip>
 Use **AI Generate** on your Summary and Work Experience sections first. The AI produces strong initial drafts using the CAR framework (Challenge, Action, Result) that you can then refine with your personal voice and specific numbers.
