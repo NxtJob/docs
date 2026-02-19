@@ -138,6 +138,33 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Interview Prep",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "interview-prep/introduction",
+              "interview-prep/dashboard"
+            ]
+          },
+          {
+            "group": "Interview Setup",
+            "pages": [
+              "interview-prep/practice-with-job",
+              "interview-prep/selecting-questions",
+              "interview-prep/general-settings"
+            ]
+          },
+          {
+            "group": "Interview & Results",
+            "pages": [
+              "interview-prep/interview-session",
+              "interview-prep/feedback-and-report"
+            ]
+          }
+        ]
       }
     ],
     "global": {
