@@ -40,6 +40,39 @@
         ]
       },
       {
+        "tab": "Chrome Extension",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "chrome-extension/introduction",
+              "chrome-extension/installation"
+            ]
+          },
+          {
+            "group": "LinkedIn Profile",
+            "pages": [
+              "chrome-extension/profile-optimization",
+              "chrome-extension/export-to-resume"
+            ]
+          },
+          {
+            "group": "Saving Jobs",
+            "pages": [
+              "chrome-extension/saving-jobs",
+              "chrome-extension/ats-score"
+            ]
+          },
+          {
+            "group": "Networking & AI",
+            "pages": [
+              "chrome-extension/networking-features",
+              "chrome-extension/nova-reply"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Job Board",
         "groups": [
           {
