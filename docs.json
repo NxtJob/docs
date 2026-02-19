@@ -73,6 +73,32 @@
         ]
       },
       {
+        "tab": "Cover Letter",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "cover-letter/introduction",
+              "cover-letter/dashboard"
+            ]
+          },
+          {
+            "group": "Creating & Editing",
+            "pages": [
+              "cover-letter/creating-cover-letters",
+              "cover-letter/editor"
+            ]
+          },
+          {
+            "group": "Customization & Export",
+            "pages": [
+              "cover-letter/templates-and-styling",
+              "cover-letter/saving-and-downloading"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Job Board",
         "groups": [
           {

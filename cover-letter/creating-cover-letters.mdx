@@ -1,0 +1,84 @@
+---
+title: "Creating Cover Letters"
+description: "Generate AI-powered cover letters from job descriptions and resumes using the three-step creation flow"
+icon: "wand-magic-sparkles"
+---
+
+## Overview
+
+When you click "New Cover Letter" on the [dashboard](/cover-letter/dashboard), three things happen: a new cover letter is created, the editor opens, and the generation modal appears. The modal walks you through a three-step flow to generate your cover letter with AI.
+
+## Step 1: Optional Sections
+
+<Frame>
+  <img src="/images/cover-letter/new-cover-modal-sections.png" alt="Generation modal Step 1 showing optional sections for Availability, Employment Gaps, and Relocation" />
+</Frame>
+
+The first step lets you include optional context that strengthens your cover letter. Each section is a checkbox — enable only what applies:
+
+| Section | What You Provide | How It Helps |
+|---|---|---|
+| **Availability** | A text field for when you can start (e.g., "Immediately", "2 weeks notice", "March 2026") | Shows the employer you are ready and sets clear expectations |
+| **Employment Gaps** | A date range plus a reason from a dropdown | Addresses gaps proactively so the hiring manager does not have to guess |
+| **Relocation** | A text field for your willingness to relocate (e.g., "Open to relocating to Bangalore") | Relevant for roles that require or prefer local candidates |
+
+**Employment Gap reasons** available in the dropdown:
+
+- Impact By Pandemic
+- Job Searching
+- Travel
+- Family/Personal Medical Issue
+- Education
+- Relocation
+- Taking Care of Children
+- Sabbatical
+
+All three sections are optional. If none apply, skip this step entirely.
+
+## Step 2: Select a Job
+
+<Frame>
+  <img src="/images/cover-letter/new-cover-modal-jobs.png" alt="Generation modal Step 2 showing job selection with search and job cards" />
+</Frame>
+
+This step shows jobs from your [My Jobs](/job-board/my-jobs) board. Each job card displays the job title, company name, and application status. Jobs with attached resumes are sorted to the top for convenience.
+
+Use the search bar to filter jobs by company name.
+
+**Two paths forward:**
+
+- **Generate with Job** — Select a job card and click generate. The AI analyzes the job description along with your resume to produce a targeted cover letter that addresses the specific requirements of the role.
+- **Generate without Job** — Skip this step to create a general-purpose cover letter. Useful when you want a base template that you will customize manually later.
+
+<Tip>Generating with a job produces significantly better results. The AI matches your experience to the specific job requirements, references the company by name, and highlights the most relevant parts of your background. Save the job to your Job Board first using the [Chrome Extension](/chrome-extension/saving-jobs), then generate.</Tip>
+
+## Step 3: Select a Resume
+
+<Frame>
+  <img src="/images/cover-letter/new-cover-modal-resume.png" alt="Generation modal Step 3 showing resume selection" />
+</Frame>
+
+Choose which resume the AI should reference when generating your cover letter. Your resumes from the [Resume Builder](/resume-builder/introduction) are displayed as selectable cards.
+
+Click **"Attach Resume"** on your chosen resume to attach it and begin generation.
+
+## What Happens During Generation
+
+After you complete the steps and click generate, the backend:
+
+1. Analyzes the job description (if selected)
+2. Reads your resume content
+3. Incorporates any optional sections you enabled (availability, gaps, relocation)
+4. Generates a complete cover letter body
+
+The cover letter opens in the [editor](/cover-letter/editor) with the AI-generated content ready to review and refine.
+
+## After Generation
+
+The generated cover letter includes:
+
+- A header pre-filled with your contact information from the selected resume
+- A body with AI-written content that references the job description and your experience
+- Default styling (Minimalist template, blue color scheme, Inter font)
+
+From here, you can edit the content, change the [template and styling](/cover-letter/templates-and-styling), or [download as PDF](/cover-letter/saving-and-downloading).
