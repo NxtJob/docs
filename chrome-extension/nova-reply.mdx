@@ -8,80 +8,139 @@ icon: "message-bot"
   Nova Reply is a Premium feature. It requires an active Premium subscription and works only within LinkedIn's messaging interface.
 </Tip>
 
-Nova Reply is an AI messaging assistant that integrates directly into LinkedIn's messaging interface. When you open a conversation on LinkedIn, the extension adds an AI button to the message composer. Nova Reply reads the conversation context and generates relevant, professional replies — saving you time when managing multiple networking conversations simultaneously.
+Nova Reply is an AI messaging assistant that integrates directly into LinkedIn's messaging interface. When you open a conversation on LinkedIn, the extension injects a **Nova Reply** button into the message composer bar — right next to the Send button. Instead of spending minutes crafting each networking message from scratch, you click the button, choose a mode, and get a professional, context-aware draft in seconds.
 
-## Where It Appears
+## Where Nova Reply Appears
 
-Nova Reply activates inside LinkedIn's messaging interface. When you open any conversation, an AI-powered button appears near the message input field. Clicking it opens the Nova Reply panel, where you choose between Quick Reply mode and Write mode.
+When you open any LinkedIn conversation, a blue **Nova Reply** button appears in the message composer toolbar, positioned between the emoji/attachment icons and the Send button. Clicking the upward arrow on the button opens a dropdown with two options:
 
----
+- **Write Your Own** — You provide a directive and the AI generates a message based on your instructions
+- **Quick Reply** — Select from saved message templates or create new ones
 
-## Quick Reply Mode
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-button.png" alt="LinkedIn message composer showing the blue Nova Reply button with a dropdown menu offering Write Your Own and Quick Reply options" />
+</Frame>
 
-Quick Reply mode is designed for speed. When you activate it, Nova Reply:
+## Write Your Own Mode
 
-1. Reads the entire conversation thread for context
-2. Analyzes the other person's most recent message
-3. Generates a contextual, professional reply
-4. Presents the draft for you to review, edit, and send
+Write Your Own mode lets you describe what you want to say in plain language, and Nova Reply generates a polished, professional message based on the conversation context and your directive.
 
-This mode is ideal for responding to connection acceptances, follow-up messages, and interview scheduling conversations where maintaining momentum matters.
-
----
-
-## Write Mode
-
-Write mode gives you control over the direction of the message. Instead of generating a reply based on the conversation, Nova Reply generates a message based on your instructions.
+### How It Works
 
 <Steps>
-  <Step title="Open the Nova Reply panel">
-    Click the Nova Reply button in the LinkedIn message composer.
+  <Step title="Click Nova Reply and select Write Your Own">
+    Click the **Nova Reply** button in the LinkedIn message composer, then select **Write Your Own** from the dropdown. The NOVA Reply panel opens as an overlay.
   </Step>
-  <Step title="Select Write mode">
-    Choose **Write** from the mode options in the Nova Reply panel.
+  <Step title="Enter your directive">
+    The panel shows two tabs at the top: **Write Your Own** (selected, highlighted in blue) and **Quick Reply**. Below the tabs, you see the prompt: "Provide a directive for the AI regarding the specific response you need." Type your instruction in the text field — for example, "keep it polite" or "thank them for the referral and ask for a 5-minute call."
   </Step>
-  <Step title="Describe your intent">
-    Enter a plain-language description of what you want to communicate — for example, "Thank them for accepting my connection and ask about the Senior Engineering Manager role."
+  <Step title="Wait for the AI to generate a response">
+    After entering your directive, the panel shows a loading state with "Generating AI Response..." and the message "Please wait while we analyze the conversation and create a personalized reply." The AI reads the full conversation thread and combines it with your directive to craft the message.
   </Step>
-  <Step title="Generate the message">
-    Nova Reply generates a professional message based on your instructions.
+  <Step title="Review the generated message">
+    The generated message appears in the panel under an **AI Response** label. The AI produces a complete, ready-to-send message that incorporates conversation context, your background, and your directive. Two buttons appear at the bottom:
+    - **Insert** — Places the generated message into the LinkedIn compose field
+    - **Re-Generate** — Generates a new version if you are not satisfied with the first draft
   </Step>
-  <Step title="Review and edit">
-    Read through the generated message and make any adjustments before sending.
-  </Step>
-  <Step title="Send">
-    Send the message when you are satisfied with the content.
+  <Step title="Insert and send">
+    Click **Insert** to place the message into the LinkedIn compose field. Review the text, make any final edits, and click **Send**.
   </Step>
 </Steps>
 
----
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-write-generating.png" alt="NOVA Reply panel in Write Your Own mode showing a directive field with 'keep it polite' entered and a Generating AI Response loading state below" />
+</Frame>
 
-## Message Templates
+### Generated Response Example
 
-Nova Reply includes a template system for common networking scenarios:
+The AI generates messages that are specific to the conversation. For example, with the directive "keep it polite" in a conversation about a referral, Nova Reply produced a message that thanked the person by name, referenced specific technical achievements (refactoring components, implementing CI/CD pipelines), and ended with a clear call to action asking for a 5-minute chat.
 
-- Save frequently used message patterns as templates
-- Access saved templates directly from the messaging interface without re-describing your intent
-- Customize templates per conversation context before generating the final message
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-write-response.png" alt="NOVA Reply panel showing a generated AI response with Insert and Re-Generate buttons at the bottom" />
+</Frame>
 
----
+### After Inserting
 
-## When to Use Nova Reply
+Once you click **Insert**, the generated message appears in the LinkedIn compose field. You can edit it directly before sending. LinkedIn's quick suggestion pills (e.g., "Please", "Thanks", "May I have your phone number?") remain available above the compose area.
 
-| Scenario | Mode | What Nova Reply Does |
-|---|---|---|
-| Replying to a connection acceptance | Quick Reply | Generates a "Thanks for connecting" message with personalized context from the thread |
-| Following up on a referral request | Quick Reply | Drafts a contextual follow-up based on prior messages |
-| Introducing yourself to a new connection | Write | Produces a polished introduction based on your described intent |
-| Responding to a recruiter message | Quick Reply | Generates a professional response matched to the conversation tone |
-| Sending a cold outreach pitch | Write | Crafts an outreach message based on the person's role and your stated goal |
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-inserted.png" alt="LinkedIn messaging interface with an AI-generated message inserted into the compose field, showing the Nova Reply button and Send button" />
+</Frame>
 
----
+## Quick Reply Mode
+
+Quick Reply mode provides instant access to saved message templates. Instead of writing a directive each time, you select from a library of pre-built messages that you can insert with one click.
+
+### How It Works
+
+<Steps>
+  <Step title="Click Nova Reply and select Quick Reply">
+    Click the **Nova Reply** button and select **Quick Reply** from the dropdown. The NOVA Reply panel opens with the **Quick Reply** tab active (highlighted in blue).
+  </Step>
+  <Step title="Browse saved templates">
+    The panel shows "Select any one of the messages:" followed by your saved templates. Each template displays its name and a preview of the message content. For example, a "Resume Link" template might contain your resume URL from resume.nxtjob.ai.
+  </Step>
+  <Step title="Select and copy">
+    Click on a template to select it. Use the **Copy** button in the bottom-right corner to copy the message content to your clipboard, then paste it into the LinkedIn compose field.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-quick-reply.png" alt="NOVA Reply panel in Quick Reply mode showing saved message templates with a Resume Link template and a Create button" />
+</Frame>
+
+### Creating a New Template
+
+Click the **+ Create** button in the top-right corner of the Quick Reply panel to create a new template. A **"Create quick reply"** dialog appears with two fields:
+
+- **Enter quick reply name** — A short name to identify the template (e.g., "Resume Link", "Referral Ask", "Thank You Note")
+- **Enter quick reply message** — The full message text you want to reuse
+
+Click **Create** to save the template, or **Discard** to cancel. Saved templates appear in your Quick Reply list and are available across all LinkedIn conversations.
+
+<Frame>
+  <img src="/images/chrome-extension/nova-reply-create-template.png" alt="Create quick reply dialog with fields for template name and message content, plus Discard and Create buttons" />
+</Frame>
 
 <Tip>
-  Nova Reply generates drafts, not final messages. Always review and personalize the generated text before sending. Adding a specific detail — a reference to the person's recent post, a mutual connection, or a shared experience — transforms a good AI draft into a message that feels genuinely personal.
+  Create templates for messages you send repeatedly: your resume link, a standard referral request, a post-interview thank you, or a brief self-introduction. This turns a 5-minute writing task into a 5-second click.
+</Tip>
+
+## The NOVA Reply Panel
+
+The NOVA Reply panel is a floating overlay that appears on top of your LinkedIn messaging interface. It includes:
+
+| Element | Description |
+|---|---|
+| **NOVA Reply header** | Panel title with a close (X) button |
+| **Write Your Own tab** | AI-powered message generation from your directive |
+| **Quick Reply tab** | Saved template library |
+| **Directive field** (Write Your Own) | Text input where you describe what you want the AI to write |
+| **AI Response area** (Write Your Own) | Displays the generated message with Insert and Re-Generate actions |
+| **Template list** (Quick Reply) | Your saved message templates with Copy functionality |
+| **+ Create button** (Quick Reply) | Opens the create template dialog |
+
+## When to Use Each Mode
+
+| Scenario | Mode | Why |
+|---|---|---|
+| Responding to a referral offer | Write Your Own | The AI reads the thread and crafts a personalized thank-you with your background details |
+| Following up after an interview | Write Your Own | Describe your intent and get a polished follow-up that references the conversation |
+| Sharing your resume link | Quick Reply | Save your resume URL as a template and insert it instantly |
+| Sending a standard introduction | Quick Reply | Create a reusable self-introduction template |
+| Replying to a recruiter's question | Write Your Own | Let the AI draft a response based on the conversation context and your directive |
+| Sending a cold outreach pitch | Write Your Own | Describe the person's role and your goal — the AI handles the tone and structure |
+
+## Tips for Effective Use
+
+<Tip>
+  Nova Reply generates drafts, not final messages. Always review and personalize the generated text before clicking Send. Adding a specific detail — a reference to the person's recent post, a mutual connection, or a shared experience — transforms a good AI draft into a message that feels genuinely personal.
 </Tip>
 
 <Tip>
-  For senior professionals managing 20 or more networking conversations simultaneously, Nova Reply can save hours per week. Quick Reply mode is particularly valuable for maintaining momentum in conversations without spending time crafting each response from scratch.
+  Build your Quick Reply template library early. Start with 3-4 templates: your resume link, a referral request, a thank-you note, and a brief introduction. As your job search progresses, add templates for specific scenarios you encounter repeatedly.
+</Tip>
+
+<Tip>
+  For senior professionals managing 20 or more networking conversations simultaneously, Nova Reply can save hours per week. Write Your Own mode handles the complex, context-specific messages while Quick Reply handles the repetitive ones. Together, they let you maintain high-quality communication at scale.
 </Tip>
