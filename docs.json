@@ -11,38 +11,29 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Resume Builder",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "resume-builder/introduction",
+              "resume-builder/dashboard",
+              "resume-builder/managing-resumes"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Builder & Scoring",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "resume-builder/builder",
+              "resume-builder/resume-score",
+              "resume-builder/ats-score"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Advanced",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "resume-builder/ai-features",
+              "resume-builder/pro-tips"
             ]
           }
         ]
@@ -66,13 +57,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@nxtjob.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Try NxtJob",
+      "href": "https://resume.nxtjob.ai"
     }
   },
   "contextual": {
