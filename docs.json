@@ -40,6 +40,47 @@
         ]
       },
       {
+        "tab": "Job Board",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "job-board/introduction",
+              "job-board/recommendations"
+            ]
+          },
+          {
+            "group": "My Jobs",
+            "pages": [
+              "job-board/my-jobs",
+              "job-board/job-details",
+              "job-board/find-network"
+            ]
+          },
+          {
+            "group": "Boards",
+            "pages": [
+              "job-board/target-companies",
+              "job-board/recruitment-agencies",
+              "job-board/archived-jobs"
+            ]
+          },
+          {
+            "group": "Networking",
+            "pages": [
+              "job-board/my-networks",
+              "job-board/linkedin-automation"
+            ]
+          },
+          {
+            "group": "Nova",
+            "pages": [
+              "job-board/nova-chat"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Chrome Extension",
         "groups": [
           {
@@ -94,47 +135,6 @@
             "pages": [
               "cover-letter/templates-and-styling",
               "cover-letter/saving-and-downloading"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Job Board",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "job-board/introduction",
-              "job-board/recommendations"
-            ]
-          },
-          {
-            "group": "My Jobs",
-            "pages": [
-              "job-board/my-jobs",
-              "job-board/job-details",
-              "job-board/find-network"
-            ]
-          },
-          {
-            "group": "Boards",
-            "pages": [
-              "job-board/target-companies",
-              "job-board/recruitment-agencies",
-              "job-board/archived-jobs"
-            ]
-          },
-          {
-            "group": "Networking",
-            "pages": [
-              "job-board/my-networks",
-              "job-board/linkedin-automation"
-            ]
-          },
-          {
-            "group": "Nova",
-            "pages": [
-              "job-board/nova-chat"
             ]
           }
         ]
