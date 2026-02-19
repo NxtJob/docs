@@ -1,0 +1,139 @@
+---
+title: "LinkedIn Automation"
+description: "How the AI agent automates LinkedIn outreach, follow-ups, and engagement on your behalf"
+icon: "robot"
+---
+
+<Tip>
+LinkedIn Automation is a **Nova-exclusive** feature. It requires an active Nova subscription and a connected LinkedIn account.
+</Tip>
+
+## What Is LinkedIn Automation?
+
+LinkedIn Automation is an AI agent that handles the repetitive parts of professional networking — sending connection requests, crafting personalized messages, following up at the right intervals, and engaging with content. It runs in the background so you can focus on preparing for interviews and evaluating offers rather than manually messaging dozens of people.
+
+The agent follows a structured workflow with four stages, each designed to move connections through your networking pipeline from initial outreach to active engagement.
+
+## Why LinkedIn Connection Is Required
+
+The automation agent needs access to your LinkedIn account to:
+
+- Search for relevant employees and recruiters at target companies
+- Send personalized connection requests
+- Deliver follow-up messages through LinkedIn messaging
+- Engage with connections' posts (likes, endorsements)
+
+Without a connected LinkedIn account, none of the automated networking features function. Connect your account from the My Jobs toolbar.
+
+<Frame>
+  <img src="/images/job-board/linkedin-connect.png" alt="LinkedIn account connection setup" />
+</Frame>
+
+## The Automation Flow
+
+Here is how a connection moves through the automated pipeline:
+
+```
+Find Network → Sent → Accepted → Execute Tasks → Engagement / Dead
+```
+
+| Stage | What Happens |
+|---|---|
+| **Find Network** | AI searches LinkedIn, ranks profiles, and sends personalized connection requests |
+| **Sent** | Connection request is pending. The system waits for acceptance. |
+| **Accepted** | The person accepted. The task sequence begins automatically. |
+| **Execute Tasks** | The agent sends pitch message, follow-ups, likes posts, and endorses skills over a series of days |
+| **Engagement** | The person replied. You take over the conversation manually. |
+| **Dead** | All tasks completed with no response. The automated sequence ends. |
+
+## The Four Workflow Stages
+
+The AI agent operates in four distinct workflow stages, each handling a different part of the networking lifecycle.
+
+### Workflow 1 — Find and Connect
+
+The agent searches LinkedIn for relevant people and sends connection requests.
+
+**What the agent does:**
+
+1. Uses the LinkedIn Search Tool to find employees at the target company
+2. Uses the Profile Scoring Tool to rank search results by relevance to your role
+3. Uses the LinkedIn Send Invite Tool to send personalized connection requests
+4. Uses the Track Network Tool to add connections to your My Networks board
+
+After this workflow completes, new connections appear in your **Sent** column.
+
+### Workflow 2 — Send Messages
+
+Once a connection accepts, the agent begins the messaging sequence.
+
+**What the agent does:**
+
+1. Uses the LinkedIn Messaging Tool to send your pitch or follow-up message
+2. Updates the networking task status on your board
+
+Messages are sent using the templates you configured in your [message sequences](/job-board/my-networks#message-sequences). The agent respects 24-hour gaps between follow-ups.
+
+### Workflow 3 — Daily Follow-up Sequence
+
+A scheduled workflow that runs daily to keep your networking conversations moving.
+
+**What the agent does:**
+
+1. Fetches all connections in the Accepted column
+2. Calculates which connections have tasks due today
+3. Executes the appropriate task (follow-up message, content engagement, skill endorsement)
+4. Updates task status on your board
+
+This workflow ensures no connection falls through the cracks, even when you are managing 50+ active networking relationships.
+
+### Workflow 4 — Engagement Handling
+
+When a connection replies to your messages, the agent transitions the conversation.
+
+**What the agent does:**
+
+1. Moves the connection to the Engagement column
+2. Drafts an AI reply based on the conversation context
+3. Tracks the last engagement date and the message that was sent
+
+At the Engagement stage, **you take over**. The AI provides a drafted reply, but you decide what to send. This is where human judgment matters — negotiating referrals, scheduling calls, and building genuine professional relationships.
+
+## Status Transitions Explained
+
+| From | To | Trigger |
+|---|---|---|
+| — | **Sent** | Connection request sent via Workflow 1 |
+| **Sent** | **Accepted** | Person accepts the LinkedIn connection request |
+| **Accepted** | **Engagement** | Person replies to a message |
+| **Accepted** | **Dead** | All 4 tasks completed with no response |
+| **Engagement** | **Converted** | You manually mark the connection as Referred, Interviewing, or Screening |
+
+## What You Do at the Engagement Stage
+
+When a connection moves to Engagement, automated messaging stops. This is intentional — real relationship building requires a human touch. At this stage:
+
+1. **Review the conversation** — Read the message thread to understand context
+2. **Send a personalized reply** — The AI drafts a reply, but edit it to sound like you
+3. **Ask for what you need** — A referral, an introduction to the hiring manager, or insights about the role
+4. **Update the status** — Move to Converted (Referred/Interviewing/Screening) when the outcome is clear
+
+## The Dead Column
+
+Connections land in Dead when all four follow-up tasks have been executed and the person did not respond. This is normal — not every connection will reply. Senior professionals typically see a 20-40% response rate on personalized outreach.
+
+Dead connections are not wasted effort. The person is now in your LinkedIn network and may respond to future outreach when timing is better.
+
+<Tip>
+Do not rely solely on automation. The most successful networking happens when you combine AI-powered outreach at scale with genuine, personalized engagement for the people who respond. Let the AI handle the volume; you handle the relationships.
+</Tip>
+
+## Monitoring Automation
+
+You can monitor what the AI agent is doing at any time:
+
+- **My Networks board** — Cards move between columns as the agent works
+- **View Workflow** — Click "View Workflow" on any AI-created network card to see the detailed step-by-step execution log
+- **Task progress** — Each card shows how many tasks have been completed (e.g., "2/4 done")
+
+If something does not look right, disable automation for that specific connection or turn off the master automation toggle to pause everything.
