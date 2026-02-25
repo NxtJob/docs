@@ -165,64 +165,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "ERP",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "erp/introduction"
-            ]
-          },
-          {
-            "group": "Pipelines",
-            "pages": [
-              "erp/pipeline-overview",
-              "erp/booker-pipeline",
-              "erp/setter-pipeline",
-              "erp/sales-pipeline",
-              "erp/operations-pipeline",
-              "erp/cold-pipeline",
-              "erp/webinar-pipeline",
-              "erp/jfo-pipeline"
-            ]
-          },
-          {
-            "group": "Opportunity Management",
-            "pages": [
-              "erp/opportunity-detail",
-              "erp/client-persona",
-              "erp/eod-form",
-              "erp/js-metrics",
-              "erp/linkedin-conversations",
-              "erp/group-call"
-            ]
-          },
-          {
-            "group": "Shared Features",
-            "pages": [
-              "erp/filters",
-              "erp/list-views"
-            ]
-          },
-          {
-            "group": "Operations",
-            "pages": [
-              "erp/users",
-              "erp/call",
-              "erp/task-management",
-              "erp/email"
-            ]
-          },
-          {
-            "group": "Configuration",
-            "pages": [
-              "erp/calendar",
-              "erp/settings"
-            ]
-          }
-        ]
       }
     ],
     "global": {
