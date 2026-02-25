@@ -1,0 +1,78 @@
+---
+title: "LinkedIn Conversations"
+description: "Split-panel LinkedIn message viewer within the opportunity detail modal"
+icon: "linkedin"
+---
+
+## Overview
+
+The LinkedIn Conversations tab provides a **split-panel chat interface** for viewing a client's LinkedIn conversations directly within the [Opportunity Detail Modal](/erp/opportunity-detail). This is used by A/C Managers and interns to monitor client outreach activity without leaving the ERP.
+
+<Frame>
+  <img src="/images/erp/erp-linkedin-conversations.png" alt="LinkedIn Conversations tab showing the split-panel chat interface" />
+</Frame>
+
+## Layout
+
+The tab uses a split-panel design:
+
+| Panel | Width | Content |
+|---|---|---|
+| **Thread List** (left) | 35% | List of all LinkedIn conversation threads |
+| **Chat View** (right) | 65% | Messages for the selected thread |
+
+### Header
+
+The top header bar shows:
+
+- **"LinkedIn Conversations"** title
+- **Average message count** badge (e.g., "Avg. 4 messages") — indicates the average conversation length across all threads
+
+## Thread List (Left Panel)
+
+Each thread in the left panel displays:
+
+| Element | Description |
+|---|---|
+| **Contact Name** | Clickable LinkedIn profile link (opens in new tab) |
+| **Latest Message Date** | Timestamp of the most recent message |
+| **Message Preview** | Truncated text of the latest message |
+| **"You:" prefix** | Appears if the last message was sent by the client |
+
+Threads are listed in chronological order. Clicking a thread selects it and loads its messages in the right panel. The selected thread is highlighted with a left border accent.
+
+## Chat View (Right Panel)
+
+### Conversation Header
+
+Shows the selected contact's name (linked to their LinkedIn profile) and total message count.
+
+### Message Bubbles
+
+Messages are displayed as chat bubbles:
+
+| Sender | Alignment | Style |
+|---|---|---|
+| **Client (outgoing)** | Right-aligned | Primary color background |
+| **Contact (incoming)** | Left-aligned | Gray background, shows sender name |
+
+Each message shows:
+- **Sender name** (for incoming messages only)
+- **Message content** — Full text with whitespace preserved
+- **Timestamp** — Delivery date/time in the bottom-right corner
+
+### Empty States
+
+| State | Display |
+|---|---|
+| **No threads** | LinkedIn icon with "No LinkedIn conversations" message |
+| **No thread selected** | Message icon with "Select a conversation to view messages" |
+| **Empty conversation** | Alert icon with "No messages in this conversation" |
+
+## Data Source
+
+Conversations are fetched using the contact's **email address** to match their NxtJob account with their LinkedIn activity. The data comes from the LinkedIn integration that tracks outreach messages sent through the NxtJob platform.
+
+<Tip>
+Use this tab during weekly reviews with clients to identify which LinkedIn conversations are active and which contacts need follow-up. The average message count metric helps gauge overall engagement quality.
+</Tip>

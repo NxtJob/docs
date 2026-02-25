@@ -1,0 +1,124 @@
+---
+title: "Filters"
+description: "All 28+ advanced filter conditions for narrowing down pipeline opportunities"
+icon: "filter"
+---
+
+## Overview
+
+Advanced Filters let you narrow down displayed opportunities across any pipeline using powerful rules. Click **Advanced Filters** in the pipeline toolbar to open the filter panel on the right side.
+
+<Frame>
+  <img src="/images/erp/erp-pipeline-filters.png" alt="Advanced Filters panel with AND/OR logic and filter conditions" />
+</Frame>
+
+## Filter Logic
+
+- **AND mode** — All conditions must match (intersection)
+- **OR mode** — Any condition can match (union)
+
+Toggle between AND/OR using the logic selector at the top of the filter panel.
+
+## Adding & Managing Conditions
+
+- **+ Add Condition** — Click to add a new filter rule
+- **Edit** — Modify an existing filter condition
+- **Delete** — Remove an individual condition
+- **Clear All** — Reset all active filters in one click
+
+Multiple conditions can be stacked. Each condition consists of a **field**, an **operator**, and a **value**.
+
+## Filter Conditions Reference
+
+### Date Filters
+
+Date filters use **from/to date pickers** to define a range.
+
+| Filter | Description |
+|---|---|
+| **Contact Created At** | When the contact record was first created in the system |
+| **Created At** | When the opportunity was created in this pipeline |
+| **Updated At** | When the opportunity was last modified |
+| **Moved At** | When the opportunity last changed stages |
+| **Appointment Date** | Scheduled appointment date for the opportunity |
+| **Last Communication Date** | Date of the most recent call, email, or message |
+| **Payment Date** | Date when payment was recorded |
+
+### UTM / Source Filters
+
+Text/select filters for tracking lead acquisition channels.
+
+| Filter | Description |
+|---|---|
+| **UTM Source** | Lead source (e.g., facebook, google, linkedin) |
+| **UTM Medium** | Acquisition medium (e.g., Instagram_Feed, cpc, organic) |
+| **UTM Content** | Ad content identifier |
+| **UTM Campaign** | Marketing campaign name |
+| **UTM Term** | Search keyword or targeting term |
+
+### Assignment Filters
+
+Filter by which team members are assigned to opportunities.
+
+| Filter | Description |
+|---|---|
+| **Owner** | The primary owner of the opportunity (role depends on pipeline) |
+| **Intern** | The intern assigned to the opportunity |
+| **Booker** | The booker who initially qualified the lead |
+| **Setter** | The setter who conducted the consultation |
+
+### Classification Filters
+
+Filter by opportunity attributes and categorization.
+
+| Filter | Description |
+|---|---|
+| **Tags** | Tags assigned to the opportunity (e.g., salary ranges like "15 to 25 LPA") |
+| **Seniority** | Client's seniority level (Individual Contributor, Manager, Leadership) |
+| **Macro Industry** | Client's broad industry category |
+| **Micro Industry** | Client's specific industry sub-category |
+| **Fundamental Function** | Client's core job function |
+| **Objection Types** | Sales objections raised during calls |
+| **Pipeline Stage** | Current stage within the pipeline |
+| **Milestone** | Progress milestone status |
+| **Call Disposition** | Outcome of the most recent call |
+
+### Performance Filters
+
+Filter by numeric or rating-based performance data.
+
+| Filter | Description |
+|---|---|
+| **Confidence Rating** | Sales rep's confidence rating (1-5) for the deal |
+| **Network Metrics** | Job search network activity metrics |
+
+## Pipeline-Specific Filters
+
+Some filters are more relevant to specific pipelines:
+
+| Pipeline | Key Filters |
+|---|---|
+| **Sales** | Confidence Rating, Objection Types, Payment Date, Pipeline Stage |
+| **Operations / JFO** | Milestone, Network Metrics, Intern |
+| **Booker / Setter** | UTM Source, UTM Medium, Appointment Date |
+| **Cold** | Last Communication Date, UTM Source |
+
+## Sales List View Stage Filter
+
+The Sales list view has a dedicated stage filter dropdown with these options:
+
+- Grade 3 (Ready to Go)
+- No Confirmation/Cancel
+- No Show Call
+- Rescheduled
+- Offer Not Made (Non-Ideal)
+- Sale - Full Pay
+- Sale - Part Pay
+- 2nd Call Booked
+- Received Deposit
+- Uncertain Needs Time
+- Dead Follow Up Loss
+
+<Tip>
+Combine date filters with assignment filters for effective daily reviews — e.g., filter by "Owner = your name" + "Updated At = today" to see all your activity for the day.
+</Tip>

@@ -1,0 +1,137 @@
+---
+title: "JFO Pipeline"
+description: "Job Force One pipeline — specialized job placement tracking with phase-based list views"
+icon: "jet-fighter"
+---
+
+## Overview
+
+The Job Force One (JFO) Pipeline manages clients enrolled in the **Job Force One program** — NxtJob's premium job placement service. Opportunities arrive here automatically when a sale is closed in the Sales Pipeline with "Job Force One" selected as the program type.
+
+The JFO pipeline mirrors the Operations pipeline stages but has its own **phase-based list view system** that tracks clients through structured job search phases.
+
+**Owner role:** A/C Manager (`accountManager` field on the opportunity)
+
+<Frame>
+  <img src="/images/erp/erp-jfo-pipeline.png" alt="JFO Pipeline Kanban board showing Job Force One program stages" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+Sales Pipeline (Full Pay / Part Pay, Program Type = JFO) → [JFO PIPELINE]
+                                                            (auto-created)
+```
+
+## Stages
+
+The JFO Pipeline has **7 stages** (identical structure to Operations):
+
+| # | Stage | Description |
+|---|---|---|
+| 1 | **Active** | Client is actively engaged in the JFO program. Entry point. |
+| 2 | **Inactive** | Client has become inactive or unresponsive. |
+| 3 | **On Break** | Client has requested a temporary break. |
+| 4 | **Defaulter** | Client has missed payments or violated terms. |
+| 5 | **Dropout** | Client has dropped out of the program. |
+| 6 | **Failed** | Client completed the program without achieving placement. |
+| 7 | **Successful** | Client achieved job placement. Terminal success stage. |
+
+## JFO Phase System
+
+The JFO program follows a **structured phase progression** that's tracked through the list view:
+
+### Phase 0 — Onboarding & Resume
+
+The initial setup phase where the client's resume is reviewed and approved.
+
+- Resume review and approval
+- Profile setup and optimization
+- Orientation to the JFO program and tools
+
+### Phase 1 — Network Building
+
+The client builds their professional network through strategic outreach.
+
+Key metrics tracked:
+- Network type engagement (counts by network type)
+- Company type engagement (counts by company type)
+- Accept rates, engagement rates, referral rates
+- Phase progress (days in phase)
+
+### Phase 2 — Job Search & Interviews
+
+Active job searching with a focus on interviews and offers.
+
+Key metrics tracked:
+- Hidden jobs unlocked (target companies and recruitment agencies)
+- Screening calls
+- Interviews (with proof upload)
+- Offers received
+- Phase progress
+
+### Phase 3 — Negotiation & Placement
+
+Final phase focused on salary negotiation and accepting an offer.
+
+Key metrics tracked:
+- Salary comparison (current vs. offered)
+- Negotiation status
+- Phase progress
+
+## JFO List View
+
+The JFO pipeline uses a dedicated [List View](/erp/list-views) with **6 phase-based variants**:
+
+| Variant | Description |
+|---|---|
+| **All Phases** | Overview across all phases with common columns |
+| **Phase 0** | Resume approval and onboarding tracking |
+| **Phase 1** | Network building metrics and connection statistics |
+| **Phase 2** | Job search progress — interviews, offers, screenings |
+| **Phase 3** | Negotiation tracking and salary details |
+| **Payment** | Payment status, amounts, and instalment schedules |
+
+Switch between variants using the dropdown selector in the list view toolbar.
+
+## Workflow
+
+### A/C Manager JFO Flow
+
+1. **Onboard new clients** — Review their resume, approve for Phase 0 completion
+2. **Guide through phases** — Support clients as they progress from networking to job search
+3. **Monitor metrics** — Use [JS Metrics](/erp/js-metrics) and the phase list views to track weekly progress
+4. **Review LinkedIn activity** — Check [LinkedIn Conversations](/erp/linkedin-conversations) for outreach quality
+5. **Track attendance** — Monitor [Group Call](/erp/group-call) attendance for engagement
+6. **Celebrate wins** — Move successful clients to the Successful stage
+
+### Phase Progression
+
+```
+Phase 0 (Resume) → Phase 1 (Network) → Phase 2 (Job Search) → Phase 3 (Negotiation) → Successful
+```
+
+Phase transitions are tracked through the list view's phase progress indicator, which shows the number of days spent in each phase.
+
+## Key Tabs
+
+For JFO clients, the most critical tabs in the [Opportunity Detail Modal](/erp/opportunity-detail) are:
+
+- **[JS Metrics](/erp/js-metrics)** — Weekly reachouts, accept %, engagement %, referral %, screenings, interviews, offers
+- **[LinkedIn Conversations](/erp/linkedin-conversations)** — Monitor outreach message quality and response rates
+- **[Group Call](/erp/group-call)** — Verify attendance at coaching calls and workshops
+- **[Client Persona](/erp/client-persona)** — Reference client background for personalized coaching
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **Placement rate** | Percentage of Active clients who reach Successful |
+| **Average time to placement** | Days from Active to Successful |
+| **Phase 1 → Phase 2 time** | How quickly clients build their network |
+| **Interview-to-offer rate** | Phase 2 conversion efficiency |
+| **Dropout rate** | Percentage of JFO clients who drop out |
+
+<Tip>
+The Phase 1 list view is particularly useful for weekly reviews — clients whose network metrics plateau may need coaching on messaging strategy or target audience selection.
+</Tip>

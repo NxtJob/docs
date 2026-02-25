@@ -1,0 +1,101 @@
+---
+title: "Call"
+description: "Call tracking, recording playback, and agent performance analytics"
+icon: "phone"
+---
+
+## Overview
+
+The Call module tracks every phone call made through the ERP's integrated telephony system. It provides a comprehensive log of all outbound and inbound calls with recording playback, agent attribution, and performance statistics.
+
+### Telephony Integration
+
+The ERP integrates with **Twilio** and **Tata Communications** for call handling:
+
+- **Outbound calls** — Initiated directly from opportunity cards or the call module
+- **Call initiation methods** — Phone (direct dial) or Extension (via desk phone)
+- **AI Agent calls** — Automated AI-powered calls with optional disposition tracking
+- **Recording** — All calls are automatically recorded and stored for playback
+
+### Initiating Calls
+
+Calls can be started from multiple places:
+
+1. **Opportunity card** — Click the phone icon on any opportunity card in the Kanban board
+2. **List view** — Use the Call quick-action column in Sales/Operations list views
+3. **Opportunity detail modal** — Via the Call Logs tab
+4. **Call module** — Direct dial from the Call page
+
+When initiating a call, you can choose between:
+- **Phone** — Direct call to the contact's phone number
+- **Extension** — Route through your desk extension
+
+Users need the `call:initiate` scope to make outbound calls and the `callScreen:view` scope to access the call interface.
+
+<Frame>
+  <img src="/images/erp/erp-call-logs.png" alt="Call log showing call records with stats, recordings, and agent information" />
+</Frame>
+
+## Call Statistics
+
+At the top of the page, three key metrics are displayed in real-time:
+
+| Metric | Description |
+|---|---|
+| **Dialed** (blue) | Total number of calls placed |
+| **Picked** (green) | Calls that were answered |
+| **Missed** (red) | Calls that went unanswered |
+
+These stats give an instant overview of team calling performance and answer rates.
+
+## Call Log Table
+
+Every call is logged with the following details:
+
+| Column | Description |
+|---|---|
+| **TO** | The phone number that was called, with a status indicator (green = picked, red = missed) |
+| **FROM** | The ERP phone number used to place the call |
+| **AGENT/CLIENT** | The team member who made or received the call |
+| **DATE & TIME** | Timestamp of the call |
+| **RECORDING** | Playback controls for the call recording |
+
+### Recording Playback
+
+Each call row includes built-in audio controls:
+- **Play button** — Start playback of the call recording
+- **Duration display** — Shows recording length
+- **Volume control** — Adjust playback volume
+- **Three-dot menu** — Additional recording options (download, share)
+
+### Call Status Indicators
+
+- **Green circle** — Call was picked up / connected
+- **Red circle** — Call was missed / not answered
+
+## Call Analytics
+
+The Call module provides analytics with date range and agent filtering:
+
+- **Date range** — Filter analytics by a specific period
+- **Agent filter** — View analytics for specific team members
+- **Key metrics** — Dialed, picked, missed counts with percentages
+
+## Filtering & Search
+
+The top-right toolbar provides filtering capabilities:
+
+- **Pick a date range** — Filter calls by date range using the calendar picker
+- **Search** — Search calls by phone number, agent name, or other criteria
+- **Filter icon** — Access advanced filter options
+- **Settings gear** — Configure call configuration per user type
+
+## Daily Calling Flow
+
+A typical daily calling workflow for Bookers/Setters:
+
+1. Open the Pipeline and review your assigned leads
+2. Click the phone icon on an opportunity card to initiate a call
+3. The call is logged automatically with timestamp, duration, and recording
+4. After the call, update the opportunity stage and add notes
+5. Review your call stats (Dialed/Picked/Missed) at the end of the day

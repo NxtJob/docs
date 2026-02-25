@@ -1,0 +1,84 @@
+---
+title: "JS Metrics"
+description: "Weekly job search performance metrics tracked per opportunity"
+icon: "chart-line"
+---
+
+## Overview
+
+The JS Metrics (Job Search Metrics) tab displays weekly performance data for a client's job search activity. It's available in the [Opportunity Detail Modal](/erp/opportunity-detail) and is primarily used in the **Operations** and **JFO** pipelines to track client progress.
+
+<Frame>
+  <img src="/images/erp/erp-js-metrics.png" alt="JS Metrics tab showing weekly job search performance data in a table" />
+</Frame>
+
+## Data Source
+
+Metrics are fetched based on the contact's **email** and **Job Search Warm Up date**. The Warm Up date defines Week 1 of the client's job search — all weekly data is calculated relative to this starting point.
+
+<Note>
+If the Job Search Warm Up date is not set for a contact, the system defaults to today's date and shows a warning banner.
+</Note>
+
+## Metrics Table Layout
+
+The tab displays a scrollable table with:
+
+- **Rows** = Metric types (13 rows)
+- **Columns** = Weeks (Week 1, Week 2, Week 3, etc.)
+
+The first column (Metric name) is sticky and always visible during horizontal scrolling. Each week column shows the label and date range.
+
+## Weekly Metrics Reference
+
+| # | Metric | Type | Description |
+|---|---|---|---|
+| 1 | **Reachouts (sent)** | Count | Total LinkedIn connection requests / messages sent |
+| 2 | **Companies** | Count | Unique companies reached out to |
+| 3 | **Accept** | Count | Connection requests accepted |
+| 4 | **Accept %age** | Percentage | Accept / Reachouts × 100 |
+| 5 | **Engaged** | Count | Contacts who responded or engaged |
+| 6 | **Engage %age** | Percentage | Engaged / Accept × 100 |
+| 7 | **Referred** | Count | Contacts who provided a referral |
+| 8 | **Referral %age** | Percentage | Referred / Engaged × 100 |
+| 9 | **Screenings** | Count | Screening calls scheduled |
+| 10 | **Screening %age** | Percentage | Screenings / Referred × 100 |
+| 11 | **Interviews** | Count | Formal interviews conducted |
+| 12 | **Interview %age** | Percentage | Interviews / Screenings × 100 |
+| 13 | **Offers** | Count | Job offers received |
+
+## Funnel Progression
+
+The metrics follow a **conversion funnel**:
+
+```
+Reachouts → Accept → Engaged → Referred → Screenings → Interviews → Offers
+```
+
+Each percentage metric measures the conversion rate from the previous stage to the current one. This helps identify where in the job search funnel a client may be struggling.
+
+## Usage
+
+### A/C Managers (Operations/JFO)
+
+- Review weekly during client check-ins to assess progress
+- Identify weeks with drops in activity or conversion rates
+- Use percentage metrics to coach clients on improving their approach
+
+### Sales Representatives
+
+- Reference metrics when discussing client success stories with prospects
+- Use aggregate data to validate the program's effectiveness
+
+## States
+
+| State | Display |
+|---|---|
+| **Loading** | Spinner animation |
+| **Error** | "Failed to load metrics" with retry suggestion |
+| **No data** | "No metrics data available — Metrics will appear once job search activity begins" |
+| **Data available** | Full scrollable metrics table |
+
+<Tip>
+Pay attention to the Accept %age and Engage %age columns — these are the earliest indicators of whether a client's outreach strategy is working. A drop below 20% accept rate usually signals a need for profile or messaging optimization.
+</Tip>

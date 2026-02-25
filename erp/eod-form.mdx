@@ -1,0 +1,152 @@
+---
+title: "EOD Form"
+description: "End-of-day data collection triggered by Sales pipeline stage transitions"
+icon: "clipboard-check"
+---
+
+## Overview
+
+The End of Day (EOD) Form is a **stage-triggered data collection modal** in the Sales pipeline. When an opportunity moves to certain stages — either by drag-and-drop on the Kanban board or during the daily pending EOD review — the system prompts the sales rep to fill in stage-specific information.
+
+The EOD form ensures critical data (call recordings, objections, payment details, reasons) is captured at every significant stage transition.
+
+<Frame>
+  <img src="/images/erp/erp-eod-form.png" alt="End of Day (EOD) form modal showing payment fields, instalments, and objections" />
+</Frame>
+
+## How It Works
+
+### Real-Time Trigger (Stage Progression Modal)
+
+When a sales rep drags an opportunity to a trigger stage on the Kanban board, the **Stage Progression Modal** opens immediately. The rep must complete the form before the stage change is saved.
+
+### Pending EOD Modal
+
+At the end of each day, the system checks for opportunities that moved to trigger stages but may have incomplete data. The **Pending Sales EOD Modal** presents these one by one:
+
+1. Left sidebar shows the opportunity name, current stage, and appointment date
+2. Right panel displays a stage selector dropdown and the corresponding form
+3. After completing one opportunity, the system advances to the next
+4. Counter shows progress (e.g., "Opportunity 1 of 5")
+
+## Trigger Stages
+
+The EOD form is triggered for these **9 Sales pipeline stages**:
+
+| Stage | Form Type | Description |
+|---|---|---|
+| **Offer Not Made (Non-Ideal Prospect)** | No Offer | Why the prospect was non-ideal |
+| **Sale - Full Pay** | Sales Pay | Full payment captured — triggers JFO/Ops lead creation |
+| **Sale - Part Pay** | Sales Pay | Partial payment captured — triggers JFO/Ops lead creation |
+| **Dead Follow Up Loss** | Dead Follow Up | Why the deal was lost |
+| **2nd Call Booked** | Second Call Booked | Follow-up call scheduling details |
+| **Uncertain Needs Time** | Uncertain | Prospect needs more time — objections and confidence tracked |
+| **Received Deposit** | Received Deposit | Deposit amount and payment schedule |
+| **No Show** | No Show | Prospect didn't attend the call |
+| **Rescheduled** | Rescheduled | Reason for rescheduling the call |
+
+## Fields by Stage
+
+### Offer Not Made (Non-Ideal Prospect)
+
+| Field | Type | Required |
+|---|---|---|
+| **Non-Ideal Reason** | Text | Yes |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+
+### Sale - Full Pay / Sale - Part Pay
+
+| Field | Type | Required |
+|---|---|---|
+| **Client Decision Reason** | Text | Yes |
+| **Amount Paid** | Number | Yes |
+| **Payment Date** | Date | Yes |
+| **2nd Instalment Amount** | Number | No |
+| **2nd Instalment Date** | Date | No |
+| **3rd Instalment Amount** | Number | No |
+| **3rd Instalment Date** | Date | No |
+| **Closed At (Total Deal Value)** | Number | Yes |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+| **Program Type** | Select | Yes |
+| **Objections** | Multi-select | Yes |
+
+**Program Type** determines where the auto-created lead goes:
+- **Job Force One** → Creates opportunity in JFO Pipeline (Active stage)
+- **Other programs** → Creates opportunity in Operations Pipeline (Active stage)
+
+### Dead Follow Up Loss
+
+| Field | Type | Required |
+|---|---|---|
+| **Loss Reason** | Text | Yes |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+
+### 2nd Call Booked
+
+| Field | Type | Required |
+|---|---|---|
+| **Confidence Level** | Number (1-5) | Yes |
+| **Objections Raised** | Text | Yes |
+| **Date of Next Call** | Date | Yes |
+| **Meeting Duration** | Number (min 10 mins) | No |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+| **Objections** | Multi-select | Yes |
+
+### Uncertain Needs Time
+
+| Field | Type | Required |
+|---|---|---|
+| **Confidence Level** | Number (1-5) | Yes |
+| **Objections Raised** | Text | Yes |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+| **Objections** | Multi-select | Yes |
+
+### Received Deposit
+
+| Field | Type | Required |
+|---|---|---|
+| **Amount Paid** | Number | Yes |
+| **Payment Date** | Date | Yes |
+| **2nd Instalment Amount** | Number | No |
+| **2nd Instalment Date** | Date | No |
+| **Closed At (Total Deal Value)** | Number | Yes |
+| **Confidence Level** | Number (1-5) | Yes |
+| **Objections Raised** | Text | No |
+| **Call Recording URL** | URL | Yes |
+| **Transcript** | Text | No |
+| **Objections** | Multi-select | Yes |
+
+### Rescheduled
+
+| Field | Type | Required |
+|---|---|---|
+| **Reason for Reschedule** | Text | Yes |
+
+### No Show
+
+The No Show form captures minimal data since the prospect didn't attend. The stage transition is recorded with the opportunity details.
+
+## Auto JFO/Operations Lead Creation
+
+When an opportunity moves to **Sale - Full Pay** or **Sale - Part Pay** and the EOD form is submitted:
+
+1. The backend checks the **Program Type** field
+2. If **Job Force One** → A new opportunity is created in the JFO Pipeline at the **Active** stage
+3. If any other program → A new opportunity is created in the Operations Pipeline at the **Active** stage
+4. A Facebook conversion event is submitted for tracking
+5. A "Payment Approved" note is auto-generated on the opportunity
+
+This automation ensures seamless handoff from Sales to Operations/JFO without manual opportunity creation.
+
+## Follow-Up Scheduling
+
+For the **2nd Call Booked** stage, the system automatically creates a follow-up appointment in the calendar based on the **Date of Next Call** field. This ensures the next call is scheduled and visible to the sales rep.
+
+<Tip>
+Always fill in the Call Recording URL — this is critical for sales managers to review call quality and provide coaching feedback. The transcript field, while optional, helps with searchability and AI-powered analysis.
+</Tip>

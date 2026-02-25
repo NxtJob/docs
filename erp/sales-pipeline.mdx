@@ -1,0 +1,112 @@
+---
+title: "Sales Pipeline"
+description: "Deal closing pipeline — 15 stages with EOD tracking, payment processing, and auto JFO/Ops handoff"
+icon: "handshake"
+---
+
+## Overview
+
+The Sales Pipeline is where deals are closed. Sales Representatives receive qualified leads from the Setter Pipeline, conduct sales calls, handle objections, and process payments. This is the most complex pipeline with **15 stages**, [EOD form](/erp/eod-form) integration, and automatic lead creation in Operations/JFO upon payment.
+
+**Owner role:** Sales Representative (`salesRep` field on the opportunity)
+
+<Frame>
+  <img src="/images/erp/erp-sales-pipeline.png" alt="Sales Pipeline Kanban board showing deal closing stages with EOD tracking" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+Setter Pipeline → [SALES PIPELINE] → Operations Pipeline / JFO Pipeline
+                                    ↑ (auto-created on payment)
+```
+
+## Stages
+
+The Sales Pipeline has **15 stages**:
+
+| # | Stage | EOD Trigger | Description |
+|---|---|---|---|
+| 1 | **Call Booked** | No | Leads handed off from Setter with a sales call scheduled. Entry point. |
+| 2 | **Grade 1 (Cancelled)** | No | Leads whose call was cancelled before it happened. |
+| 3 | **Grade 2 (Prequalify)** | No | Leads in the pre-qualification phase before the sales call. |
+| 4 | **Grade 3 (Ready to Go)** | No | Fully qualified leads ready for the sales call. |
+| 5 | **Unresolved** | No | Leads with unresolved issues that prevent progression. |
+| 6 | **No Confirmation/Cancel** | No | Leads who didn't confirm or cancelled their sales call. |
+| 7 | **No Show Call** | Yes | Lead didn't attend the scheduled sales call. |
+| 8 | **Rescheduled** | Yes | Sales call was rescheduled to a different date. |
+| 9 | **Offer Not Made (Non-Ideal Prospect)** | Yes | After the call, the prospect was deemed non-ideal. |
+| 10 | **Sale - Full Pay** | Yes | Deal closed with full payment. **Triggers auto lead creation.** |
+| 11 | **Sale - Part Pay** | Yes | Deal closed with partial payment. **Triggers auto lead creation.** |
+| 12 | **2nd Call Booked** | Yes | Follow-up call scheduled after initial discussion. |
+| 13 | **Received Deposit** | Yes | Deposit received but full payment pending. |
+| 14 | **Uncertain Needs Time** | Yes | Prospect needs more time to decide. |
+| 15 | **Dead Follow Up Loss** | Yes | Deal lost after follow-up attempts. Terminal stage. |
+
+### EOD-Triggered Stages
+
+Stages marked with **EOD Trigger = Yes** require the sales rep to fill out the [EOD Form](/erp/eod-form) when an opportunity is moved to that stage. The form collects stage-specific data like call recordings, objections, payment details, and reasons.
+
+Stages that are considered "call happened" stages (i.e., the sales call actually took place):
+- Offer Not Made, Sale - Full Pay, Sale - Part Pay, 2nd Call Booked, Received Deposit, Uncertain Needs Time, Dead Follow Up Loss
+
+## Workflow
+
+### Daily Sales Flow
+
+1. **Review Call Booked** — Check new leads from the Setter Pipeline
+2. **Pre-qualify** — Review [Client Persona](/erp/client-persona) and move to Grade 2/3
+3. **Conduct sales call** — Present the NxtJob program and handle objections
+4. **Complete EOD** — Fill the [EOD Form](/erp/eod-form) with call recording, outcome, and details
+5. **Process payment** — For closed deals, capture payment in the EOD form
+6. **Follow up** — Check 2nd Call Booked and Uncertain Needs Time for follow-up actions
+
+### Payment Flow
+
+When a deal closes:
+
+1. Move opportunity to **Sale - Full Pay** or **Sale - Part Pay**
+2. Fill the EOD form with payment details (amount, date, instalments)
+3. Select **Program Type** (Job Force One or standard program)
+4. The system automatically:
+   - Creates a new opportunity in **JFO Pipeline** (if Job Force One) or **Operations Pipeline** (Active stage)
+   - Submits a Facebook conversion event
+   - Generates a "Payment Approved" note
+
+### Handoff to Operations/JFO
+
+The handoff is **fully automated** upon payment. The new opportunity in Operations/JFO:
+- Is assigned to an A/C Manager (`accountManager` field)
+- Starts in the **Active** stage
+- Carries over all contact data including Client Persona
+
+## Sales List View
+
+The Sales pipeline has a dedicated [List View](/erp/list-views) with columns focused on deal tracking:
+
+| Column | Description |
+|---|---|
+| Call / Email / WhatsApp | Quick-action contact icons |
+| Days Since Sale Call | Days elapsed since the sales call |
+| Sales Call Date | When the sales call occurred |
+| Opportunity Name | Contact name |
+| Client Status | Current deal status |
+| Confidence Rating | Rep's confidence level (1-5) |
+| Objection Type | Primary objection raised |
+| Call Recording Link | Link to the call recording |
+
+The list view also supports stage filtering for all post-call stages (Grade 3 through Dead Follow Up Loss).
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **Close rate** | Percentage of Call Booked leads that result in Full Pay or Part Pay |
+| **Average deal value** | Average Closed At amount across paid deals |
+| **2nd Call conversion** | Percentage of 2nd Call Booked that eventually convert |
+| **Dead Follow Up rate** | Percentage of leads lost — analyze loss reasons for patterns |
+| **No Show rate** | Percentage of scheduled calls where the prospect didn't show |
+
+<Tip>
+Review the "Uncertain Needs Time" stage daily — these are warm prospects who may convert with a well-timed follow-up. Use the confidence rating to prioritize which ones to follow up first.
+</Tip>

@@ -1,0 +1,45 @@
+---
+title: "Group Call"
+description: "Group call attendance tracking with batch CSV upload and per-contact history"
+icon: "users-rectangle"
+---
+
+## Overview
+
+The Group Call tab tracks a client's attendance at group calls and workshops. It's available in the [Opportunity Detail Modal](/erp/opportunity-detail) and is primarily used in the **Operations** and **JFO** pipelines.
+
+<Frame>
+  <img src="/images/erp/erp-group-call.png" alt="Group Call tab showing attendance records for a contact" />
+</Frame>
+
+## Attendance Records
+
+The tab displays a paginated list of attendance records for the contact. Each record is shown as a card with:
+
+| Field | Description |
+|---|---|
+| **Meeting Date & Time** | Formatted date and time of the group call (e.g., "Jan 15, 2026 · 2:30 PM") |
+| **Duration** | Call duration in minutes, shown as a badge (e.g., "45 m") |
+| **Added By** | Who recorded the attendance and when |
+
+The header shows the contact's name and **total call count** (e.g., "12 calls").
+
+## Batch Attendance via CSV Upload
+
+Group call attendance is typically recorded in bulk via CSV upload (managed through the operations workflow outside the opportunity modal). The CSV upload:
+
+1. Matches contacts by their contact ID
+2. Records the meeting date, time, and duration for each attendee
+3. Attributes the upload to the user who performed it
+
+## Pagination
+
+Records load progressively using infinite scroll. As you scroll to the bottom, the next page of records loads automatically (20 records per page). A loading spinner appears while fetching additional records.
+
+## Empty State
+
+If no attendance records exist for the contact, the tab displays: "No attendance records found for this opportunity."
+
+<Tip>
+Regular group call attendance is a strong indicator of client engagement. Clients with low attendance may need additional outreach from their assigned A/C Manager or intern.
+</Tip>

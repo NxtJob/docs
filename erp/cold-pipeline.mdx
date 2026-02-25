@@ -1,0 +1,63 @@
+---
+title: "Cold Pipeline"
+description: "Cold outreach pipeline for LinkedIn-sourced leads and direct contact campaigns"
+icon: "snowflake"
+---
+
+## Overview
+
+The Cold Pipeline manages leads sourced through **cold outreach** — primarily LinkedIn prospecting and direct contact campaigns. Unlike the Booker Pipeline (which handles inbound ad leads), this pipeline handles outbound prospecting where the team initiates first contact.
+
+**Owner role:** Setter (uses the setter assignment workflow)
+
+<Frame>
+  <img src="/images/erp/erp-cold-pipeline.png" alt="Cold Pipeline Kanban board showing cold outreach stages" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+LinkedIn Outreach / Cold Contact → [COLD PIPELINE] → Setter Pipeline (via Setter Call Booked)
+```
+
+Qualified cold leads are handed off to the Setter Pipeline through the "Setter Call Booked" stage.
+
+## Stages
+
+The Cold Pipeline has **6 stages**:
+
+| # | Stage | Description |
+|---|---|---|
+| 1 | **LinkedIn Leads** | New leads sourced from LinkedIn outreach campaigns. Entry point. |
+| 2 | **No Response** | Leads who haven't responded to outreach attempts. |
+| 3 | **Wrong Number** | Leads with invalid contact information. |
+| 4 | **Followup** | Leads who need a follow-up attempt at a later date. |
+| 5 | **Setter Call Booked** | Leads who have agreed to a consultation call with a Setter. **Handoff stage.** |
+| 6 | **Junk Lead** | Disqualified leads. Terminal stage. |
+
+## Workflow
+
+### Cold Outreach Flow
+
+1. **Import LinkedIn leads** — Add new prospects from LinkedIn sourcing to the LinkedIn Leads stage
+2. **Initial outreach** — Contact leads via LinkedIn messages, phone, or email
+3. **Follow up** — Move unresponsive leads to Followup for later attempts
+4. **Book setter call** — For interested prospects, book a consultation and move to Setter Call Booked
+5. **Disqualify** — Move irrelevant leads to Junk Lead
+
+### Handoff to Setter
+
+When a cold lead reaches **Setter Call Booked**, the lead transitions to the Setter Pipeline where the standard consultation process begins.
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **Response rate** | Percentage of LinkedIn Leads that respond to outreach |
+| **Setter Call Booked rate** | Percentage of leads that convert to booked calls |
+| **Followup conversion** | How many follow-up leads eventually engage |
+| **Junk Lead rate** | Percentage of leads that are junk — indicates sourcing quality |
+
+<Tip>
+Use the [Filters](/erp/filters) with "Last Communication Date" to identify leads that haven't been contacted recently and may need a follow-up attempt.
+</Tip>

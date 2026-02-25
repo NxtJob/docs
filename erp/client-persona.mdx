@@ -1,0 +1,73 @@
+---
+title: "Client Persona"
+description: "20-field client profile tab for sales personalization and lead qualification"
+icon: "user-tag"
+---
+
+## Overview
+
+The Client Persona tab captures detailed information about a lead's professional background, career goals, and financial situation. Sales reps use this data to personalize their pitch and qualify prospects during consultations.
+
+Access the Client Persona from the [Opportunity Detail Modal](/erp/opportunity-detail) by clicking the **Client Persona** tab.
+
+<Frame>
+  <img src="/images/erp/erp-client-persona.png" alt="Client Persona tab showing the 20-field client profile form" />
+</Frame>
+
+## When to Use
+
+- **During setter calls** — Collect initial persona data while conducting the consultation
+- **Before sales calls** — Review the persona to tailor the pitch to the prospect's specific situation
+- **For lead qualification** — Assess if the prospect matches the ideal customer profile based on experience, salary, and commitment level
+
+## Fields Reference
+
+The Client Persona form is organized in a two-column grid layout. Click **Update Contact** to save changes.
+
+### Read-Only Fields
+
+These fields are auto-populated from the contact record and cannot be edited in this tab:
+
+| Field | Description |
+|---|---|
+| **Name** | Contact's full name |
+| **Email** | Contact's email address |
+| **WhatsApp Number** | Contact's phone number |
+
+### Editable Fields
+
+| Field | Type | Options / Description |
+|---|---|---|
+| **LinkedIn Profile** | URL | LinkedIn profile URL |
+| **Career Transition Interest** | Select | "Yes, both role and industry", "Only Role", "Only Industry", "No", "Neither, just looking for the same role (or a more senior role) in the same (or similar) industries" |
+| **Current Job Title** | Text | Free-text current job title |
+| **Current Industry** | Text | Free-text current industry |
+| **Seniority Level** | Select | "Individual Contributor", "Manager", "Leadership" |
+| **Experience** | Select | "0-4 years", "4-7 years", "8-11 years", "12-15 years", "16-20 years", "20+ years" |
+| **Training Video Watched** | Toggle | Yes / No |
+| **Current Employment Status** | Select | "Currently working full-time", "Currently working, but not sure about the job (e.g. on the bench)", "Serving notice period", "Been unemployed for less than 2 months", "Been unemployed for more than 2 months / Resuming from a career break" |
+| **Open to Relocate Outside India?** | Select | "Yes, Only India", "Both India and Abroad", "Only Abroad" |
+| **Current / Last Drawn Monthly Salary** | Text | Numeric value for current or last salary |
+| **Desired Monthly Salary** | Text | Numeric value for target salary |
+| **Biggest Career Concern** | Text | Free-text career concern |
+| **How Soon Commitment to New Job** | Select | "Right Now", "Within 90 days", "After 90 days" |
+| **Open To Professional Guidance?** | Select | "I have comfortable savings, and can invest in my job search", "I'm living paycheck to paycheck, but can put together funds if absolutely necessary", "Absolutely no financial bandwidth to invest in my job search right now" |
+| **Seniority (Client Niche)** | Select | Seniority level options from the classification system |
+| **Macro Industry** | Multi-select | Multiple industries can be selected from the predefined list |
+| **Fundamental Function** | Multi-select | Multiple job functions can be selected from the predefined list |
+
+### Multi-Select Fields
+
+The **Macro Industry** and **Fundamental Function** fields support multiple selections. Selected values appear as removable tags below the dropdown. Click the **x** on any tag to remove it.
+
+## Data Flow
+
+Client Persona data is stored on the **contact record**, not the opportunity. This means:
+
+- Persona data persists across all opportunities linked to the same contact
+- Updating the persona in one opportunity updates it for all associated opportunities
+- The data is accessible via the contact's profile throughout the system
+
+<Tip>
+Fill in the Client Persona during the setter consultation call. The "Biggest Career Concern" and "Employment Status" fields are especially useful for the sales rep to reference when crafting their pitch.
+</Tip>

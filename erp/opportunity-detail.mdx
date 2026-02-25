@@ -1,0 +1,152 @@
+---
+title: "Opportunity Detail"
+description: "The 11-tab opportunity modal — conversation timeline, contact details, appointments, tasks, and more"
+icon: "window-maximize"
+---
+
+## Overview
+
+Click on any opportunity's name in the Kanban board or list view to open the Opportunity Detail Modal. This is a comprehensive view with **11 tabs** covering every aspect of an opportunity's lifecycle.
+
+<Frame>
+  <img src="/images/erp/erp-opportunity-details.png" alt="Opportunity detail modal showing contact and opportunity information" />
+</Frame>
+
+## Tabs
+
+| Tab | Purpose | CTA Button |
+|---|---|---|
+| **Conversation** | Chronological activity timeline | — |
+| **Opportunity Details** | Contact info, UTM, payment fields | Update Opportunity |
+| **[Client Persona](/erp/client-persona)** | 20-field client profile for sales personalization | Update Contact |
+| **Book Appointment** | Schedule meetings via integrated calendars | Book Appointment |
+| **Tasks** | View and manage linked tasks | Add Task |
+| **Notes** | Internal team notes | Add Note |
+| **Documents** | Uploaded files (contracts, proposals) | Add Document |
+| **Call Logs** | Call history with recording playback | Get Call Logs |
+| **[JS Metrics](/erp/js-metrics)** | Weekly job search performance metrics | — |
+| **[LinkedIn Conversations](/erp/linkedin-conversations)** | LinkedIn message history (split-panel) | — |
+| **[Group Call](/erp/group-call)** | Group call attendance records | — |
+
+## Conversation Tab
+
+The **Conversation** tab displays a chronological timeline of all activity on the opportunity:
+
+<Frame>
+  <img src="/images/erp/erp-opportunity-conversation.png" alt="Conversation timeline showing opportunity creation and activity history" />
+</Frame>
+
+Events tracked in the timeline include:
+
+- **Opportunity created** — When and by whom the opportunity was created
+- **Stage movements** — Every stage change with source and destination stages
+- **Calls** — Outbound/inbound calls with duration and recording links
+- **Emails** — Email conversations sent and received
+- **Notes** — Internal notes added by team members
+- **Appointments** — Scheduled and completed meetings
+- **EOD entries** — End-of-day form submissions
+
+Each timeline entry shows the timestamp, actor (user or system), and action details.
+
+## Opportunity Details Tab
+
+Edit all core information about the opportunity:
+
+### Contact Details
+
+| Field | Description |
+|---|---|
+| **Primary Contact Name** | Lead's full name |
+| **Primary Email** | Email address |
+| **Primary Phone** | Phone number with country code |
+
+### Opportunity Details
+
+| Field | Description |
+|---|---|
+| **Owner** | Assigned team member (role varies by pipeline) |
+| **Tags** | Classification tags (e.g., salary ranges like "15 to 25 LPA") |
+| **Job Title** | Lead's current job title |
+| **Experience** | Years of experience |
+
+### UTM Tracking
+
+| Field | Description |
+|---|---|
+| **UTM Source** | Lead acquisition source (e.g., facebook, google) |
+| **UTM Medium** | Acquisition medium (e.g., Instagram_Feed, cpc) |
+
+### Payment Details
+
+These fields appear for opportunities in payment-related stages:
+
+| Field | Description |
+|---|---|
+| **Payment Status** | Full Payment, Partial Payment, or PDC |
+| **Amount Paid** | Total amount received |
+| **Outstanding Amount** | Remaining balance due |
+| **2nd Instalment Date/Amount** | Second payment schedule |
+| **3rd Instalment Date/Amount** | Third payment schedule |
+| **Closed At** | Total deal value |
+
+## Book Appointment Tab
+
+Schedule appointments directly from the opportunity:
+
+| Field | Description |
+|---|---|
+| **Calendar** | Select which calendar to use (e.g., "Book a 1-on-1 Consultation call") |
+| **Team Member** | Assign the appointment to a specific team member |
+| **Appointment Title** | Custom title for the meeting |
+| **Date & Time** | Choose Default or Custom scheduling with date picker and slot time selection |
+
+Appointments sync to Google Calendar via the [Calendar](/erp/calendar) integration.
+
+## Tasks Tab
+
+View and manage tasks linked to this opportunity:
+
+| Column | Description |
+|---|---|
+| **Task Name** | Task title with board prefix (e.g., "BKR-2") |
+| **Status** | Current status (To Do, In Progress, Done) |
+| **Due Date** | Calendar date when the task is due |
+| **Assignee** | Team member(s) assigned to the task |
+
+- **Selected Boards** dropdown — Filter tasks by board
+- **+ Add Task** — Create a new task directly linked to this opportunity
+
+## Notes Tab
+
+Add and view internal notes about the opportunity. Notes support rich text and are visible to all team members with access to the opportunity. Each note shows the author and creation timestamp.
+
+## Documents Tab
+
+Upload and manage documents associated with the opportunity. Supported formats include PDFs, Word documents, Google Docs, Google Sheets, and external links. Each document displays an icon based on its file type.
+
+## Call Logs Tab
+
+View all call history for this contact with:
+
+- **Call direction** — Inbound or outbound indicator
+- **Duration** — Call length
+- **Recording playback** — Built-in audio player for call recordings
+- **Agent** — Which team member made/received the call
+- **Timestamp** — Date and time of the call
+
+## Footer Information
+
+Every opportunity modal footer shows:
+
+| Field | Description |
+|---|---|
+| **Contact ID** | Unique identifier with copy button |
+| **Created** | Date and time the opportunity was created |
+| **Updated By** | Last modifier with timestamp |
+| **Moved By** | Who last changed the stage, with timestamp |
+
+Action buttons in the footer:
+
+- **Delete** (trash icon) — Permanently remove the opportunity
+- **Cancel** — Close without saving
+- **Update** — Save changes to the opportunity

@@ -1,0 +1,103 @@
+---
+title: "Calendar"
+description: "Scheduling appointments and managing calendars with Google Calendar integration"
+icon: "calendar"
+---
+
+## Overview
+
+The Calendar module provides a full-featured scheduling interface integrated with Google Calendar. Team members can view, create, and manage appointments across the organization with real-time sync.
+
+The Calendar page has two sub-sections accessible via tabs at the top: **Calendar** (the scheduling view) and **Calendar Settings** (calendar management).
+
+## Calendar View
+
+<Frame>
+  <img src="/images/erp/erp-calendar-week.png" alt="Calendar week view showing appointments with color coding and user filters" />
+</Frame>
+
+### View Modes
+
+Toggle between three viewing modes using the buttons in the top-right toolbar:
+
+| View | Description |
+|---|---|
+| **Day** | Single day view showing all time slots |
+| **Week** | Full week overview (default) with days as columns |
+| **Month** | Monthly overview for long-range planning |
+
+### Navigation
+
+- **Month/Year display** — Shows the current month and year (e.g., "Feb 2026")
+- **Arrow buttons** — Navigate forward/backward by day, week, or month
+- **Today button** — Jump back to the current date
+- **Column Width** — Toggle between "Wide" and compact column layouts
+
+### Appointments
+
+Appointments appear as color-coded blocks on the calendar:
+
+- **Blue blocks** — Standard appointments (e.g., "Rupesh Chandra <> Ajay Singh")
+- **Red blocks** — Career strategy calls or flagged appointments
+- **Green blocks** — Other appointment types
+- Each block shows the **participant names** and **time range** (e.g., "10:00 am - 11:00 am")
+- Click on any appointment block to view or edit its details
+
+### Creating Appointments
+
+Click the **+ New** button in the top-right corner to create a new appointment. You can also book appointments directly from an opportunity's **Book Appointment** tab in the Pipeline module.
+
+### Sidebar Filters
+
+The right sidebar provides two filter sections:
+
+**Mini Calendar**
+A compact monthly calendar for quick date navigation. The current date is highlighted with a circle. Click any date to jump to that day's view.
+
+**Users / Calendars Toggle**
+- **Users tab** — Filter appointments by specific team members. Checkboxes let you show/hide individual users' appointments.
+- **Calendars tab** — Filter by calendar type to show only specific calendar categories.
+- **Search** — Search for users by name to quickly find and filter.
+
+## Calendar Settings
+
+<Frame>
+  <img src="/images/erp/erp-calendar-settings.png" alt="Calendar Settings showing list of managed calendars" />
+</Frame>
+
+Calendar Settings displays a management table for all calendars in the system:
+
+| Column | Description |
+|---|---|
+| **Calendar Name** | The name of the calendar (e.g., "Aviral", "Tech Support", "Setter Calendar", "Book a 1-on-1 Consultation call") |
+| **Status** | Active or inactive status |
+| **Date Updated** | When the calendar was last modified |
+| **Action Dropdown** | Three-dot menu for edit/delete actions |
+
+### Creating a Calendar
+
+Click **Create Calendar** in the top-right corner to add a new calendar. Each calendar can be:
+- Named for a specific team member, purpose, or appointment type
+- Set to Active or Inactive
+- Configured with its own scheduling rules
+
+### Scheduling Types
+
+Calendars support different scheduling modes:
+
+| Type | Description |
+|---|---|
+| **Pick Member** | The booker/setter manually selects which team member to book the appointment with |
+| **Round Robin** | The system automatically assigns the appointment to the next available team member in rotation |
+
+### Availability Management
+
+Each user's availability is managed per calendar:
+
+- Users set their available time slots for each day of the week
+- Google Calendar events automatically block time slots
+- Availability is checked in real-time when booking from the opportunity's Book Appointment tab
+
+### Search
+
+Use the search bar next to the "Create Calendar" button to find calendars by name.

@@ -1,0 +1,183 @@
+---
+title: "List Views"
+description: "Tabular list view variants for Sales, Operations, and JFO pipelines"
+icon: "table-list"
+---
+
+## Overview
+
+List View is an alternative to the Kanban board that displays opportunities in a tabular format with sortable columns, inline editing, and variant-specific data. Toggle between Kanban and List View using the view switcher in the pipeline toolbar.
+
+List views group opportunities by stage in collapsible sections. Each stage header shows the stage name and opportunity count, and can be expanded or collapsed.
+
+## Operations Pipeline List Views
+
+<Frame>
+  <img src="/images/erp/erp-operations-list-view.png" alt="Operations Pipeline list view showing tabular data with collapsible stage sections" />
+</Frame>
+
+The Operations pipeline offers **five list view variants** toggled via a dropdown:
+
+### Default
+
+The standard overview with core opportunity data.
+
+| Column | Description |
+|---|---|
+| Call / Email / WhatsApp | Quick-action icons to initiate contact |
+| Opportunity Name | Contact name (clickable to open detail modal) |
+| Owner | Assigned A/C Manager |
+| Intern | Assigned intern |
+| Milestone | Progress milestone indicator |
+| Agreement URL | Link to signed agreement with status indicator |
+| Remaining Days | Days remaining in the program with extension option |
+| Intern Support Days | Days of intern support used |
+
+### Job Search Progress
+
+Tracks the client's active job search metrics.
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner | Assigned A/C Manager |
+| Intern | Assigned intern |
+| Videos Watched | LMS training videos completion percentage |
+| Resume Approved | Resume approval status for Phase 0 |
+| Network Metrics | Accept %, Engagement %, Referral %, Screening %, Interview % |
+| Job Metrics | Job approval and deletion rates |
+
+### Payment
+
+Tracks payment status and instalment schedules.
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner | Assigned A/C Manager |
+| Payment Status | Full Payment, Partial Payment, or PDC |
+| Amount Paid | Total amount received |
+| Outstanding Amount | Remaining balance |
+| Payment Instalments | Dates and amounts for 2nd/3rd instalments |
+
+### Client Success Resources
+
+Tracks resources and documents shared with the client.
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner | Assigned A/C Manager |
+| Intern | Assigned intern |
+| Bi-Weekly Email Proof | Upload proof of bi-weekly check-in emails |
+| Dashboard Links | Quick links to J/N/I/O/R dashboards |
+
+### Intern Performance
+
+Evaluates intern performance on assigned accounts.
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner | Assigned A/C Manager |
+| Intern | Assigned intern |
+| WIN Count | Number of successful outcomes with add button |
+| Milestone | Progress milestone with variant indicator |
+
+## Sales Pipeline List View
+
+<Frame>
+  <img src="/images/erp/erp-sales-list-view.png" alt="Sales Pipeline list view showing call outcomes and deal tracking columns" />
+</Frame>
+
+The Sales pipeline has a dedicated list view focused on call outcomes and deal tracking.
+
+| Column | Description |
+|---|---|
+| Call / Email / WhatsApp | Quick-action icons to initiate contact |
+| Days Since Sale Call | Number of days since the last sales call |
+| Sales Call Date | Date of the sales call |
+| Opportunity Name | Contact name |
+| Client Status | Current deal status |
+| Confidence Rating | Sales rep's confidence level (1-5) |
+| Objection Type | Type of objection raised by the prospect |
+| Call Recording Link | Direct link to the sales call recording |
+
+## JFO Pipeline List Views
+
+<Frame>
+  <img src="/images/erp/erp-jfo-list-view.png" alt="JFO Pipeline list view showing phase-based columns" />
+</Frame>
+
+The Job Force One pipeline uses **phase-based list view variants**:
+
+| Variant | Description |
+|---|---|
+| **All Phases** | Overview across all phases |
+| **Phase 0** | Resume approval and onboarding |
+| **Phase 1** | Network building — connection stats, accept %, engagement %, referral % |
+| **Phase 2** | Job search — visibility, interviews, offers |
+| **Phase 3** | Negotiation — salary tracking, offer details |
+| **Payment** | Payment status and instalment tracking |
+
+### Phase 0 Columns
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner | Assigned A/C Manager |
+| Intern | Assigned intern |
+| Resume Approved | Approval button for resume review |
+| Phase Progress | Days in current phase |
+
+### Phase 1 Columns
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner / Intern | Assigned team members |
+| Network Type Engagement | Engagement counts by network type |
+| Network Type Meter | Network type percentage breakdown |
+| Company Type Engagement | Engagement counts by company type |
+| Company Type Meter | Company type percentage breakdown |
+| Phase Progress | Days in current phase |
+
+### Phase 2 Columns
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner / Intern | Assigned team members |
+| Hidden Jobs Unlocked | Target companies and recruitment agencies badges |
+| Screenings | Number of screening calls |
+| Interviews | Number of interviews with proof upload |
+| Offers | Number of offers received |
+| Phase Progress | Days in current phase |
+
+### Phase 3 Columns
+
+| Column | Description |
+|---|---|
+| Opportunity Name | Contact name |
+| Owner / Intern | Assigned team members |
+| Salary Tracking | Current vs. offered salary comparison |
+| Negotiation Status | Status of salary negotiation |
+| Phase Progress | Days in current phase |
+
+## Inline Editing
+
+Many list view cells support inline editing:
+
+- **Select dropdowns** — Owner, intern, and status fields can be changed directly
+- **URL fields** — Click to edit agreement URLs and recording links
+- **Date pickers** — Payment dates and instalment dates with calendar picker
+- **Number inputs** — Payment amounts, confidence ratings
+- **Count fields** — Interview/offer counts with proof upload dialogs
+
+## Sorting in List View
+
+Click the sort button on any column header to sort opportunities by that column. Sort direction toggles between ascending and descending.
+
+<Tip>
+Use the Operations "Job Search Progress" variant during weekly reviews to quickly assess which clients need more support based on their network metrics and video completion rates.
+</Tip>

@@ -1,0 +1,79 @@
+---
+title: "Setter Pipeline"
+description: "Consultation scheduling pipeline — from qualified leads to booked sales calls"
+icon: "calendar-check"
+---
+
+## Overview
+
+The Setter Pipeline receives qualified leads from the Booker Pipeline. Setters conduct initial consultations, assess the lead's needs, and schedule sales calls with the Sales team for qualified prospects.
+
+**Owner role:** Setter (`setter` field on the opportunity)
+
+<Frame>
+  <img src="/images/erp/erp-setter-pipeline.png" alt="Setter Pipeline Kanban board showing consultation scheduling stages" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+Booker Pipeline → [SETTER PIPELINE] → Sales Pipeline → Operations/JFO
+```
+
+The Setter's goal is to **conduct consultations and schedule sales calls**. Qualified leads who complete their consultation are moved to the Sales Pipeline.
+
+## Stages
+
+The Setter Pipeline has **8 stages**:
+
+| # | Stage | Description |
+|---|---|---|
+| 1 | **New Lead** | Leads handed off from the Booker Pipeline with a booked consultation call. |
+| 2 | **Workshop** | Leads who have been invited to or attended a workshop/webinar session. |
+| 3 | **No Response** | Leads who haven't responded to the Setter's outreach after the initial booking. |
+| 4 | **Follow Up** | Leads who need a follow-up call or are not ready to schedule a sales call yet. |
+| 5 | **Wrong Number** | Leads with invalid contact information discovered during setter outreach. |
+| 6 | **Call Scheduled** | Leads who have a sales call scheduled with a Sales Representative. **This is the handoff stage.** |
+| 7 | **Unqualified Lead** | Leads who don't meet the qualification criteria after the consultation. |
+| 8 | **Junk Lead** | Disqualified leads (spam, not interested, duplicate). Terminal stage. |
+
+## Workflow
+
+### Daily Setter Flow
+
+1. **Review New Leads** — Check leads handed off from Booker Pipeline
+2. **Conduct consultations** — Call the lead, understand their needs, and fill in the [Client Persona](/erp/client-persona)
+3. **Qualify the prospect** — Assess if the lead is a fit for NxtJob programs
+4. **Schedule sales call** — If qualified, book a sales call and move to Call Scheduled
+5. **Categorize others** — Move to Follow Up, No Response, Unqualified Lead, or Junk Lead
+
+### Consultation Process
+
+During the setter consultation, the setter should:
+
+1. Review the lead's background from the Booker's notes
+2. Complete the [Client Persona](/erp/client-persona) tab with career details, salary information, and commitment level
+3. Assess qualification criteria (experience, employment status, financial readiness)
+4. If qualified, explain the NxtJob program and schedule a sales call
+5. Book the appointment using the [Book Appointment](/erp/opportunity-detail) tab
+
+### Handoff to Sales
+
+When a lead reaches the **Call Scheduled** stage:
+- The opportunity appears in the Sales Pipeline as **Call Booked**
+- The Sales Representative is assigned as the new owner (`salesRep` field)
+- The Setter's assignment is preserved for attribution
+- The Client Persona data is available for the sales rep to review
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **New Lead → Call Scheduled rate** | Percentage of leads that convert to scheduled sales calls |
+| **Consultation completion rate** | How many consultations are actually conducted vs. no-shows |
+| **Unqualified Lead rate** | Percentage of leads that don't qualify — may indicate Booker qualification needs improvement |
+| **Average time in pipeline** | How long leads stay before being scheduled or disqualified |
+
+<Tip>
+Always fill in the [Client Persona](/erp/client-persona) during the consultation — the Sales team relies on this data to personalize their pitch. Pay special attention to the "Biggest Career Concern" and "Employment Status" fields.
+</Tip>

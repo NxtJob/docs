@@ -1,0 +1,98 @@
+---
+title: "Users"
+description: "Employee and intern management with role-based access and pipeline ownership"
+icon: "users"
+---
+
+## Overview
+
+The Users module manages all team members who have access to the ERP. It is divided into two sections: **Users** (full employees) and **Interns** (intern/trainee accounts).
+
+## Users Tab
+
+<Frame>
+  <img src="/images/erp/erp-users.png" alt="Users list showing employees with their roles and contact information" />
+</Frame>
+
+The Users tab displays all employees in a table format:
+
+| Column | Description |
+|---|---|
+| **Name** | Employee name with color-coded avatar initials |
+| **Email** | Work email address (typically @nxtjob.ai) |
+| **Phone** | Phone number with country code |
+| **Role** | Assigned role determining permissions and pipeline access |
+| **Action** | Three-dot menu for edit/delete operations |
+
+## User Roles
+
+The ERP defines **7 user roles**. Each role determines which pipelines the user can access and what actions they can perform.
+
+| Role | Pipelines | Owner Field | Permissions |
+|---|---|---|---|
+| **Admin** | All pipelines | — | Full access: manage users, view all pipelines, configure settings, manage integrations |
+| **Booker** | Booker | `booker` | Qualify leads, make calls, book consultations, manage Booker pipeline opportunities |
+| **Setter** | Setter, Cold, Webinar | `setter` | Conduct consultations, schedule sales calls, manage Setter/Cold/Webinar pipeline opportunities |
+| **Pre-Sales Manager** | Booker, Setter | — | Oversee Booker and Setter teams, review performance, manage pre-sales workflow |
+| **Sales Representative** | Sales | `salesRep` | Close deals, process payments, complete EOD forms, manage Sales pipeline opportunities |
+| **A/C Manager** | Operations, JFO | `accountManager` | Manage post-sale clients, track progress, oversee interns, manage Ops/JFO pipeline opportunities |
+| **Marketing** | All (read access) | — | View pipeline data for campaign analysis, UTM tracking, and marketing attribution |
+
+### Pipeline Ownership Mapping
+
+When an opportunity is assigned to a user, the assignment is stored in a role-specific field:
+
+| Pipeline | Owner Field | Assigned Role |
+|---|---|---|
+| Booker Pipeline | `booker` | Booker |
+| Setter Pipeline | `setter` | Setter |
+| Sales Pipeline | `salesRep` | Sales Representative |
+| Operations Pipeline | `accountManager` | A/C Manager |
+| JFO Pipeline | `accountManager` | A/C Manager |
+
+Cold and Webinar pipelines use the `setter` field through the pipeline owner configuration.
+
+### User Status
+
+| Status | Description |
+|---|---|
+| **Active** | User can log in and access the system |
+| **Inactive** | User account is disabled but preserved |
+| **Deleted** | User account is permanently removed |
+
+### User Scopes
+
+Users can be granted additional scopes for specific capabilities:
+
+| Scope | Description |
+|---|---|
+| `call:initiate` | Allows the user to initiate outbound calls |
+| `callScreen:view` | Allows the user to view the call screen interface |
+
+### Adding Employees
+
+Click **+ Add Employee** in the top-right corner to invite a new team member. Provide their name, email, phone number, and assign a role.
+
+## Interns Tab
+
+<Frame>
+  <img src="/images/erp/erp-users-interns.png" alt="Interns list showing intern accounts with their status" />
+</Frame>
+
+The Interns tab manages trainee accounts with a similar table layout:
+
+| Column | Description |
+|---|---|
+| **Name** | Intern name with color-coded avatar |
+| **Email** | Personal email address |
+| **Phone** | Phone number |
+| **Status** | Account status (Active/Inactive) |
+| **Action** | Three-dot menu for management options |
+
+### Managing Interns
+
+- **+ Add Intern** — Add a single intern with their details
+- **+ Add Bulk Interns** — Import multiple interns at once for batch onboarding
+- **All dropdown** — Filter interns by status (All, Active, Inactive)
+
+Interns are assigned to opportunities in the Operations and JFO pipelines via the `intern` field. They support A/C Managers in client management tasks.

@@ -1,0 +1,106 @@
+---
+title: "Introduction"
+description: "NxtJob ERP overview — sales funnel flow, role mapping, and core modules"
+icon: "rocket"
+---
+
+## What Is NxtJob ERP?
+
+NxtJob ERP is the internal operations platform at [erp.nxtjob.ai](https://erp.nxtjob.ai) that powers the entire sales-to-operations pipeline. It manages lead qualification, sales calls, payment processing, client onboarding, and job search tracking — all in a single system.
+
+## Sales Funnel Flow
+
+Every lead flows through a structured funnel from acquisition to client success:
+
+```
+Facebook/LinkedIn Ad
+        ↓
+┌─────────────────────┐
+│   Booker Pipeline    │  Booker qualifies → books consultation
+└────────┬────────────┘
+         ↓
+┌─────────────────────┐
+│   Setter Pipeline    │  Setter conducts consultation → schedules sales call
+└────────┬────────────┘
+         ↓
+┌─────────────────────┐
+│   Sales Pipeline     │  Sales Rep closes deal → processes payment
+└────────┬────────────┘
+         ↓ (auto-created on payment)
+┌─────────────────────────────────────────┐
+│  Operations Pipeline  OR  JFO Pipeline  │  A/C Manager manages client success
+└─────────────────────────────────────────┘
+```
+
+Additional entry points:
+- **[Cold Pipeline](/erp/cold-pipeline)** — LinkedIn cold outreach → feeds into Setter Pipeline
+- **[Webinar Pipeline](/erp/webinar-pipeline)** — Webinar registrations → 1-on-1 calls → conversion
+
+## Role-to-Pipeline Mapping
+
+Each user role owns a specific pipeline and is assigned via a corresponding field on the opportunity:
+
+| Role | Pipeline(s) | Owner Field | Responsibility |
+|---|---|---|---|
+| **Admin** | All | — | Full system access, user management |
+| **Booker** | Booker | `booker` | Lead qualification, cold calling, booking consultations |
+| **Setter** | Setter, Cold, Webinar | `setter` | Conducting consultations, scheduling sales calls |
+| **Pre-Sales Manager** | Booker, Setter | — | Managing Booker and Setter teams |
+| **Sales Representative** | Sales | `salesRep` | Closing deals, processing payments, EOD reporting |
+| **A/C Manager** | Operations, JFO | `accountManager` | Post-sale client management, success tracking |
+| **Marketing** | All (read) | — | Campaign tracking, UTM attribution |
+
+## Core Modules
+
+| Module | Purpose |
+|---|---|
+| **[Pipeline Overview](/erp/pipeline-overview)** | Kanban board, opportunity cards, views, sorting, bulk assign, and export |
+| **[Filters](/erp/filters)** | 28+ advanced filter conditions with AND/OR logic |
+| **[List Views](/erp/list-views)** | Tabular views with pipeline-specific column variants |
+| **[Opportunity Detail](/erp/opportunity-detail)** | 11-tab modal — conversation, details, persona, appointments, tasks, notes, docs, calls, metrics, LinkedIn, group calls |
+| **[EOD Form](/erp/eod-form)** | Stage-triggered data collection in the Sales pipeline |
+| **[Calendar](/erp/calendar)** | Appointment scheduling with Google Calendar integration |
+| **[Users](/erp/users)** | Employee and intern management with role-based access |
+| **[Call](/erp/call)** | Call logging with Twilio/Tata integration and recording playback |
+| **[Task Management](/erp/task-management)** | Board-based task tracking with pipeline-specific boards |
+| **[Email](/erp/email)** | Shared inbox for customer email conversations |
+| **[Settings](/erp/settings)** | Google Calendar connection and integration management |
+
+## Pipeline Pages
+
+Detailed documentation for each pipeline:
+
+| Pipeline | Stages | Key Features |
+|---|---|---|
+| [**Booker**](/erp/booker-pipeline) | 10 stages | Facebook/LinkedIn leads → Call Booked |
+| [**Setter**](/erp/setter-pipeline) | 8 stages | Consultation → Call Scheduled |
+| [**Sales**](/erp/sales-pipeline) | 15 stages | EOD forms, payment tracking, auto JFO/Ops creation |
+| [**Operations**](/erp/operations-pipeline) | 7 stages | 5 list view variants, client success tracking |
+| [**Cold**](/erp/cold-pipeline) | 6 stages | Cold outreach → Setter Call Booked |
+| [**Webinar**](/erp/webinar-pipeline) | 6 stages | Registration → Attendance → Conversion |
+| [**JFO**](/erp/jfo-pipeline) | 7 stages | Phase-based list views (Phase 0-3), JS Metrics |
+
+## Getting Started
+
+<Steps>
+  <Step title="Sign in">
+    Navigate to [erp.nxtjob.ai](https://erp.nxtjob.ai) and sign in with your NxtJob account. You will be directed to the Pipeline view by default.
+  </Step>
+  <Step title="Explore the sidebar">
+    The left sidebar provides quick access to all modules: Pipeline, Calendar, Users, Call, Settings, Task Management, and Email. A global search bar sits at the top.
+  </Step>
+  <Step title="Select your pipeline">
+    Use the pipeline dropdown at the top of the Pipeline page to switch between pipelines. Your default pipeline depends on your role.
+  </Step>
+  <Step title="Start managing opportunities">
+    Click on any opportunity card to view its full details, book appointments, add tasks, log notes, and track conversation history.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/erp/erp-pipeline-kanban.png" alt="ERP Pipeline Kanban board showing opportunities across multiple stages" />
+</Frame>
+
+<Tip>
+Use the global search bar in the sidebar to quickly find any contact or opportunity across all pipelines without manually browsing through stages.
+</Tip>

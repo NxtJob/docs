@@ -1,0 +1,73 @@
+---
+title: "Task Management"
+description: "Board-based task tracking with assignees, statuses, and due dates"
+icon: "list-check"
+---
+
+## Overview
+
+The Task Management module provides a board-based system for creating, assigning, and tracking tasks across the team. Tasks can be linked to specific contacts/opportunities and organized into boards that correspond to different teams or workflows.
+
+<Frame>
+  <img src="/images/erp/erp-task-management.png" alt="Task Management showing task list with board prefix, status, and assignees" />
+</Frame>
+
+## Task Table
+
+Tasks are displayed in a table with the following columns:
+
+| Column | Description |
+|---|---|
+| **Task Name** | Prefixed with a board code (e.g., "BKR-2") followed by the task title. Click the edit icon to modify. |
+| **Status** | Current status with a color-coded badge (e.g., "To Do" in green). Click to change status. |
+| **Due Date** | Calendar date when the task is due |
+| **Contact** | Linked contact/opportunity shown by their initials badge |
+| **Assignee** | Team member(s) assigned to the task, shown as avatar badges |
+
+## Boards
+
+Tasks are organized into **boards** that map to team functions. The board prefix in the task name indicates which board the task belongs to.
+
+### Board Prefix Mapping
+
+| Prefix | Board | Pipeline |
+|---|---|---|
+| **BKR** | Booker | Booker Pipeline |
+| **STR** | Setter | Setter Pipeline |
+| **SLS** | Sales | Sales Pipeline |
+| **OPS** | Operations | Operations Pipeline |
+| **JFO** | Job Force One | JFO Pipeline |
+| **CLD** | Cold | Cold Pipeline |
+| **WBN** | Webinar | Webinar Pipeline |
+
+For example, a task named "BKR-2" is the 2nd task in the Booker board.
+
+### Selecting Boards
+
+Use the **Selected Boards** dropdown in the top-right corner to filter which boards' tasks are visible. The dropdown shows the count of currently selected boards (e.g., "Selected Boards (1)").
+
+## User Filters
+
+The toolbar displays colored avatar circles for team members. Click on any avatar to filter tasks assigned to that specific user. The **+28** badge indicates additional users beyond those shown.
+
+## Filter
+
+Click the **filter icon** (funnel) next to the user avatars to access advanced filtering options for tasks.
+
+## Creating Tasks
+
+Click **+ Add Task** at the bottom of the task list to create a new task. When creating a task, you can:
+
+- Set a **task name/title**
+- Choose a **status** (To Do, In Progress, Done, etc.)
+- Set a **due date**
+- Link to a **contact** or opportunity
+- Assign to one or more **team members**
+
+## Search
+
+Use the **Search** bar at the top-left to find tasks by name or content.
+
+<Tip>
+Tasks can also be created directly from an opportunity's detail modal in the Pipeline module, automatically linking the task to that specific contact.
+</Tip>

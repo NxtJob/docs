@@ -1,0 +1,120 @@
+---
+title: "Pipeline Overview"
+description: "Shared pipeline concepts — Kanban board, opportunity cards, views, sorting, bulk assign, and export"
+icon: "table-columns"
+---
+
+## Overview
+
+The Pipeline module is the heart of NxtJob ERP. It provides a Kanban-style board where every lead (called an **opportunity**) is represented as a card that moves through defined stages. Each pipeline represents a different team or workflow in the NxtJob sales funnel.
+
+<Frame>
+  <img src="/images/erp/erp-pipeline-kanban.png" alt="Pipeline Kanban board with opportunity cards organized by stages" />
+</Frame>
+
+## Switching Pipelines
+
+Use the dropdown at the top-left to switch between pipelines. The ERP supports seven pipelines:
+
+<Frame>
+  <img src="/images/erp/erp-pipeline-dropdown.png" alt="Pipeline selector dropdown showing all available pipelines" />
+</Frame>
+
+| Pipeline | Owner Role | Purpose |
+|---|---|---|
+| [**Booker Pipeline**](/erp/booker-pipeline) | Booker | Initial lead qualification from Facebook/LinkedIn ads |
+| [**Setter Pipeline**](/erp/setter-pipeline) | Setter | Consultation scheduling with qualified leads |
+| [**Sales Pipeline**](/erp/sales-pipeline) | Sales Representative | Deal closing, payment tracking, and EOD reporting |
+| [**Operations Pipeline**](/erp/operations-pipeline) | A/C Manager | Post-sale client management and success tracking |
+| [**Cold Pipeline**](/erp/cold-pipeline) | Setter | Cold outreach via LinkedIn and direct contact |
+| [**Webinar Pipeline**](/erp/webinar-pipeline) | Setter | Leads from webinar registrations and attendees |
+| [**Job Force One Pipeline**](/erp/jfo-pipeline) | A/C Manager | Specialized job placement program tracking |
+
+Each pipeline displays a total opportunity count (e.g., "1430 Opportunities") and has its own set of stages shown as columns.
+
+## Kanban Board
+
+### Pipeline Stages
+
+Stages are the columns on the Kanban board. Each stage shows:
+
+- **Stage name** (e.g., Facebook Lead, Cold Calling, Call Booked)
+- **Opportunity count** per stage
+- **Color-coded header bar** for visual distinction
+
+Opportunities move between stages by **drag-and-drop**. Drag a card from one column to another to update its stage. Certain stage transitions in the Sales pipeline trigger an [EOD Form](/erp/eod-form) that must be completed.
+
+### Opportunity Cards
+
+Each opportunity card provides at-a-glance information and quick actions:
+
+- **Contact name** — The lead's name prominently displayed
+- **Assigned user badge** — Color-coded initials of the assigned team member
+- **Quick-action icons** — Call, notes count, documents, tasks, email, chat, and more
+- **Notification badges** — Red/blue badges indicate pending items (e.g., unread notes, overdue tasks)
+- **Checkbox** — Select opportunities for bulk operations
+- **Three-dot menu** — Additional actions per card
+
+Click on any opportunity's name to open the [Opportunity Detail Modal](/erp/opportunity-detail).
+
+## Views Toggle
+
+Each pipeline supports two view modes:
+
+| View | Description |
+|---|---|
+| **Kanban** | Default drag-and-drop board with stage columns |
+| **List View** | Tabular view with sortable columns, variant-specific data, and inline editing |
+
+Toggle between views using the view switcher in the toolbar. See [List Views](/erp/list-views) for details on each pipeline's list view variants.
+
+## Sorting
+
+Click the **Sort** button in the toolbar to reorder opportunities within stages. Available sort options:
+
+| Option | Description |
+|---|---|
+| **Created At** | Sort by when the opportunity was created |
+| **Updated At** | Sort by the most recent update |
+| **Opportunity Name** | Alphabetical sorting by contact name |
+
+## Bulk Assign
+
+Select multiple opportunity checkboxes, then use **Bulk Assign** to reassign them to a different team member in one action. This is useful when redistributing leads between team members.
+
+## Advanced Filters
+
+Click **Advanced Filters** in the toolbar to open the filter panel. Filters narrow down displayed opportunities using powerful rules with AND/OR logic.
+
+<Frame>
+  <img src="/images/erp/erp-pipeline-filters.png" alt="Advanced Filters panel with AND/OR logic and filter conditions" />
+</Frame>
+
+See [Filters](/erp/filters) for the complete list of 28+ filter conditions.
+
+## Adding Opportunities
+
+Click the **+ Add Opportunity** button in the top-right corner to create a new lead. The form collects:
+
+| Field | Description |
+|---|---|
+| **Contact Name** | Lead's full name (required) |
+| **Contact Email** | Email address (required) |
+| **Contact Phone** | Phone number with country code (required) |
+| **Pipeline** | Which pipeline to place the opportunity in (required) |
+| **Pipeline Stage** | Initial stage within the pipeline (required) |
+| **Owner** | Assigned team member |
+| **Tags** | Classification tags (e.g., salary ranges) |
+| **Job Title** | Lead's current job title |
+| **Experience** | Years of experience |
+| **UTM Source** | Lead acquisition source |
+| **UTM Medium** | Lead acquisition medium |
+| **Payment Fields** | Amount paid, outstanding amount, instalment dates (for paid stages) |
+
+## Export
+
+Click the three-dot menu next to the "+ Add Opportunity" button to access **Export Opportunities**, which exports your current pipeline data as a downloadable file.
+
+<Tip>
+Use keyboard shortcuts to navigate faster: click a card to preview it, use the pipeline dropdown to switch contexts, and combine filters with sort to find exactly the opportunities you need.
+</Tip>

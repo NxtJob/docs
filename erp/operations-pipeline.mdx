@@ -1,0 +1,100 @@
+---
+title: "Operations Pipeline"
+description: "Post-sale client management pipeline with 5 list view variants and success tracking"
+icon: "gears"
+---
+
+## Overview
+
+The Operations Pipeline manages clients **after they've paid** for a standard NxtJob program (non-JFO). Opportunities arrive here automatically when a sale is closed in the Sales Pipeline. A/C Managers oversee client onboarding, track progress, and manage the client through to successful job placement or program completion.
+
+**Owner role:** A/C Manager (`accountManager` field on the opportunity)
+
+<Frame>
+  <img src="/images/erp/erp-operations-pipeline.png" alt="Operations Pipeline Kanban board showing post-sale client management stages" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+Sales Pipeline (Full Pay / Part Pay) → [OPERATIONS PIPELINE]
+                                        (auto-created)
+```
+
+## Stages
+
+The Operations Pipeline has **7 stages**:
+
+| # | Stage | Description |
+|---|---|---|
+| 1 | **Active** | Client is actively engaged in the program. Entry point for new clients. |
+| 2 | **Inactive** | Client has become inactive or unresponsive. Needs re-engagement. |
+| 3 | **On Break** | Client has requested a temporary break from the program. |
+| 4 | **Defaulter** | Client has missed payments or violated program terms. |
+| 5 | **Dropout** | Client has dropped out of the program. |
+| 6 | **Failed** | Client completed the program but did not achieve the desired outcome. |
+| 7 | **Successful** | Client achieved their goal (job placement, career transition, etc.). Terminal success stage. |
+
+## Workflow
+
+### A/C Manager Daily Flow
+
+1. **Check Active clients** — Review client progress, upcoming milestones, and group call attendance
+2. **Monitor Inactive** — Reach out to inactive clients to re-engage them
+3. **Track payments** — Verify payment instalments are on schedule using the Payment list view
+4. **Review intern performance** — Check intern assignments and their impact on client outcomes
+5. **Update milestones** — Progress clients through milestones as they achieve goals
+
+### Client Lifecycle
+
+```
+Active → (engaged) → Successful
+Active → (unresponsive) → Inactive → (re-engaged) → Active
+Active → (requested) → On Break → (returned) → Active
+Active → (payment issues) → Defaulter
+Active → (quit) → Dropout
+Active → (completed, no success) → Failed
+```
+
+## List View Variants
+
+The Operations pipeline offers **5 list view variants** for different management perspectives. See [List Views](/erp/list-views) for detailed column descriptions.
+
+| Variant | Purpose |
+|---|---|
+| **Default** | Core overview — owner, intern, milestone, agreement, remaining days |
+| **Job Search Progress** | Track client's job search activity — videos watched, network metrics, resume approval |
+| **Payment** | Monitor payment status — amounts, instalments, outstanding balances |
+| **Client Success Resources** | Track resources shared — bi-weekly email proofs, dashboard links |
+| **Intern Performance** | Evaluate intern impact — WIN counts, milestone progress |
+
+### Payment Status Types
+
+| Status | Description |
+|---|---|
+| **Full Payment** | Client has paid the full program amount |
+| **Partial Payment** | Client has paid partially with outstanding instalments |
+| **PDC** | Post-dated cheque received |
+
+## Key Tabs
+
+For each client opportunity, the most relevant tabs are:
+
+- **[JS Metrics](/erp/js-metrics)** — Weekly job search performance data
+- **[LinkedIn Conversations](/erp/linkedin-conversations)** — Monitor client outreach
+- **[Group Call](/erp/group-call)** — Track attendance at group sessions
+- **[Client Persona](/erp/client-persona)** — Reference client background for personalized support
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **Active → Successful rate** | Percentage of clients who achieve their goal |
+| **Dropout rate** | Percentage of clients who leave the program early |
+| **Average time to success** | How long it takes active clients to reach Successful |
+| **Defaulter rate** | Percentage of clients with payment issues |
+| **Intern utilization** | How effectively interns are supporting client outcomes |
+
+<Tip>
+Use the "Job Search Progress" list view variant for weekly team reviews. Sort by network metrics to quickly identify which clients need additional coaching on their outreach strategy.
+</Tip>

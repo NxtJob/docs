@@ -1,0 +1,70 @@
+---
+title: "Booker Pipeline"
+description: "Lead qualification pipeline — from Facebook/LinkedIn ads to booked consultations"
+icon: "phone-volume"
+---
+
+## Overview
+
+The Booker Pipeline is the **first stage of the sales funnel**. Leads arrive from Facebook ads, LinkedIn campaigns, and other marketing channels. Bookers qualify these leads through cold calling and move qualified prospects to the Setter Pipeline for consultation scheduling.
+
+**Owner role:** Booker (`booker` field on the opportunity)
+
+<Frame>
+  <img src="/images/erp/erp-booker-pipeline.png" alt="Booker Pipeline Kanban board showing lead qualification stages" />
+</Frame>
+
+## Sales Funnel Position
+
+```
+Facebook/LinkedIn Ad → [BOOKER PIPELINE] → Setter Pipeline → Sales Pipeline → Operations/JFO
+```
+
+The Booker's goal is to **qualify leads and book consultation calls** with Setters. Once a call is booked, the lead moves to the Setter Pipeline.
+
+## Stages
+
+The Booker Pipeline has **10 stages**:
+
+| # | Stage | Description |
+|---|---|---|
+| 1 | **Facebook Lead** | New leads from Facebook ad campaigns. This is the primary entry point for most leads. |
+| 2 | **LinkedIn Lead** | New leads from LinkedIn ad campaigns and outreach. |
+| 3 | **Cold Calling** | Leads currently being contacted via cold calls. Bookers actively dial these leads. |
+| 4 | **Software** | Leads who have interacted with NxtJob software products (Resume Builder, Job Board, etc.). |
+| 5 | **No Response** | Leads who haven't answered calls or responded to outreach after multiple attempts. |
+| 6 | **Wrong Number** | Leads with invalid or incorrect phone numbers. |
+| 7 | **Follow Up** | Leads who need a follow-up call at a later date. |
+| 8 | **Awaiting Rebook** | Leads whose initial booking fell through and need rescheduling. |
+| 9 | **Call Booked** | Qualified leads who have a consultation call booked with a Setter. **This is the handoff stage.** |
+| 10 | **Junk Lead** | Disqualified leads (spam, not interested, duplicate, etc.). Terminal stage. |
+
+## Workflow
+
+### Daily Booker Flow
+
+1. **Check new leads** — Review Facebook Lead and LinkedIn Lead stages for fresh leads
+2. **Start cold calling** — Move leads to Cold Calling and begin dialing
+3. **Qualify the lead** — During the call, assess if the lead is a fit for NxtJob services
+4. **Book a consultation** — If qualified, book a setter call and move to Call Booked
+5. **Categorize unqualified** — Move to No Response, Wrong Number, Follow Up, or Junk Lead
+
+### Handoff to Setter
+
+When a lead reaches the **Call Booked** stage:
+- The opportunity is visible to Setters in the Setter Pipeline as a **New Lead**
+- The Booker's assignment (`booker` field) is preserved on the opportunity for attribution
+- The Setter is assigned as the new owner
+
+## Key Metrics
+
+| Metric | What to Track |
+|---|---|
+| **Lead → Call Booked rate** | Percentage of new leads that result in booked calls |
+| **Cold Calling volume** | Number of calls made per day |
+| **Junk Lead rate** | Percentage of leads that are junk — high rates may indicate ad targeting issues |
+| **Follow Up conversion** | How many follow-up leads eventually book calls |
+
+<Tip>
+Focus on the Facebook Lead and LinkedIn Lead stages first each morning — fresh leads have the highest contact rate. Use the [Filters](/erp/filters) to sort by "Created At" to prioritize the newest leads.
+</Tip>
