@@ -172,7 +172,7 @@ After clicking the button, the AI analyzes your resume and returns suggestions o
 
 <Steps>
   <Step title="AI generates suggestions">
-    The system sends your resume and job data to `POST /resume/ats/fix/v2`. The AI returns optimized content for each applicable section along with explanations and keyword mappings.
+    The AI analyzes your resume against the job description and generates optimized content for each applicable section, along with explanations and keyword highlights.
   </Step>
   <Step title="Review Headline">
     The first step shows your current headline vs. the suggested headline. Review the change, see which keywords were added, and check the ATS Score Impact badge.
@@ -267,9 +267,9 @@ Before running One-Click Optimization, make sure your resume already has a solid
 
 ### Caching and Re-running
 
-ATS suggestions are cached per resume version. If you run One-Click ATS Optimization, partially accept changes, and then run it again without editing your resume, the system returns cached suggestions to avoid redundant API calls. The cache is invalidated whenever the resume content changes (tracked via `resumeId` + `updatedAt` timestamp).
+ATS suggestions are cached per resume version. If you run One-Click ATS Optimization, partially accept changes, and then run it again without editing your resume, the system returns the same suggestions from last time.
 
-If you made significant edits after a previous optimization run, clicking the button again generates fresh suggestions based on your updated resume content.
+If you make edits to your resume after a previous optimization run, clicking the button again generates fresh suggestions based on your updated content.
 
 ### Results After Optimization
 
