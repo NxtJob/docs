@@ -166,6 +166,10 @@ These four sections are where ATS keyword placement has the highest impact.
 
 After clicking the button, the AI analyzes your resume and returns suggestions organized as a **step-by-step wizard**. You review each section one at a time.
 
+<Frame>
+  <img src="/images/resume-builder/ats-wizard-improved-bullet.png" alt="One Click ATS wizard showing an improved bullet point with original text, AI suggestion with highlighted keyword, explanation, and Accept/Skip buttons" />
+</Frame>
+
 <Steps>
   <Step title="AI generates suggestions">
     The system sends your resume and job data to `POST /resume/ats/fix/v2`. The AI returns optimized content for each applicable section along with explanations and keyword mappings.
@@ -208,6 +212,14 @@ Each wizard step presents three components:
 - **"Revert & Go Back"** — Undoes the previous step's accepted changes and goes back. Only available after step 1.
 - **"Skip"** — Skips this section without applying changes. Your original content stays untouched.
 - **"Accept & Continue"** — Applies the suggested changes and advances to the next section.
+
+The wizard also presents **new bullet points** for roles where additional keyword coverage is needed. These appear with only a SUGGESTION section (no ORIGINAL), and are labeled as "NEW BULLET POINT" in the header.
+
+<Frame>
+  <img src="/images/resume-builder/ats-wizard-new-bullet.png" alt="New bullet point step showing AI-generated bullet with multiple highlighted keywords (product strategy, trading, Stock Market) and Medium ATS Score Impact" />
+</Frame>
+
+For the **Skills** step, the suggestion shows all recommended skills as removable chips. You can click the "x" on any skill to exclude it before accepting.
 
 ### Rewriting Suggestions Within the Wizard
 
@@ -258,6 +270,14 @@ Before running One-Click Optimization, make sure your resume already has a solid
 ATS suggestions are cached per resume version. If you run One-Click ATS Optimization, partially accept changes, and then run it again without editing your resume, the system returns cached suggestions to avoid redundant API calls. The cache is invalidated whenever the resume content changes (tracked via `resumeId` + `updatedAt` timestamp).
 
 If you made significant edits after a previous optimization run, clicking the button again generates fresh suggestions based on your updated resume content.
+
+### Results After Optimization
+
+After completing the wizard, your ATS Score recalculates immediately. A typical optimization run can improve your score significantly — for example, moving from 32% ("Needs Work") to 76% ("Great Match") in a single pass.
+
+<Frame>
+  <img src="/images/resume-builder/ats-score-after-optimization.png" alt="ATS Score panel showing 76% Great Match after One Click ATS Optimization with 38 matched and 12 missed keywords" />
+</Frame>
 
 ---
 
@@ -323,17 +343,25 @@ Clicking the **"Edit"** button next to "Select keywords to generate bullet point
 
 ### How to Toggle Keywords On or Off
 
+<Frame>
+  <img src="/images/resume-builder/ats-edit-keywords.png" alt="Edit keywords view with toggle switches for each keyword" />
+</Frame>
+
 <Steps>
   <Step title="Click Edit">
     Click the **"Edit"** button in the keyword section of the ATS Score panel.
   </Step>
   <Step title="Toggle keywords">
-    Each keyword has a toggle or checkbox. Turn off any keyword you want to exclude from the analysis. Turn on any keyword you want to include.
+    Each keyword has a blue toggle switch. Turn off any keyword you want to exclude from the analysis — the toggle turns grey when disabled. Turn on any keyword you want to include.
   </Step>
   <Step title="Save your changes">
-    Confirm your selection to update the keyword list. The ATS Score and keyword analysis will adjust to reflect your changes.
+    Click **"Save"** to update the keyword list. The ATS Score and keyword analysis will adjust to reflect your changes.
   </Step>
 </Steps>
+
+<Frame caption="Toggling off a keyword (e.g., Python) excludes it from ATS scoring and optimization">
+  <img src="/images/resume-builder/ats-edit-keywords-toggled.png" alt="Edit keywords view with Python keyword toggled off" />
+</Frame>
 
 ### When Should I Exclude a Keyword?
 
@@ -371,13 +399,21 @@ The **"Generate Bullet Points"** button appears at the bottom of the keyword tab
     Scroll through the keyword table in the ATS Score panel. Identify missing keywords (those with a Resume count of 0 or low counts) that are relevant to your experience.
   </Step>
   <Step title="Select keywords">
-    Check the checkbox next to each keyword you want to target. You can select multiple keywords at once. The "Generate Bullet Points" button becomes active once at least one keyword is selected.
+    Check the checkbox next to each keyword you want to target. You can select multiple keywords at once. A counter shows how many keywords are selected (e.g., "2/5 keywords selected"). The **"Generate Bullet Points"** button becomes active once at least one keyword is selected.
+
+    <Frame>
+      <img src="/images/resume-builder/ats-select-keywords.png" alt="Keyword checkboxes with 2 of 5 keywords selected and Generate Bullet Points button active" />
+    </Frame>
   </Step>
   <Step title="Click Generate Bullet Points">
     Click the **"Generate Bullet Points"** button at the bottom of the keyword table. The AI generates new bullet points that incorporate your selected keywords.
   </Step>
   <Step title="Review the generated bullets">
-    Read through the generated bullet points. Each one is written in the standard resume format: action verb + task + measurable result, with your selected keywords woven in naturally.
+    The generated bullet points appear in a panel. Each bullet is written in standard resume format with your selected keywords shown in **bold**. Use the copy icon next to each bullet to copy it to your clipboard. Click **"Generate More Bullet Points"** if you need additional options.
+
+    <Frame>
+      <img src="/images/resume-builder/ats-generated-bullets.png" alt="AI Generated Bullet Points panel showing 4 keyword-optimized bullets with copy icons" />
+    </Frame>
   </Step>
   <Step title="Add bullets to your resume">
     Add the generated bullet points to the appropriate Work Experience entries in your resume. You can edit them further to match your personal voice, add specific metrics, or adjust phrasing.
