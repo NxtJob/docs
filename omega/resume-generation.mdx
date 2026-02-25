@@ -25,14 +25,13 @@ The resume generator uses everything built through the Omega workflow:
 ### Generation Process
 
 1. User clicks **"Generate Resume"** from the CAR page
-2. Frontend calls `POST /omega/generate/resume` with the niche ID
-3. Backend assembles all data from SWOT, CAR, companies, and onboarding tables
-4. The LLM controller (`llmOmega.controller.ts:optimizeResumeATSWithAI`) generates the resume:
+2. The system assembles all data from your SWOT skills, CAR statements, companies, and onboarding profile
+3. The AI generates the resume:
    - Incorporates keywords with exact spelling matching
    - Preserves existing metrics and achievements from CAR statements
    - Distributes keywords across headline, summary, work experience, and skills sections
    - Optimizes for ATS parsing while maintaining readability
-5. The generated resume is rendered at `/generated-resume`
+4. The generated resume is rendered on screen
 
 ### AI Optimization
 
@@ -44,13 +43,10 @@ The resume AI specifically:
 
 ## Resume Output
 
-The generated resume is rendered using React PDF Renderer (`@react-pdf/renderer`) and can be:
+The generated resume can be:
 - Viewed in-browser as a PDF preview
 - Downloaded as a PDF file
 - Further edited and customized
-
-**Frontend:** `components/Omega/GeneratedResume.jsx` → `pages/generated-resume.js`
-**PDF Rendering:** Uses `@react-pdf/renderer` (v4.3.2) + `jsPDF` (v3.0.1) for generation
 
 ## Workflow Position
 
@@ -64,11 +60,6 @@ SWOT Analysis (rated skills) + CAR Statements (resume bullets)
     Download → Apply to jobs from Jobs page
 ```
 
-## API
-
-| Endpoint | Description |
-|---|---|
-| `POST /omega/generate/resume` | Generate complete resume from Omega data |
-| `POST /omega/skill-coverage` | Check skill coverage before generating (gaps = weaker resume) |
-
-**Hooks:** `useOmega.js:useGenerateResume(body)`
+<Tip>
+Before generating your resume, check Skill Coverage on the CAR page. Gaps in skill coverage mean the generated resume will be weaker for those areas. Fill gaps with more CAR statements first for the best results.
+</Tip>

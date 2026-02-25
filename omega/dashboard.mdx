@@ -22,8 +22,6 @@ The top section shows a **carousel of tutorial videos** under "Your Learning Pat
 
 Each video card shows the topic name, a play button, the foundation label, and a "Watch Video" CTA. Navigate between videos using the left/right arrow buttons.
 
-**Frontend:** `components/Omega/dashboard/Dashboard.jsx` renders the video carousel using data from the learning path configuration.
-
 ## Career Niches
 
 ### Niche Tabs
@@ -64,16 +62,9 @@ Click **"+"** to open the Add Niche slide-out panel. Define your career niche wi
 | **Keywords to Include** | Tag input | Resume keywords to prioritize |
 | **Keywords to Exclude** | Tag input | Keywords to avoid |
 
-**Frontend:** `components/Omega/dashboard/modals/AddNicheModal.jsx`
-**API:** `POST /omega/create/niche` → `omega.controller.ts:createNiche()`
-**DB Table:** `userNiche` — stores nicheId, userId, primaryJobTitle, jobTitleAlias (JSON), industry (JSON), roleCategory (JSON), companyType (JSON), experience, location, targetCompanies (JSON), inclusiveKeywords (JSON), exclusiveKeywords (JSON)
-
 ### Editing a Niche
 
 Click the three-dot menu (⋮) on any niche tab to edit or delete it. The Update Niche panel has the same fields as creation.
-
-**Frontend:** `components/Omega/dashboard/modals/UpdateNicheModal.jsx`
-**API:** `POST /omega/update/niche`
 
 ## SWOT / CAR Progression Cards
 
@@ -90,6 +81,3 @@ Displays: `Challenge | Action | Result`
 - CAR unlocks after SWOT is completed
 - Click the arrow (→) to navigate to the CAR page
 
-**Frontend:** `components/Omega/dashboard/BeltContainer.jsx` renders both cards. `BeltCard.jsx` renders individual progression cards with status-based styling.
-
-**State:** `omegaSlice.js` tracks `nicheData[]`, `activeNiche`, `isLoadingNiche`, and all modal visibility flags.

@@ -58,19 +58,14 @@ The AI considers the skill's rating, frequency, and market context when assignin
 
 Click **"Add plan of action"** on any skill row to trigger AI generation. The system:
 
-1. Sends the skill name, rating, job title, and related skills to the backend
-2. The LLM controller (`llmOmega.controller.ts:generateSwotCategoryWithAI`) uses **GPT-4.1 Mini with web search** to:
-   - Determine the appropriate SWOT category
-   - Generate an actionable improvement plan with verified resource links
-   - Format as clean HTML with headings, bullet points, and clickable links
-3. The plan appears inline in the table row with formatted resources
+1. Sends the skill name, rating, job title, and related skills to the AI
+2. The AI determines the appropriate SWOT category and generates an actionable improvement plan with verified resource links
+3. The plan appears inline in the table row with formatted resources and clickable links
 
 **Example plan output:**
 > Enhance Ethyx proficiency by completing the "Ethereum Development Tutorials" on ethereum.org. Apply learned concepts by developing a decentralized application (dApp) using Ethyx.
 > **Resources:** [Ethereum Development Tutorials](https://ethereum.org/...)
 
-**API:** `POST /omega/generate/swotPlan`
-**Backend:** `llmOmega.controller.ts:generatePlanOfActionAI()` — Uses OpenAI with web search to find verified learning resources
 
 ## View SWOT Analysis Chart
 
@@ -79,7 +74,6 @@ Click **"View Swot Analysis"** in the top-right to open a modal with a **donut c
 - Color-coded segments by SWOT category (Strength, Weakness, Opportunity, Threat)
 - Percentage breakdown per category
 
-**Frontend:** `components/Omega/swot/modals/SwotAnalysisModal.jsx`
 
 ## Toolbar
 
@@ -93,7 +87,6 @@ The top toolbar provides:
 | **Add More Jobs** | Navigate to Jobs page to add more JDs (which discover new skills) |
 | **Niche dropdown** (top-right) | Switch between niches |
 
-**Frontend:** `components/Omega/swot/SwotHeader.jsx` + `FilterSection.jsx`
 
 ## Submit SWOT
 
@@ -114,6 +107,3 @@ User rates each skill → AI generates plans
 Submit SWOT → Unlocks CAR
 ```
 
-**Frontend:** `components/Omega/swot/SwotAnalysis.jsx` (main), `swotTableComponents/` (table cells)
-**API:** `POST /omega/fetchAll/swot` fetches all entries, `POST /omega/update/swot` saves changes
-**DB Table:** `swot` — swotId, userId, skillId, nicheId, planOfAction (mediumtext), rating, category, status

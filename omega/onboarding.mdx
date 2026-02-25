@@ -35,7 +35,7 @@ Users can upload an existing resume which the system parses to auto-populate:
 - Skills (extracted and categorized as soft/technical/tool)
 - Education and certifications
 
-**Resume parsing:** Uses `POST /omega/parse/resume` which extracts structured data from PDF/DOCX files. The frontend uses FilePond for the upload widget and Mammoth.js for Word document parsing.
+The system parses the uploaded resume and extracts structured data from PDF and Word files automatically.
 
 ## Step 3 — Career Goals
 
@@ -55,25 +55,17 @@ All onboarding data is stored in the `userOnboardings` table, which has sections
 | **Career Timeline** | workExperience (JSON), careerGaps (JSON) |
 | **Skills & Education** | technicalSkills, softSkills, educations, certifications |
 | **Career Goals** | targetRoleTypes, jobTitles, primaryTargetJobTitle |
-| **Completion Flags** | Boolean flags per section to track form progress |
-
-**API:** `POST /omega/upsert/onboarding` — Creates or updates the onboarding record
-**Frontend:** `pages/ignite.js` → multi-step form with React Hook Form + Zod validation
-**Hooks:** `useOmega.js:useFetchOnboardingDetails()` and `useUpsertOnboardingDetails()`
+| **Completion Flags** | Tracks form progress per section |
 
 ## Access Activation
 
 Before reaching Ignite, users must activate Omega access at `/access`:
 
 1. User enters an **access code** provided by their A/C Manager or sales rep
-2. System verifies the code via `POST /omega/verify`
-3. On success, Omega features are unlocked and user is redirected to Ignite
+2. The system verifies the code
+3. On success, Omega features are unlocked and the user is redirected to Ignite
 
-**Error handling:**
-- `InvalidAccessCodeError` — Code doesn't exist
-- `AccessCodeAlreadyUsedError` — Code was already redeemed
-
-**Frontend:** `pages/access/index.js`
+If the code is invalid or has already been used, an error message is displayed.
 
 ## Post-Onboarding Flow
 

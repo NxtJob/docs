@@ -12,25 +12,11 @@ Skills are the foundation of Omega. Every skill is scoped to a **niche** and par
 
 ### Parent Skills
 
-The primary skill record. Each parent skill has:
-
-| Field | Type | Description |
-|---|---|---|
-| **skillId** | UUID | Unique identifier |
-| **skill** | String | Skill name (e.g., "Java", "Communication Skills") |
-| **type** | Enum | `soft`, `technical`, `tool` |
-| **nicheId** | FK | Which niche this skill belongs to |
-| **isVariant** | Boolean | `false` for parent skills |
-| **parentId** | null | null for parent skills |
+The primary skill record. Each parent skill has a name, a type (soft, technical, or tool), and belongs to a specific niche.
 
 ### Variants
 
-Alternate names for the same skill. Important for ATS matching — different companies use different names for the same skill.
-
-| Field | Value |
-|---|---|
-| **isVariant** | `true` |
-| **parentId** | Points to the parent skill's skillId |
+Alternate names for the same skill. Important for ATS matching — different companies use different names for the same skill. Each variant is linked to its parent skill.
 
 **Example:** Parent "Java" might have variants "J2EE", "Java EE", "Java SE"
 
@@ -42,7 +28,6 @@ Alternate names for the same skill. Important for ATS matching — different com
 | **Technical** | Teal/green | Domain-specific technical knowledge (Java, React, data analysis) |
 | **Tool** | Orange | Specific tools and platforms (JIRA, Docker, CI/CD) |
 
-A fourth type `certification/qualification` is defined in constants but less commonly used.
 
 ## How Skills Enter the System
 
@@ -54,22 +39,14 @@ When a user uploads their resume during onboarding, the system extracts skills a
 ### 2. Skill Analysis on Jobs
 When running **Skill Analysis** on a job description, the AI extracts skills from the JD and presents them for the user to add. This is the primary ongoing source of new skills.
 
-**API:** `POST /omega/analyze/job/description`
-
 ### 3. Manual Addition
 Users can add skills manually via the "+" button in the View Skills panel.
 
-**API:** `POST /omega/create/skill`
-
 ### 4. Bulk Creation
-Multiple skills can be added at once (used internally during onboarding and skill analysis).
-
-**API:** `POST /omega/bulk/create/skills`
+Multiple skills can be added at once during onboarding and skill analysis.
 
 ### 5. Skill Research
-The system can suggest relevant skills based on the niche definition.
-
-**API:** `GET /omega/research/skills` — searches the `atsSkills` table (global skills dictionary)
+The system can suggest relevant skills based on your niche definition, drawing from a global skills dictionary.
 
 ## Skill Lifecycle
 
@@ -85,59 +62,8 @@ Included in Skill Coverage analysis
 Fed into Resume Generation for ATS optimization
 ```
 
-## Database Schema
+## Important Notes
 
-### userSkills Table
-
-```
-skillId       VARCHAR(49)   PK
-userId        VARCHAR(36)   FK → user
-skill         VARCHAR(256)  Skill name
-parentId      VARCHAR(49)   FK → parent skill (null for parents)
-nicheId       VARCHAR(49)   FK → userNiche
-isVariant     BOOLEAN       true if variant
-type          VARCHAR(32)   'soft' | 'technical' | 'tool'
-status        VARCHAR(10)   'ADDED' (default)
-createdAt     TIMESTAMP
-updatedAt     TIMESTAMP
-
-UNIQUE INDEX: (userId, skill, nicheId)
-```
-
-### atsSkills Table (Global Dictionary)
-
-```
-skillId       VARCHAR(49)   PK
-skill         VARCHAR(128)  Skill name (unique)
-createdAt     TIMESTAMP
-```
-
-Used by the skill search/suggestion feature. When users search for skills, this table provides autocomplete suggestions.
-
-## API Reference
-
-| Endpoint | Description |
-|---|---|
-| `POST /omega/fetch/skills` | Fetch all skills for a niche |
-| `POST /omega/fetch/skillsTable` | Fetch skills in table format (for SWOT view) |
-| `POST /omega/create/skill` | Create single skill |
-| `POST /omega/bulk/create/skills` | Create multiple skills at once |
-| `POST /omega/update/skill` | Update skill (name, type, or move variant to different parent) |
-| `POST /omega/update/skillsTable` | Update skill from SWOT table view |
-| `POST /omega/delete/skill` | Delete a skill |
-| `POST /omega/delete/skill-variant` | Delete a specific variant |
-| `POST /omega/skill/needHelp` | Flag a skill for help/review |
-| `GET /omega/research/skills` | Search global skills dictionary for suggestions |
-
-## Error Handling
-
-| Error | Code | Description |
-|---|---|---|
-| `DuplicateSkillError` | — | Skill with same name already exists in this niche |
-| `CreateUserSkillsError` | ER_OMG101 | Failed to create skill |
-| `FetchUserSkillsError` | — | Failed to fetch skills |
-| `UpdateUserSkillError` | — | Failed to update |
-| `DeleteUserSkillError` | — | Failed to delete |
-
-**Frontend:** `hooks/omega/useOmega.js` — `useFetchSkills()`, `useFetchSkillCoverage()`
-**Backend:** `omega.repository.ts` — `fetchUserSkillsFromDb()`, `bulkCreateUserSkillsInDb()`, `fetchAndResearchUserSkillsFromDb()`
+- Each skill name must be unique within a niche. If you try to add a skill that already exists, you will see a duplicate error.
+- Deleting a parent skill also removes all its variants.
+- Skills can be updated — you can change the name, type, or move a variant to a different parent skill.

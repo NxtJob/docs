@@ -49,9 +49,6 @@ Click **"+ Add Job"** to create a new job entry:
 
 Jobs can also be saved directly from LinkedIn/job boards using the NxtJob Chrome Extension.
 
-**Frontend:** `components/Omega/jobs/modals/AddJobModal.jsx`
-**API:** `POST /job/create/v2`
-
 ## Fitment Analysis
 
 <Frame>
@@ -85,9 +82,7 @@ Click **"See Detailed Analysis"** to expand the breakdown:
 - **Delete Job** — Remove if poor fit
 - **Keep Job** — Save for later
 
-**Frontend:** `components/Omega/jobs/modals/AnalyzeJDMatchScoreModal.jsx`
-**API:** `POST /omega/generate/percentageMatchForJD` → `omega.controller.ts` → LLM analysis
-**Backend:** The AI compares the JD requirements against niche parameters (job titles, industry, seniority, company type) and SWOT skills to calculate the match percentage.
+The AI compares the job description requirements against your niche parameters (job titles, industry, seniority, company type) and SWOT skills to calculate the match percentage.
 
 ## Skill Analysis
 
@@ -120,9 +115,7 @@ Each skill appears as a card:
 - **"Review & Apply (N)"** — Adds selected skills and variants to your SWOT inventory
 - **Cancel** — Close without changes
 
-**Frontend:** `components/Omega/jobs/modals/AnalyzeJDModal.jsx`
-**API:** `POST /omega/analyze/job/description` → parses the JD text, identifies skills, and matches against existing user skills
-**Backend:** AI extracts skills from JD text, categorizes them as soft/technical/tool, identifies parent-variant relationships, and diffs against the user's current skill inventory.
+The AI extracts skills from the job description text, categorizes them as soft/technical/tool, identifies parent-variant relationships, and compares them against your current skill inventory.
 
 ## View Skills Panel
 
@@ -142,7 +135,6 @@ The panel also includes:
 - **Trash icon** — Delete a skill
 - **"+" button** — Add a new skill manually
 
-**Frontend:** `components/Omega/ViewSkills/` directory
 
 ## Job Workflow
 
