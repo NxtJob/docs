@@ -1,6 +1,6 @@
 ---
 title: "ATS Score"
-description: "Understand ATS keyword matching, one-click optimization, and strategies to pass Applicant Tracking Systems"
+description: "Understand ATS keyword matching, Nova-exclusive one-click optimization wizard, and strategies to pass Applicant Tracking Systems"
 icon: "magnifying-glass-chart"
 ---
 
@@ -122,33 +122,115 @@ Aim for **75% or higher** before submitting an application. At this level, your 
 
 ## One-Click ATS Optimization
 
-One-Click ATS Optimization is the fastest way to improve your ATS Score. It uses AI to automatically incorporate missing keywords into your resume in a natural, professional manner.
+<Note>
+**Nova Exclusive Feature.** One-Click ATS Optimization is available exclusively on the **Nova plan**. Free and standard plan users can still view their ATS Score, keyword analysis, and use Generate Bullet Points, but the one-click AI optimization requires a Nova subscription.
+</Note>
+
+One-Click ATS Optimization is the fastest way to improve your ATS Score. It uses AI to automatically incorporate missing keywords into your resume in a natural, professional manner — across your headline, summary, work experience, and skills — in a single guided workflow.
+
+<Frame>
+  <img src="/images/resume-builder/one-click-ats-panel.png" alt="One Click ATS Optimization button in the ATS Score panel with keyword table showing missed keywords" />
+</Frame>
 
 ### What Is One-Click ATS Optimization?
 
-One-Click ATS Optimization is an AI-powered feature that analyzes the keywords you are missing and rewrites specific sections of your resume to include them. Instead of manually hunting for places to insert each keyword, the AI handles placement, phrasing, and context for you in a single click.
+One-Click ATS Optimization is an AI-powered feature that analyzes the keywords you are missing and rewrites specific sections of your resume to include them. Instead of manually hunting for places to insert each keyword, the AI handles placement, phrasing, and context for you.
 
-You will see the **"One Click ATS Optimization AI"** button (highlighted in yellow/orange) in the ATS Score panel after your score is calculated.
+You will see the **"One Click ATS Optimization"** button (highlighted in green with an AI badge) in the ATS Score panel after your score is calculated.
 
-### What Changes Does One-Click ATS Optimization Make?
+### When Is the Button Available?
 
-The AI reviews your missing keywords and modifies your resume content to include as many of them as possible while maintaining natural, professional language. It does not simply append keywords to your resume. Instead, it rewrites sentences, adjusts bullet points, and adds terms in contextually appropriate locations.
+The One-Click ATS Optimization button requires all of the following conditions:
 
-### Which Sections Are Updated Automatically?
+| Condition | Why |
+|---|---|
+| **Nova plan active** | This is a Nova-exclusive feature. Non-Nova users see a locked state. |
+| **Job attached with keywords** | You must have selected a job and calculated the ATS Score first. |
+| **ATS Score below 75%** | If your score is already 75% or above, the resume is considered well-optimized and the button is disabled. |
+| **Keywords enabled** | At least some keywords from the job must be active (not all toggled off via Edit). |
 
-One-Click ATS Optimization targets three sections:
+### Which Sections Are Updated?
+
+One-Click ATS Optimization targets four resume sections:
 
 | Section | How It Is Updated |
 |---|---|
+| **Headline** | Your professional title is rewritten to include high-value keywords from the job description. If your resume has no headline, the AI may suggest enabling and adding one. |
 | **Summary** | Missing keywords are woven into your professional summary paragraph. The AI adjusts phrasing to incorporate terms naturally. |
-| **Work Experience** | Bullet points are rewritten or expanded to include relevant missing keywords tied to your accomplishments and responsibilities. |
-| **Skills** | Missing technical skills and tools are added to the appropriate skill buckets. |
+| **Work Experience** | Existing bullet points are improved or new bullets are added to include relevant missing keywords tied to your accomplishments and responsibilities. Each bullet is marked as "improved" or "new." |
+| **Skills** | Missing technical skills and tools are added to the appropriate skill buckets. Skill arrays are optimized to include relevant terms from the job description. |
 
-These three sections are where ATS keyword placement has the highest impact.
+These four sections are where ATS keyword placement has the highest impact.
+
+### The Optimization Wizard
+
+After clicking the button, the AI analyzes your resume and returns suggestions organized as a **step-by-step wizard**. You review each section one at a time.
+
+<Steps>
+  <Step title="AI generates suggestions">
+    The system sends your resume and job data to `POST /resume/ats/fix/v2`. The AI returns optimized content for each applicable section along with explanations and keyword mappings.
+  </Step>
+  <Step title="Review Headline">
+    The first step shows your current headline vs. the suggested headline. Review the change, see which keywords were added, and check the ATS Score Impact badge.
+  </Step>
+  <Step title="Review Summary">
+    The next step shows your professional summary with suggested modifications. Keywords are highlighted so you can see exactly what was added.
+  </Step>
+  <Step title="Review Work Experience bullets">
+    Each modified or new bullet point is presented individually. Bullets are labeled as either **improved** (existing bullet rewritten) or **new** (freshly generated). The company name and role title are shown for context.
+  </Step>
+  <Step title="Review Skills">
+    The final step shows suggested skill additions with optimized skill bucket organization.
+  </Step>
+  <Step title="Completion">
+    After reviewing all sections, the wizard closes and your resume reflects all accepted changes. The ATS Score recalculates automatically.
+  </Step>
+</Steps>
+
+### Section Review: What You See for Each Step
+
+Each wizard step presents three components:
+
+**Content Editor** — Shows the suggested content in an editable rich text editor. Keywords that were added are highlighted so you can spot them immediately. You can manually edit the suggestion before accepting if you want to adjust wording.
+
+**Explanation Panel** — Displays:
+- **"Why this is important?"** — A brief explanation of why this modification matters for ATS scoring.
+- **"Keywords added"** — Lists the specific missing keywords that were incorporated into this section.
+- **"ATS Score Impact"** — A badge showing the estimated impact of this change:
+
+| Impact Level | Score Improvement | What It Means |
+|---|---|---|
+| **High** | 15+ points | This change adds critical, high-frequency keywords that will significantly boost your score. |
+| **Medium** | 4–15 points | This change adds keywords that will noticeably improve your score. |
+| **Low** | Under 4 points | This change adds keywords that have a minor effect on your overall score. |
+
+**Action Buttons** — Three options for each step:
+- **"Revert & Go Back"** — Undoes the previous step's accepted changes and goes back. Only available after step 1.
+- **"Skip"** — Skips this section without applying changes. Your original content stays untouched.
+- **"Accept & Continue"** — Applies the suggested changes and advances to the next section.
+
+### Rewriting Suggestions Within the Wizard
+
+If you are not satisfied with a suggested bullet point, you can **rewrite it** without leaving the wizard.
+
+<Steps>
+  <Step title="Click the Rewrite dropdown">
+    On any Work Experience bullet suggestion, click the **Rewrite** dropdown button.
+  </Step>
+  <Step title="Choose quick rewrite or custom instruction">
+    - **Quick Rewrite** — The AI generates an alternative version of the bullet.
+    - **Custom Instruction** — Type a specific instruction (up to 1,000 characters) to guide the rewrite. For example: "Make it more concise" or "Emphasize the leadership aspect."
+  </Step>
+  <Step title="Navigate between versions">
+    Use the left/right arrows to browse between rewrite versions. The system maintains a history of all rewrites for that bullet, so you can compare and pick the best one.
+  </Step>
+</Steps>
+
+You can also request keyword-specific rewrites by typing instructions like "add keyword Kubernetes" to force a specific term into the bullet.
 
 ### Does One-Click Optimization Replace My Content?
 
-One-Click Optimization modifies your existing content rather than replacing it from scratch. The AI preserves your core achievements, metrics, and structure while weaving in missing keywords. However, sentence phrasing and bullet point wording may change. You always have the opportunity to review changes before they are applied.
+One-Click Optimization modifies your existing content rather than replacing it from scratch. The AI preserves your core achievements, metrics, and structure while weaving in missing keywords. However, sentence phrasing and bullet point wording may change. You always have the opportunity to review and edit changes before they are applied via the wizard.
 
 ### When Should I Use One-Click Optimization?
 
@@ -160,47 +242,22 @@ Use One-Click Optimization when:
 
 If you prefer full manual control over every word, you can skip One-Click Optimization and use the keyword table and Generate Bullet Points feature instead.
 
-### What Is "Original vs Suggested" View?
+### Can I Undo One-Click ATS Changes?
 
-After you click One-Click ATS Optimization, the system presents a comparison view for each updated section. The **"Original vs Suggested"** view shows your current content side-by-side with the AI-suggested version. This allows you to see exactly what changed before you accept anything.
+Yes. There are two levels of undo:
 
-Review each section carefully. The comparison makes it easy to spot every modification the AI made.
-
-### Why Is "Why This Is Important?" Shown?
-
-For each suggested change, the system displays a brief explanation under **"Why this is important?"** that tells you why the modification matters. This helps you understand the reasoning behind each change -- for example, that a particular keyword appears multiple times in the job description and is likely weighted heavily by ATS filters.
-
-### What Does "Keywords Added" Mean?
-
-Each suggested change displays a **"Keywords added"** label listing the specific missing keywords that were incorporated into that section. This gives you a clear mapping between the changes and the ATS gaps they address.
-
-### What Is ATS Score Impact (Low / Medium / High)?
-
-Each suggested change is tagged with an **ATS Score Impact** level:
-
-| Impact Level | What It Means |
-|---|---|
-| **Low** | This change adds keywords that have a minor effect on your overall score. |
-| **Medium** | This change adds keywords that will noticeably improve your score. |
-| **High** | This change adds high-frequency or critical keywords that will significantly boost your score. |
-
-Prioritize accepting High and Medium impact changes for the biggest score improvement.
-
-### What Happens When I Click "Accept & Continue"?
-
-Clicking **"Accept & Continue"** applies the suggested changes to your resume. The modified content replaces your original content in the affected sections (Summary, Work Experience, Skills). Your ATS Score is recalculated to reflect the updates.
-
-### What Happens If I Click "Skip"?
-
-Clicking **"Skip"** discards the suggested changes for that section and moves to the next one. Your original content remains untouched. You can always run One-Click Optimization again later if you change your mind.
-
-### Can I Undo One-Click ATS Changes Later?
-
-Yes. If you accepted changes and want to revert, you can use the undo functionality in the builder to restore your previous content. It is good practice to review the "Original vs Suggested" comparison carefully before accepting so you are confident in the changes.
+1. **During the wizard** — Click **"Revert & Go Back"** to undo the last accepted step and review it again. The system tracks all accepted changes and can restore original content per section.
+2. **After the wizard** — Use the undo button (or Ctrl/Cmd+Z) in the builder to revert changes. The builder maintains a full undo history.
 
 <Tip>
 Before running One-Click Optimization, make sure your resume already has a solid Resume Score. Optimization works best when your foundational content (quantified bullets, action verbs, proper structure) is already strong. Fix Resume Score first, then optimize ATS Score.
 </Tip>
+
+### Caching and Re-running
+
+ATS suggestions are cached per resume version. If you run One-Click ATS Optimization, partially accept changes, and then run it again without editing your resume, the system returns cached suggestions to avoid redundant API calls. The cache is invalidated whenever the resume content changes (tracked via `resumeId` + `updatedAt` timestamp).
+
+If you made significant edits after a previous optimization run, clicking the button again generates fresh suggestions based on your updated resume content.
 
 ---
 
