@@ -1,0 +1,172 @@
+---
+title: "Introduction"
+description: "Omega — AI-powered career intelligence and resume optimization platform"
+icon: "atom"
+---
+
+## What is Omega?
+
+Omega is NxtJob's **premium career intelligence system** that helps clients build a structured, data-driven job search strategy. It guides users through a progressive workflow — from defining career niches and analyzing skills to documenting work experience and generating tailored resumes.
+
+## Core Workflow
+
+```
+Ignite (Onboarding) → Define Niches → SWOT Analysis → CAR Statements → Job Matching → Resume Generation
+```
+
+### Step-by-Step Flow
+
+<Steps>
+  <Step title="Ignite Onboarding">
+    Collect personal details, work history, salary, industries, and upload existing resume. Data is parsed and pre-populated across the system.
+  </Step>
+  <Step title="Define Career Niches">
+    Create targeted career paths with specific job titles, industries, seniority levels, company types, and location preferences. Each niche becomes an independent track.
+  </Step>
+  <Step title="SWOT Analysis">
+    Map all skills (soft, technical, tool) with proficiency ratings (Novice → Mastery), frequency scores from job market data, and SWOT categories. AI generates actionable improvement plans for each skill.
+  </Step>
+  <Step title="CAR Statements">
+    Document work experience using the Challenge-Action-Result framework. Each statement links to specific skills and can be AI-generated into polished resume bullet points.
+  </Step>
+  <Step title="Job Matching">
+    Add real job descriptions. The system analyzes fitment against niche parameters and extracts new skills/variants to add to the profile.
+  </Step>
+  <Step title="Resume Generation">
+    Generate ATS-optimized resumes tailored to each niche, pulling from SWOT skills and CAR statements.
+  </Step>
+</Steps>
+
+## Architecture
+
+### Frontend
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15 (Pages Router) |
+| State Management | Redux Toolkit + React Query |
+| UI | Radix UI + shadcn/ui + Ant Design + Tailwind CSS |
+| Auth | Clerk |
+| Forms | React Hook Form + Zod |
+| Analytics | Mixpanel + Sentry |
+
+**Key frontend paths:**
+- `pages/omega.js` → Dashboard
+- `pages/swot.js` → SWOT Analysis
+- `pages/car.js` → CAR Statements
+- `pages/jobs.js` → Job Descriptions
+- `pages/ignite.js` → Onboarding
+- `pages/generated-resume.js` → Resume Output
+- `pages/access/index.js` → Access Code Activation
+- `components/Omega/` → All Omega components
+- `services/restapis/omega/` → API service layer (12 files)
+- `services/store/slices/omegaSlice.js` → Redux state
+- `hooks/omega/useOmega.js` → React Query hooks
+
+### Backend
+
+| Layer | Technology |
+|---|---|
+| Runtime | Cloudflare Workers (Hono.js) |
+| Database | MySQL + Drizzle ORM |
+| AI | OpenAI GPT-4.1 Mini + Vertex AI |
+| Validation | Zod schemas |
+
+**Key backend paths:**
+- `src/routes/omega/omega.router.ts` → Route definitions (1907 lines)
+- `src/controller/omega/omega.controller.ts` → Business logic (2387 lines)
+- `src/controller/llm/llmOmega.controller.ts` → AI generation (1777 lines)
+- `src/repository/omega/omega.repository.ts` → Database queries (1718 lines)
+- `src/repository/schema.ts` → Database schema (Drizzle)
+- `src/exceptions/omega.exceptions.ts` → Error classes
+
+### Database Tables
+
+| Table | Purpose |
+|---|---|
+| `userNiche` | Career niche definitions with job titles, industries, keywords |
+| `userSkills` | Skill inventory with parent-variant hierarchy |
+| `swot` | SWOT ratings, categories, and AI-generated plans |
+| `carStatements` | Challenge-Action-Result entries linked to companies/roles |
+| `companyRecord` | Work experience companies with roles and dates |
+| `atsSkills` | Global skills dictionary for search/suggestions |
+| `userOnboardings` | Ignite onboarding data (personal info, career goals) |
+
+## API Endpoints
+
+All endpoints require JWT authentication via `Authorization` header.
+
+### Niche Management
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetch/niche` | Fetch user niches |
+| `POST /omega/create/niche` | Create new niche |
+| `POST /omega/update/niche` | Update niche |
+| `POST /omega/delete/niche` | Delete niche |
+| `POST /omega/generate/titleAlias` | AI-generate job title alternatives |
+
+### Skills
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetch/skills` | Get skills for a niche |
+| `POST /omega/create/skill` | Create skill |
+| `POST /omega/bulk/create/skills` | Bulk create skills |
+| `POST /omega/update/skill` | Update skill |
+| `POST /omega/delete/skill` | Delete skill |
+| `POST /omega/delete/skill-variant` | Delete skill variant |
+| `GET /omega/research/skills` | Get skill suggestions |
+
+### SWOT
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetchAll/swot` | Fetch all SWOT entries |
+| `POST /omega/update/swot` | Update SWOT entry |
+| `POST /omega/generate/swotPlan` | AI-generate plan of action |
+| `POST /omega/delete/swot` | Delete SWOT entry |
+
+### CAR
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetchAll/car` | Fetch CAR statements |
+| `POST /omega/update/car` | Update CAR entry |
+| `POST /omega/generate/car` | AI-generate resume statement |
+| `POST /omega/generate/car/sample` | Generate sample CAR statements |
+| `POST /omega/delete/car` | Delete CAR entry |
+| `POST /omega/export/car` | Export CAR data |
+
+### Jobs
+| Endpoint | Description |
+|---|---|
+| `POST /job/fetch/all/v4` | Fetch all jobs |
+| `POST /job/create/v2` | Add job description |
+| `POST /job/update` | Update job |
+| `POST /job/delete` | Delete job |
+| `POST /omega/analyze/job/description` | AI analyze JD fitment |
+| `POST /omega/generate/percentageMatchForJD` | Calculate match score |
+
+### Companies
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetch/companies` | Get companies |
+| `POST /omega/create/company` | Add company |
+| `POST /omega/update/company` | Update company |
+| `POST /omega/delete/company` | Delete company |
+
+### Resume & Coverage
+| Endpoint | Description |
+|---|---|
+| `POST /omega/generate/resume` | Generate AI resume |
+| `POST /omega/skill-coverage` | Get skill coverage stats |
+
+### Onboarding
+| Endpoint | Description |
+|---|---|
+| `POST /omega/fetch/onboarding` | Get onboarding details |
+| `POST /omega/upsert/onboarding` | Save onboarding data |
+| `POST /omega/verify` | Verify access code |
+
+## Access Control
+
+Omega is a premium feature activated via **access codes**. Users enter a code at `/access` which is verified against the backend (`POST /omega/verify`). Once activated, users can access all Omega pages.
+
+Protected routes ensure only authenticated users with valid access can use Omega features. The frontend uses Clerk for authentication and the `<ProtectedRoutes>` component for route guarding.

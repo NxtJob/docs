@@ -1,0 +1,141 @@
+---
+title: "CAR Statements"
+description: "Challenge-Action-Result work experience documentation with AI resume statement generation"
+icon: "file-lines"
+---
+
+## Overview
+
+The CAR page (`/car`) documents work experience using the **Challenge-Action-Result** framework. Users break down their past roles into structured statements that showcase impact, then AI converts these into polished resume bullet points.
+
+CAR unlocks after SWOT Analysis is completed for the active niche.
+
+## Layout
+
+The page has two sections:
+
+### Left Sidebar — Work Experience
+Lists all companies with their roles. Each company card shows:
+- **Company name**
+- **Role title** (colored subtitle)
+- **Date range** (e.g., "Jan 2025 - Present")
+- **Statement count** badge (e.g., "7/6" = 7 statements, 6 minimum recommended)
+- **Status indicator** — green dot for completed
+
+Click a company/role to load its CAR statements in the main table.
+
+**"+ Add Company"** at the bottom opens the Add Company modal.
+
+### Main Area — CAR Table
+
+A table with columns:
+
+| Column | Description |
+|---|---|
+| **Challenge** | The problem or situation faced (editable text) |
+| **Action** | What you did to address it (editable text) |
+| **Result** | The measurable outcome (editable text) |
+| **Skill** | Primary skill demonstrated, shown as a chip with variant selector |
+| **Resume Statement** | "Generate Statement" button → AI-generated resume bullet point |
+
+Each row represents one experience statement. Users fill in Challenge, Action, and Result, then tag the primary skill demonstrated.
+
+## Adding Companies & Roles
+
+### Add Company
+Click **"+ Add Company"** to create a new company entry:
+- **Company Name** — Organization name
+- **Job Title** — Your role title
+- **Start Date / End Date** — Employment period
+
+**Frontend:** `components/Omega/car/modals/AddCompanyModal.jsx`
+**API:** `POST /omega/create/company`
+**DB Table:** `companyRecord` — companyId, userId, nicheId, companyName, roles (JSON array of {roleId, jobTitle, startDate, endDate}), currentRoleId
+
+### Add Role
+A company can have multiple roles (promotions/transfers). Click the three-dot menu on a company to add another role.
+
+**Frontend:** `components/Omega/car/modals/AddRoleModal.jsx`
+
+## AI Resume Statement Generation
+
+Click **"Generate Statement"** on any CAR row to convert the Challenge-Action-Result into a professional resume bullet point.
+
+### How it works:
+
+1. Frontend sends the CAR data (challenge, action, result, skills, industry, role category) to the backend
+2. `llmOmega.controller.ts:generateResumeStatementWithAI()` crafts a prompt that:
+   - Takes the raw C-A-R inputs
+   - Considers the tagged skill and industry context
+   - Generates a concise, impactful resume bullet point
+   - Validates quality (appropriate length, measurable results, action verbs)
+3. The generated statement appears in the Resume Statement column
+
+**API:** `POST /omega/generate/car`
+**DB:** Stored in `carStatements.statement` (mediumtext)
+
+## Toolbar Actions
+
+| Button | Description |
+|---|---|
+| **Export Car** | Export all CAR data for the niche |
+| **View All** | Toggle to see all CAR statements across all companies |
+| **Generate Samples** | AI-generates example CAR statements for your skills to use as inspiration |
+| **Recall Scenarios** | AI prompts to help recall work scenarios you may have forgotten |
+
+### Generate Samples
+
+Opens an AI-powered tool that generates example CAR statements for specific skills. The system:
+1. Takes selected skills, experience level, and job title
+2. Calls `llmOmega.controller.ts:generateCARSampleWithAIV2()`
+3. Returns sample Challenge-Action-Result scenarios tailored to your profile
+
+**API:** `POST /omega/generate/car/sample`
+
+## Skill Coverage
+
+Click **"View Skill Coverage"** at the bottom to open a modal showing how well your CAR statements cover your SWOT skills.
+
+### Key Stats
+- **Coverage percentage** (e.g., "7%") — What fraction of your skills are demonstrated in CAR statements
+- **Total Skills** — From your SWOT inventory
+- **Skills Used** — Skills that appear in at least one CAR statement
+
+### Coverage Table
+| Column | Description |
+|---|---|
+| **Skill** | Parent skill name with count of CAR statements using it (e.g., "Agile Methodology (4)") |
+| **Variant** | All variants shown as colored chips (green = used in statements, orange = not yet used) |
+| **SWOT** | SWOT category for reference |
+
+Skills with 0 coverage are highlighted — these are gaps that need more CAR statements.
+
+**API:** `POST /omega/skill-coverage`
+**Frontend:** `components/Omega/car/SkillChart.jsx`
+
+## Generate Resume
+
+Click **"Generate Resume"** at the bottom-right to navigate to the resume generation page. This uses all SWOT skills and CAR statements to create a tailored resume for the active niche.
+
+**API:** `POST /omega/generate/resume`
+**Frontend:** `components/Omega/GeneratedResume.jsx` → renders at `/generated-resume`
+
+## Data Flow
+
+```
+Add Company + Roles
+    ↓
+Write CAR statements (Challenge → Action → Result)
+    ↓
+Tag primary skill per statement
+    ↓
+Generate AI resume statements
+    ↓
+Check Skill Coverage → Fill gaps
+    ↓
+Generate Resume
+```
+
+**Frontend:** `components/Omega/car/InputCar.jsx` (main), `CarScreen.jsx`, `WorkExperienceSidebar.jsx`
+**API:** `POST /omega/fetchAll/car` fetches entries, `POST /omega/update/car` saves changes
+**DB Table:** `carStatements` — carId, userId, roleId, companyId, nicheId, challenge, action, result, primarySkill, skills (JSON), statement (mediumtext)

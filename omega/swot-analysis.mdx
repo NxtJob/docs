@@ -1,0 +1,115 @@
+---
+title: "SWOT Analysis"
+description: "Skills mapping with proficiency ratings, SWOT categorization, and AI-generated improvement plans"
+icon: "chart-scatter"
+---
+
+## Overview
+
+The SWOT Analysis page (`/swot`) maps all skills in your niche to a **Strength / Weakness / Opportunity / Threat** framework. Each skill gets a proficiency rating, market frequency score, SWOT category, and an AI-generated plan of action.
+
+This is the core of Omega's career intelligence — it identifies where you're strong, where you need to improve, what opportunities exist, and what threats you face in the job market.
+
+## SWOT Table
+
+The main view is a full-width table with the following columns:
+
+| Column | Description |
+|---|---|
+| **Skill** | Parent skill name (e.g., "Agile Methodology", "Java", "APIs") |
+| **Type** | Skill classification badge — `Soft` (pink), `Technical` (green), `Tool` (orange) |
+| **Variant** | Skill variants/aliases as chips (e.g., "Agile Development", "Agile Practices" for Agile Methodology) |
+| **Frequency** | Numeric score indicating how often this skill appears in target job descriptions |
+| **Rating** | Proficiency dropdown — Novice, Familiar, Developing, Competent, Mastery |
+| **Category** | SWOT classification — Strength, Weakness, Opportunity, Threat |
+| **Plan of Action** | AI-generated improvement plan with resources and links |
+
+### Rating Scale
+
+| Rating | Description |
+|---|---|
+| **Novice** | Little to no experience with this skill |
+| **Familiar** | Basic awareness and limited practice |
+| **Developing** | Actively learning and building competence |
+| **Competent** | Solid working knowledge, used regularly |
+| **Mastery** | Expert-level proficiency, can teach others |
+
+### Frequency Score
+
+The frequency number represents how many times this skill appears across target job descriptions in your niche. Higher frequency = more market demand. Skills are sorted by frequency by default, so the most in-demand skills appear at the top.
+
+### SWOT Category Assignment
+
+Categories can be:
+- Manually selected by the user via dropdown
+- Auto-assigned by the AI when generating a plan of action
+
+The AI considers the skill's rating, frequency, and market context when assigning categories:
+- **Strength** — High rating + high frequency skills
+- **Weakness** — Low rating + high frequency skills (critical gaps)
+- **Opportunity** — Skills with growing market demand
+- **Threat** — Skills being replaced or declining in relevance
+
+## AI Plan of Action
+
+Click **"Add plan of action"** on any skill row to trigger AI generation. The system:
+
+1. Sends the skill name, rating, job title, and related skills to the backend
+2. The LLM controller (`llmOmega.controller.ts:generateSwotCategoryWithAI`) uses **GPT-4.1 Mini with web search** to:
+   - Determine the appropriate SWOT category
+   - Generate an actionable improvement plan with verified resource links
+   - Format as clean HTML with headings, bullet points, and clickable links
+3. The plan appears inline in the table row with formatted resources
+
+**Example plan output:**
+> Enhance Ethyx proficiency by completing the "Ethereum Development Tutorials" on ethereum.org. Apply learned concepts by developing a decentralized application (dApp) using Ethyx.
+> **Resources:** [Ethereum Development Tutorials](https://ethereum.org/...)
+
+**API:** `POST /omega/generate/swotPlan`
+**Backend:** `llmOmega.controller.ts:generatePlanOfActionAI()` — Uses OpenAI with web search to find verified learning resources
+
+## View SWOT Analysis Chart
+
+Click **"View Swot Analysis"** in the top-right to open a modal with a **donut chart** visualization showing:
+- Total skills count in the center
+- Color-coded segments by SWOT category (Strength, Weakness, Opportunity, Threat)
+- Percentage breakdown per category
+
+**Frontend:** `components/Omega/swot/modals/SwotAnalysisModal.jsx`
+
+## Toolbar
+
+The top toolbar provides:
+
+| Element | Description |
+|---|---|
+| **View Swot Analysis** | Opens the donut chart modal |
+| **Filter icon** | Filter skills by type, category, or rating |
+| **Search** | Search by skill name or variant |
+| **Add More Jobs** | Navigate to Jobs page to add more JDs (which discover new skills) |
+| **Niche dropdown** (top-right) | Switch between niches |
+
+**Frontend:** `components/Omega/swot/SwotHeader.jsx` + `FilterSection.jsx`
+
+## Submit SWOT
+
+Once all skills have been rated and categorized, click **"Submit SWOT"** at the bottom to mark SWOT as completed for this niche. This:
+1. Updates the niche's `isSwotCompleted` flag to `true`
+2. Unlocks the CAR section on the dashboard
+3. Changes the SWOT progression card to "Completed"
+
+## Data Flow
+
+```
+Skills added (via Skill Analysis on Jobs page or manual)
+    ↓
+SWOT table auto-populated with skills for active niche
+    ↓
+User rates each skill → AI generates plans
+    ↓
+Submit SWOT → Unlocks CAR
+```
+
+**Frontend:** `components/Omega/swot/SwotAnalysis.jsx` (main), `swotTableComponents/` (table cells)
+**API:** `POST /omega/fetchAll/swot` fetches all entries, `POST /omega/update/swot` saves changes
+**DB Table:** `swot` — swotId, userId, skillId, nicheId, planOfAction (mediumtext), rating, category, status

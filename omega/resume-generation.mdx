@@ -1,0 +1,74 @@
+---
+title: "Resume Generation"
+description: "AI-powered resume generation using SWOT skills and CAR statements"
+icon: "file-pdf"
+---
+
+## Overview
+
+The Resume Generation feature (`/generated-resume`) creates **ATS-optimized resumes** tailored to each career niche. It pulls data from SWOT skills, CAR resume statements, and niche parameters to produce a targeted resume.
+
+## How It Works
+
+### Input Data
+
+The resume generator uses everything built through the Omega workflow:
+
+| Source | Data Used |
+|---|---|
+| **Niche** | Primary job title, job title aliases, target industries, keywords to include/exclude |
+| **SWOT Skills** | All skills with their types, ratings, and variants — prioritized by frequency and rating |
+| **CAR Statements** | AI-generated resume bullet points from work experience |
+| **Companies** | Company names, roles, and date ranges for the experience section |
+| **Onboarding** | Personal details, education, certifications |
+
+### Generation Process
+
+1. User clicks **"Generate Resume"** from the CAR page
+2. Frontend calls `POST /omega/generate/resume` with the niche ID
+3. Backend assembles all data from SWOT, CAR, companies, and onboarding tables
+4. The LLM controller (`llmOmega.controller.ts:optimizeResumeATSWithAI`) generates the resume:
+   - Incorporates keywords with exact spelling matching
+   - Preserves existing metrics and achievements from CAR statements
+   - Distributes keywords across headline, summary, work experience, and skills sections
+   - Optimizes for ATS parsing while maintaining readability
+5. The generated resume is rendered at `/generated-resume`
+
+### AI Optimization
+
+The resume AI specifically:
+- **Keyword incorporation** — Matches target keywords from the niche (inclusive keywords) and ensures they appear naturally
+- **Skill distribution** — Spreads skills across multiple sections rather than clustering them all in one place
+- **Achievement preservation** — Keeps all quantitative results from CAR statements intact
+- **ATS formatting** — Uses clean formatting that ATS systems can parse reliably
+
+## Resume Output
+
+The generated resume is rendered using React PDF Renderer (`@react-pdf/renderer`) and can be:
+- Viewed in-browser as a PDF preview
+- Downloaded as a PDF file
+- Further edited and customized
+
+**Frontend:** `components/Omega/GeneratedResume.jsx` → `pages/generated-resume.js`
+**PDF Rendering:** Uses `@react-pdf/renderer` (v4.3.2) + `jsPDF` (v3.0.1) for generation
+
+## Workflow Position
+
+```
+SWOT Analysis (rated skills) + CAR Statements (resume bullets)
+                    ↓
+              Generate Resume
+                    ↓
+          ATS-Optimized PDF Output
+                    ↓
+    Download → Apply to jobs from Jobs page
+```
+
+## API
+
+| Endpoint | Description |
+|---|---|
+| `POST /omega/generate/resume` | Generate complete resume from Omega data |
+| `POST /omega/skill-coverage` | Check skill coverage before generating (gaps = weaker resume) |
+
+**Hooks:** `useOmega.js:useGenerateResume(body)`

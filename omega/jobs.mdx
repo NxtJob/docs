@@ -1,0 +1,159 @@
+---
+title: "Job Descriptions"
+description: "Job description management with AI fitment analysis and skill extraction"
+icon: "briefcase"
+---
+
+## Overview
+
+The Jobs page (`/jobs`) manages saved job descriptions and provides two AI-powered analysis tools: **Fitment Analysis** (niche match scoring) and **Skill Analysis** (skill extraction from JDs).
+
+<Frame>
+  <img src="/images/omega/omega-jobs.png" alt="Jobs page showing saved job descriptions with sidebar and detail view" />
+</Frame>
+
+## Layout
+
+### Left Sidebar — Job List
+
+All saved jobs for the active niche appear as cards:
+- **Job title** (e.g., "Chief Technology Officer")
+- **Company name** (e.g., "credx.club")
+- **Status badge** — `Completed` (green check), `Refining Skills`, or pending
+- **Three-dot menu** (⋮) — Edit or delete the job
+
+Click a job to load its full description in the main area.
+
+**"+ Add Job"** at the bottom opens the Add Job modal.
+
+**"Download Extension"** link to install the Chrome extension for saving jobs directly from job boards.
+
+### Main Area — Job Detail
+
+Shows the full job description with:
+- Job title and company name as header
+- Highlighted keywords (e.g., "Technology" highlighted in green)
+- Full JD text
+- Bottom bar with **"View SWOT"** link (shows SWOT count, e.g., "4/5") and **"Completed"** status button
+
+## Adding Jobs
+
+Click **"+ Add Job"** to create a new job entry:
+
+| Field | Description |
+|---|---|
+| **Job Title** | Position title |
+| **Company Name** | Organization |
+| **Job Description** | Full JD text (paste from job board) |
+| **Job URL** | Link to original posting |
+
+Jobs can also be saved directly from LinkedIn/job boards using the NxtJob Chrome Extension.
+
+**Frontend:** `components/Omega/jobs/modals/AddJobModal.jsx`
+**API:** `POST /job/create/v2`
+
+## Fitment Analysis
+
+<Frame>
+  <img src="/images/omega/omega-job-match-analysis.png" alt="Job Match Analysis modal showing 85% match score with detailed breakdown" />
+</Frame>
+
+Click **"Fitment Analysis"** (pink button) on any job to get an AI-powered compatibility assessment.
+
+### Match Score
+
+The modal shows:
+- **Percentage gauge** (e.g., "85% Match") — Overall compatibility score
+- **Match level badge** — Strong Match (green), Moderate Match (yellow), Weak Match (red)
+- **Recommendation** — "Apply Now", "Consider Applying", or "Skip"
+- **Analysis Summary** — Text explanation of the match reasoning
+
+### Detailed Analysis
+
+Click **"See Detailed Analysis"** to expand the breakdown:
+
+| Dimension | Match Status | Example |
+|---|---|---|
+| **Job Title** | Match / Mismatch | "Cofounder / Head of Technology (CTO)" |
+| **Function** | Strong Match / Mismatch | "Full-stack development, tech leadership" |
+| **Seniority** | Match / Mismatch | Based on niche experience level |
+| **Industry** | Match / Mismatch | Based on niche target industries |
+| **Company Type** | Match / Mismatch | Based on niche company type preferences |
+| **Skills** | Coverage % | Skills from JD vs your SWOT inventory |
+
+### Actions
+- **Delete Job** — Remove if poor fit
+- **Keep Job** — Save for later
+
+**Frontend:** `components/Omega/jobs/modals/AnalyzeJDMatchScoreModal.jsx`
+**API:** `POST /omega/generate/percentageMatchForJD` → `omega.controller.ts` → LLM analysis
+**Backend:** The AI compares the JD requirements against niche parameters (job titles, industry, seniority, company type) and SWOT skills to calculate the match percentage.
+
+## Skill Analysis
+
+<Frame>
+  <img src="/images/omega/omega-skill-analysis.png" alt="Skill Analysis Results modal showing extracted skills and variants from job description" />
+</Frame>
+
+Click **"Skill Analysis"** (green button) to extract skills from the job description and compare them against your existing skill inventory.
+
+### Results Panel
+
+The modal shows four categories with counts:
+
+| Category | Description |
+|---|---|
+| **Existing Variants** | New names for skills you already have (e.g., "startup speed" as variant of "startup experience") |
+| **New Skills** | Skills found in the JD that aren't in your inventory |
+| **New Variants** | New variant names for existing skills |
+| **Selected** | How many you've selected to add |
+
+### Skill Cards
+
+Each skill appears as a card:
+- **Skill name** with `Existing Skill` badge if already in your inventory
+- **Checkbox variants** to select which variants to add
+- Guidance text: "You already have this skill - select variants to add to it"
+
+### Actions
+- Select skills/variants via checkboxes
+- **"Review & Apply (N)"** — Adds selected skills and variants to your SWOT inventory
+- **Cancel** — Close without changes
+
+**Frontend:** `components/Omega/jobs/modals/AnalyzeJDModal.jsx`
+**API:** `POST /omega/analyze/job/description` → parses the JD text, identifies skills, and matches against existing user skills
+**Backend:** AI extracts skills from JD text, categorizes them as soft/technical/tool, identifies parent-variant relationships, and diffs against the user's current skill inventory.
+
+## View Skills Panel
+
+<Frame>
+  <img src="/images/omega/omega-view-skills.png" alt="View Skills side panel showing complete skill inventory with types and variants" />
+</Frame>
+
+Click **"View Skills"** (eye icon) to open a side panel showing your complete skill inventory for the active niche:
+
+| Column | Description |
+|---|---|
+| **Skill** | Parent skill name |
+| **Type** | `Soft` (green), `Technical` (teal), `Tool` (orange) badges |
+| **Variant** | All variant names as deletable chips |
+
+The panel also includes:
+- **Trash icon** — Delete a skill
+- **"+" button** — Add a new skill manually
+
+**Frontend:** `components/Omega/ViewSkills/` directory
+
+## Job Workflow
+
+```
+Add Job (manual or via Chrome Extension)
+    ↓
+Run Fitment Analysis → Decide to keep or delete
+    ↓
+Run Skill Analysis → Add new skills/variants to SWOT
+    ↓
+Return to SWOT → Rate and categorize new skills
+    ↓
+Build more CAR statements for newly discovered skills
+```

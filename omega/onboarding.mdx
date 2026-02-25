@@ -1,0 +1,80 @@
+---
+title: "Onboarding (Ignite)"
+description: "Personal details collection, resume upload, and career profile setup"
+icon: "rocket"
+---
+
+## Overview
+
+Ignite (`/ignite`) is the onboarding flow that collects a new user's personal details, work history, and career goals. This data pre-populates fields across the entire Omega system — niches, skills, and CAR companies.
+
+The onboarding is a multi-step form accessed at `/ignite?step=1`.
+
+## Step 1 — Personal Details
+
+The first step collects foundational information:
+
+| Field | Type | Description |
+|---|---|---|
+| **Full Name** | Text | User's full name |
+| **Phone** | Phone input | With country code selector (defaults to India +91) |
+| **LinkedIn Profile URL** | URL | LinkedIn profile link for data enrichment |
+| **Industries** | Multi-select | Industries with experience (e.g., "IT Services & Consulting") |
+| **Years of Experience** | Number/select | Total professional experience |
+| **Current / Last Drawn Salary** | Slider | Salary range in LPA (Lakhs Per Annum) — visual slider widget |
+| **Current Fundamental Function** | Multi-select | Core job function (e.g., "Front-end Operations") |
+
+## Step 2 — Resume Upload
+
+Users can upload an existing resume which the system parses to auto-populate:
+- Work experience (companies, roles, dates)
+- Skills (extracted and categorized as soft/technical/tool)
+- Education and certifications
+
+**Resume parsing:** Uses `POST /omega/parse/resume` which extracts structured data from PDF/DOCX files. The frontend uses FilePond for the upload widget and Mammoth.js for Word document parsing.
+
+## Step 3 — Career Goals
+
+Collects forward-looking career information:
+- Target role types
+- Target job titles
+- Primary target job title
+- Desired industries and companies
+
+## Data Storage
+
+All onboarding data is stored in the `userOnboardings` table, which has sections for:
+
+| Section | Fields |
+|---|---|
+| **Personal** | name, email, phone, linkedInProfileUrl, experience, fundamentalFunction, industry, roleCategory |
+| **Career Timeline** | workExperience (JSON), careerGaps (JSON) |
+| **Skills & Education** | technicalSkills, softSkills, educations, certifications |
+| **Career Goals** | targetRoleTypes, jobTitles, primaryTargetJobTitle |
+| **Completion Flags** | Boolean flags per section to track form progress |
+
+**API:** `POST /omega/upsert/onboarding` — Creates or updates the onboarding record
+**Frontend:** `pages/ignite.js` → multi-step form with React Hook Form + Zod validation
+**Hooks:** `useOmega.js:useFetchOnboardingDetails()` and `useUpsertOnboardingDetails()`
+
+## Access Activation
+
+Before reaching Ignite, users must activate Omega access at `/access`:
+
+1. User enters an **access code** provided by their A/C Manager or sales rep
+2. System verifies the code via `POST /omega/verify`
+3. On success, Omega features are unlocked and user is redirected to Ignite
+
+**Error handling:**
+- `InvalidAccessCodeError` — Code doesn't exist
+- `AccessCodeAlreadyUsedError` — Code was already redeemed
+
+**Frontend:** `pages/access/index.js`
+
+## Post-Onboarding Flow
+
+After completing Ignite:
+1. User is redirected to the Omega Dashboard (`/omega`)
+2. Parsed resume data pre-populates the first niche's skill inventory
+3. Work experience companies are auto-created from resume data
+4. User begins the SWOT → CAR → Jobs → Resume workflow

@@ -1,0 +1,91 @@
+---
+title: "Dashboard & Niches"
+description: "Omega dashboard with learning path videos, career niche management, and SWOT/CAR progression"
+icon: "grid-2"
+---
+
+## Overview
+
+The Omega Dashboard (`/omega`) is the central hub. It displays the learning path, all career niches, and the SWOT/CAR progression status for the active niche.
+
+<Frame>
+  <img src="/images/omega/omega-dashboard.png" alt="Omega dashboard showing learning path videos, niche tabs, and SWOT/CAR progression cards" />
+</Frame>
+
+## Learning Path
+
+The top section shows a **carousel of tutorial videos** under "Your Learning Path Way". Videos are organized by foundation topics:
+
+- **Setting up the Basics** — Initial platform orientation
+- **Understanding your Niche and Job Title Alias** — How to define effective niches
+- **Job Requirements Analysis** — How to analyze job descriptions
+
+Each video card shows the topic name, a play button, the foundation label, and a "Watch Video" CTA. Navigate between videos using the left/right arrow buttons.
+
+**Frontend:** `components/Omega/dashboard/Dashboard.jsx` renders the video carousel using data from the learning path configuration.
+
+## Career Niches
+
+### Niche Tabs
+
+Below the learning path, niche tabs display all defined career niches (e.g., "Software Developer", "Frontend Developer"). The **active niche** is highlighted in green. Click any tab to switch context — all SWOT, CAR, and Job data is scoped to the selected niche.
+
+A **"+"** button at the end lets you create new niches.
+
+The niche selector also appears in the top-right navbar as a dropdown on SWOT, CAR, and Jobs pages, allowing quick switching without returning to the dashboard.
+
+### Niche Status
+
+Each niche tracks progression through three statuses:
+
+| Status | Description |
+|---|---|
+| **Locked** | Initial state. SWOT must be completed first. |
+| **In Progress** | Currently being worked on |
+| **Completed** | All SWOT and CAR steps finished |
+
+### Creating a Niche
+
+Click **"+"** to open the Add Niche slide-out panel. Define your career niche with:
+
+| Field | Type | Description |
+|---|---|---|
+| **Industries** | Multi-select | Target industries (e.g., IT Services & Consulting, FinTech) |
+| **Role Category** | Dropdown | Fundamental function category |
+| **Years of Experience** | Dropdown | Experience range |
+| **Targeted Companies** | Tag input | Specific companies to target (type and press Enter) |
+| **Location Preference** | Text | Comma-separated locations (e.g., "New Delhi, Mumbai, Bangalore") |
+| **Primary Target Job Title** | Text | Main job title (max 40 characters) — used for resume headline |
+| **Target Job Title Alias** | Multi-select + AI | Alternative job titles. Click the AI icon to auto-generate aliases. |
+| **Keywords to Include** | Tag input | Resume keywords to prioritize |
+| **Keywords to Exclude** | Tag input | Keywords to avoid |
+
+**Frontend:** `components/Omega/dashboard/modals/AddNicheModal.jsx`
+**API:** `POST /omega/create/niche` → `omega.controller.ts:createNiche()`
+**DB Table:** `userNiche` — stores nicheId, userId, primaryJobTitle, jobTitleAlias (JSON), industry (JSON), roleCategory (JSON), companyType (JSON), experience, location, targetCompanies (JSON), inclusiveKeywords (JSON), exclusiveKeywords (JSON)
+
+### Editing a Niche
+
+Click the three-dot menu (⋮) on any niche tab to edit or delete it. The Update Niche panel has the same fields as creation.
+
+**Frontend:** `components/Omega/dashboard/modals/UpdateNicheModal.jsx`
+**API:** `POST /omega/update/niche`
+
+## SWOT / CAR Progression Cards
+
+Below the niches, two large cards show the progression for the active niche:
+
+### SWOT Card
+Displays: `Strength | Weakness | Opportunity | Threat`
+- Shows status badge: **Completed** (green border), **In Progress**, or **Locked**
+- Click the arrow (→) to navigate to the SWOT Analysis page
+
+### CAR Card
+Displays: `Challenge | Action | Result`
+- Shows status badge: **Completed** (green border), **In Progress**, or **Locked**
+- CAR unlocks after SWOT is completed
+- Click the arrow (→) to navigate to the CAR page
+
+**Frontend:** `components/Omega/dashboard/BeltContainer.jsx` renders both cards. `BeltCard.jsx` renders individual progression cards with status-based styling.
+
+**State:** `omegaSlice.js` tracks `nicheData[]`, `activeNiche`, `isLoadingNiche`, and all modal visibility flags.
